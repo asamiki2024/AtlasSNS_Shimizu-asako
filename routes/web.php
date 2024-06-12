@@ -18,9 +18,13 @@
 
 //Auth::routes();
 
+//Route::get('/', function (){
+    // return redirect()->route('login');
+//});
 
 //ログアウト中のページ
-Route::get('/login', 'Auth\LoginController@login');
+//ミドルウェアの処理　->nameとは、ホームページのリンクを短縮させたい時に使用する。('飛ばしたいページの名前を記入する');
+Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 
 Route::get('/register', 'Auth\RegisterController@register');
@@ -29,12 +33,17 @@ Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
+Route::get('/logout', 'Auth\LoginController@logout');
+
 //ログイン中のページ
-Route::get('/top','PostsController@index');
+//ログイン閲覧制限、ミドルウェアを使用し、URLに/topなどのログイン中のページを開いてもログインページに飛ぶ仕組みになっている。
+Route::get('/top','PostsController@index')->middleware('auth');
 
-Route::get('/profile','UsersController@profile');
+Route::get('/profile','UsersController@profile')->middleware('auth');
 
-Route::get('/search','UsersController@index');
+Route::get('/search','UsersController@index')->middleware('auth');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+Route::get('/follow-list','PostsController@index')->middleware('auth');
+Route::get('/follower-list','PostsController@index')->middleware('auth');
+
+

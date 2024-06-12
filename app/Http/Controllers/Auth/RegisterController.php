@@ -41,6 +41,16 @@ class RegisterController extends Controller
 
     public function register(Request $request){
         if($request->isMethod('post')){
+            //バリデーション　required=入力必須 min=最小の文字数 max=最大の文字数 alpha_num=英数字のみ unique=登録済みメールアドレスがないかをusersのmailカラムから探すことが出来る。
+            //confirmed=パスワードが同じものが入力されているか確認処理している email=メールアドレス形式になっているかの処理
+            $request->validate([
+                'username' => 'required|min:2|max:12',
+                'mail' => 'required|email|unique:users,mail|min:5|max:40',
+                'password' => 'required|alpha_num|min:8|max:20|confirmed',
+                'password_confirmation' => 'required|alpha_num|min:8|max:20'
+            ]);
+
+
 
             $username = $request->input('username');
             $mail = $request->input('mail');
@@ -51,8 +61,8 @@ class RegisterController extends Controller
                 'mail' => $mail,
                 'password' => bcrypt($password),
             ]);
-
-            return redirect('added');
+            $request->session()->put('username', $username);    //自分で入力。セッションでユーザーの名前を一時保存し、データを受け渡し。
+            return redirect('added')->with('username', $username); //->から自分で入力。
         }
         return view('auth.register');
     }

@@ -8,6 +8,35 @@ header{
     background:#186AC9;
 }
 
+/*アコーディオンメニュー*/
+.nav-menu {
+    display: none;
+    padding: 10px 20px;
+}
+
+.nav-btn {
+    position: relative;
+}
+
+.nav-btn:after {
+    border-right: solid 2px #fff;
+    border-top: solid 2px #fff;
+    content: "";
+    display: block;
+    height: 8px;
+    position: absolute;
+    right: 25px;
+    top: 38%;
+    transform: rotate(135deg);
+    transition: transform 0.5s ease-in-out, top .0.5s ease-in-out;
+    width: 8px;
+}
+
+.nav-btn.open:after {
+    top: 45%;
+    transform: rotate(-45deg);
+}
+
 /* main content */
 #row{
     display: flex;

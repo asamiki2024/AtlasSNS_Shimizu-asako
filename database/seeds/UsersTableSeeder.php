@@ -22,6 +22,12 @@ class UsersTableSeeder extends Seeder
             
         ]);
     }
+    //public function up()
+    //{
+        //Schema::create('users', function (Blueprint $table){
+            //$table->string('username');
+        //});
+    //}
 }
 //データベースを通じてやり取りし、データを受け取る方法、フォームの中を誰でも操作出来てしまうので脆弱性は弱い
 //DB::table('users')->insert([
