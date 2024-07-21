@@ -4,38 +4,129 @@ html{
 body{
 }
 /* header */
+/* display:flex;は親要素に対応するため操作したい親要素に記述する */
 header{
     background:#186AC9;
+    display: flex;
+    width: 100%;
+    padding: 10px;
 }
+
+/* topページ */
+
+#logo img{
+    width: 120px;
+    padding: 10px;
+}
+
+#head img{
+    width: 50px;
+    padding: 10px;
+}
+
+/* #logo, #head{ */
+    /* display: inline-block; */
+    /* padding: 10px; */
+/* } */
+
+#head{
+    flex-wrap: nowrap;
+    text-align: right;
+    display: flex;
+    width: 90%;
+    justify-content: end;
+}
+.username{
+    padding: 20px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 
 /*アコーディオンメニュー*/
 .nav-menu {
     display: none;
-    padding: 10px 20px;
+    width: 300px;
+    right: 0px;
+    top: 90px;
+    position: absolute;
+    /* text-align: center; */
+    /* z-index: 2; */
+    /* font-size: 20px; */
+    /* border: 3px solid #000080; */
+     background-color:#FFFFFF;
+    /* color: #808080; */
 }
 
+.nav-menu li {
+    /* padding: 30px; */
+    /* z-index: 1; */
+    right: 0;
+    top: 50px;
+}
+
+.nav-menu li a {
+    display: flex;
+    height: 80px;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #808080;
+    font-size: 25px;
+    border: 3px solid #000080;
+    line-height: 80px;
+}
+/* .profile { */
+    /* padding: 30px; */
+    /* z-index: 2; */
+    /* right: 30px; */
+    /* top: 30px; */
+/* } */
+
+/* .logout { */
+    /* padding: 30px; */
+    /* z-index: 60; */
+    /* right: 60px; */
+    /* top: 60px; */
+/* } */
+
 .nav-btn {
-    position: relative;
+    /* position: relative; */
+    padding: 10px;
 }
 
 .nav-btn:after {
-    border-right: solid 2px #fff;
-    border-top: solid 2px #fff;
+    border-right: solid 3px #fff;
+    border-top: solid 3px #fff;
     content: "";
     display: block;
-    height: 8px;
-    position: absolute;
+    height: 20px;
+    width: 20px;
+    /* position: absolute; */
     right: 25px;
-    top: 38%;
+    /* top: 0%; 後で使うかも*/
     transform: rotate(135deg);
     transition: transform 0.5s ease-in-out, top .0.5s ease-in-out;
-    width: 8px;
 }
 
 .nav-btn.open:after {
     top: 45%;
     transform: rotate(-45deg);
 }
+
+.nav-menu.open:after {
+    display: block;
+    /* position: absolute; */
+    resize: none;
+}
+
+/* ナビメニュークリックで色が変わる */
+.nav-menu li a:hover {
+    background-color: #000080;
+    color: #FFFFFF;
+}
+
 
 /* main content */
 #row{

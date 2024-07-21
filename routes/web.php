@@ -22,6 +22,8 @@
     // return redirect()->route('login');
 //});
 
+//Route::get('/URLの部品', '繋げたいController@メゾット名')->name('ルートに名前を付けられる');
+
 //ログアウト中のページ
 //ミドルウェアの処理　->nameとは、ホームページのリンクを短縮させたい時に使用する。('飛ばしたいページの名前を記入する');
 Route::get('/login', 'Auth\LoginController@login')->name('login');
@@ -41,9 +43,9 @@ Route::get('/top','PostsController@index')->middleware('auth');
 
 Route::get('/profile','UsersController@profile')->middleware('auth');
 
-Route::get('/search','UsersController@index')->middleware('auth');
+Route::get('/search','UsersController@search')->middleware('auth');
 
-Route::get('/follow-list','PostsController@index')->middleware('auth');
-Route::get('/follower-list','PostsController@index')->middleware('auth');
+Route::get('/follow-list','FollowsController@followList')->middleware('auth');
+Route::get('/follower-list','FollowsController@followerList')->middleware('auth');
 
 
