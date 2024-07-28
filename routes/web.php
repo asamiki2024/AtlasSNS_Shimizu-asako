@@ -32,6 +32,9 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
 
+// Route::get('/top', 'PostsController@postCreate')->name('post.create');
+Route::post('/top', 'PostsController@postCreate')->name('post.create');
+
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 

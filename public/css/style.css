@@ -128,16 +128,17 @@ header{
 }
 
 /* 投稿フォーム */
-.form {
+.post-form {
     display: flex;
-    text-align: center;
+    justify-content: center;
     width: 600px;
+
 }
 
-.form-group {
+.post-form input {
     border: none;
 }
 
-.form-button img {
+.post-form img {
     width: 55px;
 }

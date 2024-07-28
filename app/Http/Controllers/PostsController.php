@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use App\post;
 class PostsController extends Controller
 {
 
@@ -21,7 +22,13 @@ class PostsController extends Controller
     public function postCreate(Request $request){
         // j投稿フォームに書かれた内容を受け取る
         $post = $request->input('newPost');
-        Author::create(['post' => $post]);
-        return back();
+        $user_id = Auth::user()->id;
+        // dd($user_id);
+        //投稿の登録
+        Post::create([
+            'user_id' => $user_id,
+            'post' => $post
+        ]);
+        return redirect('/top');
     }
 }
