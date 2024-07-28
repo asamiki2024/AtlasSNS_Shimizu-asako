@@ -30,9 +30,9 @@
             <div id="accordion">
                 <p class="nav-btn"></p>
                 <ul class="nav-menu">
-                    <li class="top"><a href="/top">ホーム</a></li>
-                    <li class="profile"><a href="/profile">プロフィール編集</a></li>
-                    <li class="logout"><a href="/logout">ログアウト</a></li>
+                    <li><a href="/top">ホーム</a></li>
+                    <li><a href="/profile">プロフィール編集</a></li>
+                    <li><a href="/logout">ログアウト</a></li>
                 </ul>
             </div>
             <img src="images/icon1.png">
