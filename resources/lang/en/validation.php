@@ -128,6 +128,7 @@ return [
         'mail'     => 'メールアドレス',
         'password' => 'パスワード',
         'password_confirmation' =>'パスワード確認',
+        'newPost' => '投稿',
     ],
 
 ];

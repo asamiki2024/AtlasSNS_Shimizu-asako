@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // リレーション定義を追加（1対多の1）
+    public function post(){
+        return $this->belongsTo('App\Post');
+    }
 }
