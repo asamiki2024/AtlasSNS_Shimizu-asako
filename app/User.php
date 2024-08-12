@@ -27,8 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // リレーション定義を追加（1対多の1）
+    // リレーション定義を追加（1対多の多）
     public function post(){
-        return $this->belongsTo('App\Post');
+        return $this->hasMany('App\Post');
     }
 }

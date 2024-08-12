@@ -6,7 +6,6 @@
     {!! Form::open(['url' => "/top", 'class' => "post-form"]) !!}
     {{ Form::token() }}
     <div class="form-group">
-    <img src="images/icon1.png">
         {{ Form::input('text', 'newPost', null, ['class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }}
         <!-- <textarea name="request-about" id="request-about" placeholder="投稿内容を入力してください。"></textarea> -->
     </div>
@@ -26,7 +25,7 @@
     <!-- 投稿者のIDとアイコン、投稿内容を表示させる。 -->
     @foreach($users as $user)
     <tr>
-        <td>{{ $user->user->images }}</td>
+        <td><img src="{{ asset('images/' . '$user->user->images' ) }} " /> {{ $user->post }}</td>
     </tr>
     @endforeach
 </div>

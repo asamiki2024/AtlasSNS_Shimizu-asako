@@ -10,8 +10,8 @@ class Post extends Model
     protected $fillable = [
         'user_id', 'post'
     ];
-    //リレーション定義（1対多の多）投稿者の名前とユーザーアイコンのデータをリレーションするため。
+    //リレーション定義（1対多の1）投稿者の名前とユーザーアイコンのデータをリレーションするため。
     public function user(){
-        return $this->hasMany('App\User');
+        return $this->belongsTo('App\User');
     }
 }
