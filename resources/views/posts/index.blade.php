@@ -25,8 +25,9 @@
     <!-- 投稿者のIDとアイコン、投稿内容を表示させる。 -->
     @foreach($users as $user)
     <tr>
-        <td><img src="{{ asset('images/' . '$user->user->images' ) }} " /> {{ $user->post }}</td>
+        <td><img src="{{ asset('images/' . $user->user->images ) }}" /> {{ $user->post }}</td>
     </tr>
+    <button class="update-button" href="/post/ {{ $user->id }}/top"><img src="images/edit.png" /></button>
     @endforeach
 </div>
 @endsection

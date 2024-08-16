@@ -11,7 +11,8 @@ class PostsController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
-
+    
+    // postテーブルのデータを$usersで受け取る。
     public function index(){
         $users = Post::get();
         return view('posts.index',['users'=>$users]);

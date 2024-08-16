@@ -19,7 +19,7 @@ header{
     padding: 10px;
 }
 
-#head img{
+#head img, .form img{
     width: 50px;
     padding: 10px;
 }

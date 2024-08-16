@@ -25,7 +25,7 @@
             <h1><a href="/top"><img src="images/atlas.png" /></a></h1>
         </div>
         <div id="head">
-            <p class="username">{{ Auth::user()->username }}　さん　<img src="images/ . {{ Auth::user()->images }} "/></p>
+            <p class="username">{{ Auth::user()->username }}　さん　<img src="{{ asset('images/' . Auth::user()->images ) }}" /></p>
             <!--アコーディオンメニュー-->
             <div id="accordion">
                 <p class="nav-btn"></p>
