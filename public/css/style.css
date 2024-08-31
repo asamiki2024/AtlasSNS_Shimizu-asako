@@ -113,7 +113,23 @@ header{
     color: #FFFFFF;
 }
 
-/* 投稿エリア */
+
+/*  投稿フォーム,投稿エリア  */
+.post-form {
+    display: flex;
+    justify-content: center;
+    width: 600px;
+
+}
+
+.post-form input {
+    border: none;
+}
+
+.post-form img {
+    width: 55px;
+}
+
 .content{
     margin: 0 auto;
     padding: 40px;
@@ -140,7 +156,9 @@ header{
     transform: translate(-50%,-50%);
     width: 60%;
 }
-
+.modal_post{
+    border: none;
+}
 
 /* main content */
 #row{
@@ -153,20 +171,4 @@ header{
 #side-bar{
     flex: 0 0 19%;
     border-left: 1px solid #727272;
-}
-
-/* 投稿フォーム */
-.post-form {
-    display: flex;
-    justify-content: center;
-    width: 600px;
-
-}
-
-.post-form input {
-    border: none;
-}
-
-.post-form img {
-    width: 55px;
 }

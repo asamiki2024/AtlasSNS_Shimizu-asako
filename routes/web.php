@@ -32,7 +32,7 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
 
-//投稿した内容をおくる
+//投稿した内容をtopへ送る処理
 // Route::get('/top', 'PostsController@postCreate')->name('post.create');
 Route::post('/top', 'PostsController@postCreate')->name('post.create');
 
@@ -52,4 +52,5 @@ Route::get('/search','UsersController@search')->middleware('auth');
 Route::get('/follow-list','FollowsController@followList')->middleware('auth');
 Route::get('/follower-list','FollowsController@followerList')->middleware('auth');
 
-
+//投稿内容を編集し、投稿を更新する処理
+Route::get('/post/update','PostsController@update');

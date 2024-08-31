@@ -37,4 +37,16 @@ class PostsController extends Controller
         ]);
         return redirect('/top');
     }
+    //投稿内容を編集し、更新する
+    public function update(Request $request){
+        //1つめの処理
+        $id = $request->input('id');
+        $up_post = $request->input('upPost');
+        // 2つめの処理
+        Post::where('id', $id)->update([
+            'post' => $up_post
+        ]);
+        //3つめの処理
+        return redirect('/top');
+    }
 }
