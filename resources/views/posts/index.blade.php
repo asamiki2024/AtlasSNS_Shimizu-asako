@@ -27,7 +27,25 @@
     <tr>
         <td><img src="{{ asset('images/' . $user->user->images ) }}" /> {{ $user->post }}</td>
     </tr>
-    <button class="update-button" href="/post/ {{ $user->id }}/top"><img src="images/edit.png" /></button>
+    <button class="update-button" href="/post/ {{ $user->id }}/top"></button>
+    <div class="content">
+        <!-- 投稿の編集ボタン -->
+        <a class="js-modal-open" href="" post="{{ $user->post }}" post_id="{{ $user->id }}"><img src="images/edit.png" /></a>
+        <button class="delete-button"><img src="images/trash-h.png" /></button>
+    </div>
     @endforeach
+    <!-- モーダル機能を使用し、投稿内容を編集 -->
+    <div class="modal js-modal">
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+            <form action="" method="">
+                <textarea name="" class="modal_post"></textarea>
+                <input type="hidden" name="" class="modal_id" value="">
+                <input type="submit" value="更新">
+                {{ csrf_field() }}
+            </form>
+            <a class="js-modal-close" href="">閉じる</a>
+        </div>
+    </div>
 </div>
 @endsection

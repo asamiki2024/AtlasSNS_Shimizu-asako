@@ -32,6 +32,7 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
 
+//投稿した内容をおくる
 // Route::get('/top', 'PostsController@postCreate')->name('post.create');
 Route::post('/top', 'PostsController@postCreate')->name('post.create');
 
