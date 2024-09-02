@@ -54,3 +54,5 @@ Route::get('/follower-list','FollowsController@followerList')->middleware('auth'
 
 //投稿内容を編集し、投稿を更新する処理
 Route::get('/post/update','PostsController@update');
+//投稿を削除する処理
+Route::get('/post/delete','PostsController@delete');
