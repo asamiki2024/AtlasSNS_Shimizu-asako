@@ -31,7 +31,8 @@
         <!-- 投稿の編集ボタン -->
         <button class="js-modal-open" href="" post="{{ $user->post }}" post_id="{{ $user->id }}"><img src="images/edit.png" /></button>
         <!-- 削除ボタン -->
-        <button class="delete-button" href="" post="{{ $user->post }}" post_id="{{ $user->id }}"  onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')" ><img src="images/trash-h.png" /></button>
+         <!-- buttonタグだとhrefは機能しない。aタグに変更 -->
+        <a class="delete-button" href="/post/{{$user->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')" ><img src="images/trash.png" alt="" /><img src="images/trash-h.png" alt="" /></a>
     </div>
     @endforeach
     <!-- モーダル機能を使用し、投稿内容を編集 -->
