@@ -123,7 +123,13 @@ header{
 }
 
 .post-form input {
+    display: inline-block;
+    width: 100%;
+    padding: 0.5rem;
     border: none;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    margin: 0.5em 0;
 }
 
 .post-form img {
@@ -180,6 +186,25 @@ header{
 .delete-button:hover img:last-of-type{
     opacity: 1;
     /* 2枚目の画像のことを指している。ホバーし、2枚目の画像が見える状態にしている。 */
+}
+
+/* 検索ページ */
+#search{
+    /* display: flex; */
+}
+.btn.btn-search img{
+    width: 40%;
+    padding: 0.5rem;
+    background: #fff;
+    border: none;
+}
+.search-form{
+    display: inline-block;
+    width: 30%;
+    padding: 0.5rem;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    margin: 0.5rem 0;
 }
 
 /* main content */
