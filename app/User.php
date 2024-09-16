@@ -31,4 +31,14 @@ class User extends Authenticatable
     public function post(){
         return $this->hasMany('App\Post');
     }
+
+    // フォロー機能の実装(followsテーブルへの登録と削除)(フォローをおこなった人のリレーション)
+    public function follows(){
+        return $this->belongsToMany(User::class, 'follows', 'following_id', 'followed_id');
+    }
+
+    // フォロー機能の実装(followsテーブルへの登録と削除)(フォローをされた人のリレーション)
+    public function followers(){
+        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'following_id');
+    }
 }
