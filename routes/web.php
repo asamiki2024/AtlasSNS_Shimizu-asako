@@ -56,3 +56,8 @@ Route::get('/follower-list','FollowsController@followerList')->middleware('auth'
 Route::get('/post/update','PostsController@update');
 //投稿を削除する処理
 Route::get('/post/{id}/delete','PostsController@delete');
+
+//フォロワーする
+Route::post('/search/follow', 'FollowsController@follow')->name('follows.follow');
+//フォロー解除する
+Route::post('/search/{id}/nofollow', 'FollowsController@nofollow')->name('follows.no-follow');
