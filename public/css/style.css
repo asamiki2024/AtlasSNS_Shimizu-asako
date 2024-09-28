@@ -136,6 +136,10 @@ header{
     width: 55px;
 }
 
+.index-errors {
+    color: red;
+}
+
 .content{
     margin: 0 auto;
     padding: 40px;

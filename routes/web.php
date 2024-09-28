@@ -60,4 +60,4 @@ Route::get('/post/{id}/delete','PostsController@delete');
 //フォロワーする
 Route::post('/search/follow', 'FollowsController@follow')->name('follows.follow');
 //フォロー解除する
-Route::post('/search/{id}/nofollow', 'FollowsController@nofollow')->name('follows.no-follow');
+Route::post('/search/unfollow', 'FollowsController@unfollow')->name('follows.unfollow');

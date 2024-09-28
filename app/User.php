@@ -35,22 +35,23 @@ class User extends Authenticatable
     // フォロー機能の実装(followsテーブルへの登録と削除)(フォローをおこなった人のリレーション)
     //ユーザーがフォローしている人数取得(フォロー)
     public function follows(){
-        return $this->belongsToMany(User::class, 'follows', 'following_id', 'followed_id')->whileTimestamps();
+        return $this->belongsToMany(User::class, 'follows', 'following_id', 'followed_id');
     }
+    //Userのデータベースの中のfollowsテーブルを利用して多対多のリレーションをする。
 
     // フォロー機能の実装(followsテーブルへの登録と削除)(フォローをされた人のリレーション)
     //ユーザーをフォローしている人数取得
     public function followers(){
-        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'following_id')->whileTimestamps();
+        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'following_id');
     }
 
-    //フォローの人数取得
-    public function isFollowing($user_id){
-        return (boolean) $this->follows()->where('followed_id', $user_id)->first();
+    //フォロー機能
+    public function follow(Int $user_id){
+        return $this->follows()->attach($user_id);
     }
 
-    //フォロワーの人数取得
-    public function isFollowed($user_id){
-        return (boolean) $this->followers()->where('following_id', $user_id)->first(['follows.id']);
+    //フォロー解除
+    public function unfollow(Int $user_id){
+        return $this->follows()->attach($user_id);
     }
 }

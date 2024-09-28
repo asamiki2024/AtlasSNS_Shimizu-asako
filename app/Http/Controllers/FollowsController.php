@@ -16,27 +16,30 @@ class FollowsController extends Controller
         return view('follows.followerList');
     }
 
-    //フォロー機能
-    public function follow(User $user){
-        $follower = Auth::user();
-        $is_following = $follower->is_Following($user->id);
-        //フォローしているか判断
-        //フォローしていなければフォローする
-        if($is_following) {
-            $follower ->follow($user->id);
-            return back();
-        }
+    //フォローするユーザーがログインしているかどうか確認
+    // user $userの引数
+   public function follow(User $user,$id)
+   {
+    if(Auth::check()){
+        //ログインしているユーザーが確認
+    $following = auth()->user();
+    //現在ログインしているユーザーの情報の取得
+    $following->follow($id);
+    //$idを利用してフォローする
     }
-    //フォロー解除機能
-    public function nofollow(User $user){
-        $follower = Auth::user();
-        $is_following = $follower->is_Following($user->id);
-        //フォローしているか判断
-        //フォローしていたらフォロー解除する
-        if($is_following){
-            $follower->nofollow($user->id);
-            return back();
-        }
+    return redirect('/search');
+   }
 
+    //フォロー解除
+   public function unfollow(User $user,$id)
+   {
+    if(Auth::check()){
+        //ログインしているユーザーの確認
+    $following = auth()->user();
+    //現在ログインしているユーザーの情報の取得
+    $following->unfollow($id);
+    //フォローしているユーザー解除する
     }
+    return redirect('/search');
+   }
 }
