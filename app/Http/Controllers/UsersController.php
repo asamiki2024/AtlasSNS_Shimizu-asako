@@ -14,6 +14,23 @@ class UsersController extends Controller
     public function search(){
         return view('users.search');
     }
+     //検索処理
+   public function usersearch(Request $request)
+   {
+    //1つめの処理
+    $keyword = $request->input('keyword');
+    //ユーザーテーブルの情報を$user_searchで取得
+    $user_search = Post::get();
+    //2つめの処理
+    if(!empty($keyword))
+        {
+            $search_user = User::where('username', 'like', '%'.$keyword.'%')->get();
+        }else{
+            $search_user = User::all();
+        }
+    //3つめの処理
+        return view('users.search')->with('users, $users');
+   }
 }
 
 //次回やること

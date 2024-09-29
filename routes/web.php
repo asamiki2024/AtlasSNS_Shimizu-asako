@@ -61,3 +61,6 @@ Route::get('/post/{id}/delete','PostsController@delete');
 Route::post('/search/follow', 'FollowsController@follow')->name('follows.follow');
 //フォロー解除する
 Route::post('/search/unfollow', 'FollowsController@unfollow')->name('follows.unfollow');
+//ユーザー検索
+Route::get('/search/usersearch','UsersController@usersearch')->name('users.usersearch');
+Auth::routes();
