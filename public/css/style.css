@@ -193,8 +193,12 @@ header{
 }
 
 /* 検索ページ */
-#search{
-    /* display: flex; */
+#search form{
+    display: flex;
+}
+
+.btn.btn-search{
+    display: block;
 }
 .btn.btn-search img{
     width: 40%;
@@ -203,7 +207,7 @@ header{
     border: none;
 }
 .search-form{
-    display: inline-block;
+    display: block;
     width: 30%;
     padding: 0.5rem;
     border: 1px solid #000000;

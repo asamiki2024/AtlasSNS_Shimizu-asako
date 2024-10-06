@@ -47,7 +47,8 @@ Route::get('/top','PostsController@index')->middleware('auth');
 
 Route::get('/profile','UsersController@profile')->middleware('auth');
 
-Route::get('/search','UsersController@search')->middleware('auth');
+Route::get('/search','UsersController@usersearch')->middleware('auth')->name('users.usersearch');
+//ユーザー検索
 
 Route::get('/follow-list','FollowsController@followList')->middleware('auth');
 Route::get('/follower-list','FollowsController@followerList')->middleware('auth');
@@ -62,5 +63,5 @@ Route::post('/search/follow', 'FollowsController@follow')->name('follows.follow'
 //フォロー解除する
 Route::post('/search/unfollow', 'FollowsController@unfollow')->name('follows.unfollow');
 //ユーザー検索
-Route::get('/search/usersearch','UsersController@usersearch')->name('users.usersearch');
+// Route::get('/search/usersearch','UsersController@usersearch')->name('users.usersearch');
 Auth::routes();
