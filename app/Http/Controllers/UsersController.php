@@ -34,7 +34,7 @@ class UsersController extends Controller
         }
     //3つめの処理
         return view('users.search',['search_user'=>$search_user , 'keyword'=>$keyword]);
-        //UsersControllerで記述した条件を表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。キーワードワードも同じく。
+        //UsersControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。キーワードワードも同じく。
     }
 }
 //次回やること

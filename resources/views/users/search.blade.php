@@ -13,13 +13,13 @@
     @foreach($search_user as $search_user)
     <tr>
         <td>{{ $search_user->username }}<p><img src="{{ asset('images/' . $search_user->images ) }}" /></p></td>
-        @if (auth()->user()->isFollowing($following->id))
-        <td><form action="{{ route('follows.follow') }}" method="POST">
+        @if(auth()->user()->isFollowing($user_id->id))
+        <td><form action="{{ route('follow', ['uerId' => $user_id->id]) }}" method="POST">
             <button class="follow-button">フォローする</button>
             </form>
         </td>
         @else
-        <td><form action="{{ route('follows.unfollow') }}" method="POST">
+        <td><form action="{{ route('unfollow', ['userId' => $user_id->id]) }}" method="POST">
             <button class="follow-cancel-button">フォロー解除</button>
             </form>
         </td>

@@ -18,28 +18,61 @@ class FollowsController extends Controller
 
     //フォローするユーザーがログインしているかどうか確認
     // user $userの引数
-   public function follow(User $user,$id)
+   public function follow($userId)
    {
-    if(Auth::check()){
+    // if(Auth::check()){
         //ログインしているユーザーが確認
-    $following = auth()->user();
+    // $following = auth()->user();
     //現在ログインしているユーザーの情報の取得
-    $following->follow($id);
+    // $following->follow($id);
     //$idを利用してフォローする
+
+    $follower = auth()->user();
+    $is_following = $follower->isFollowing($userId);
+    //フォローしているか
+
+        if (!$is_following)
+        {
+        //フォローしていない場合フォロー処理実行
+        $loggedInUserID = auth()->user()->id;
+        //自分のユーザーIDの取得
+        $followedUser = User::find($userId);
+        $followedUserId = $followedUser->id;
+        //フォローしたい人のユーザーIDを元にユーザーを取得
+    
+        Follow::create([
+            'following_id' => $loggedInUserID,
+            'followed_id' => $followedUserId,
+        ]);
+        return redirect('/search');
+        }
     }
-    return redirect('/search');
-   }
+    //FollowsControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。
 
     //フォロー解除
-   public function unfollow(User $user,$id)
+   public function unfollow($userId)
    {
-    if(Auth::check()){
+    // if(Auth::check()){
         //ログインしているユーザーの確認
-    $following = auth()->user();
+    // $following = auth()->user();
     //現在ログインしているユーザーの情報の取得
-    $following->unfollow($id);
+    // $following->unfollow($id);
     //フォローしているユーザー解除する
+
+    $follower = auth()->user();
+    $is_following = $follower->isFollowing($userId);
+    //フォローしているか
+
+        if ($is_following)
+        {
+            $loggedInUserID = auth()->user()->id;
+            Follow::where([
+                ['followed_id', '=', $userId],
+                ['following_id', '=', $loggedInUserID],
+                ])
+                ->delete();
+        }
+        return redirect('/search');
+        //FollowsControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。    }
     }
-    return redirect('/search');
-   }
 }
