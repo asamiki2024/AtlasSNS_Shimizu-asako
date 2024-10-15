@@ -13,13 +13,13 @@
     @foreach($search_user as $search_user)
     <tr>
         <td>{{ $search_user->username }}<p><img src="{{ asset('images/' . $search_user->images ) }}" /></p></td>
-        @if(auth()->user()->isFollowing($follow_switch->id))
-        <td><form action="{{ route('follow', ['uerId' => $follow_switch->id]) }}" method="POST">
+        @if(auth()->user()->isFollowing($search_user->id))
+        <td><form action="{{ route('follows.unfollow', ['uerId' => $search_user->id]) }}" method="POST">
             <button class="follow-button">フォロー解除</button>
             </form>
         </td>
         @else
-        <td><form action="{{ route('unfollow', ['userId' => $follow_switch->id]) }}" method="POST">
+        <td><form action="{{ route('follows.follow', ['userId' => $search_user->id]) }}" method="POST">
             <button class="follow-cancel-button">フォローする</button>
             </form>
         </td>
@@ -29,5 +29,6 @@
     </table>
     <!-- FollowsControllerのフォロー処理メゾットにweb.phpを通って移動する -->
      <!-- FollowsControllerのフォロー解除処理メゾットにweb.phpを通って移動する -->
+      <!-- foreachの中で使用する変数は、foreachの()の中を参考にする。 -->
 </div>
 @endsection
