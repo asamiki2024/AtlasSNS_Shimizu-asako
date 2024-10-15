@@ -56,8 +56,13 @@ class User extends Authenticatable
         return $this->follows()->attach($user_id);
     }
 
-    //search.bladeで使用するif文の関数を設定
+    //フォローしているか
     public function isFollowing(Int $user_id){
         return(bool) $this->follows()->where('followed_id', $user_id)->first();
+    }
+
+    //フォローされているか
+    public function isFollowed(Int $user_id){
+        return(bool) $this->followers()->where('following_id', $user_id)->first();
     }
 }

@@ -72,7 +72,7 @@ class FollowsController extends Controller
                 ])
                 ->delete();
         }
-        return redirect('/search');
+        return redirect('/search',['follow_switch'=>$follow_switch]);
         //FollowsControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。    }
     }
 }
