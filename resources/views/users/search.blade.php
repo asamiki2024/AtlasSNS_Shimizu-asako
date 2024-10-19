@@ -14,12 +14,14 @@
     <tr>
         <td>{{ $search_user->username }}<p><img src="{{ asset('images/' . $search_user->images ) }}" /></p></td>
         @if(auth()->user()->isFollowing($search_user->id))
-        <td><form action="{{ route('follows.unfollow', ['uerId' => $search_user->id]) }}" method="POST">
+        <td><form action="/unfollow/{{ $search_user->id }}" method="POST">
+            @csrf
             <button class="follow-button">フォロー解除</button>
             </form>
         </td>
         @else
-        <td><form action="{{ route('follows.follow', ['userId' => $search_user->id]) }}" method="POST">
+        <td><form action="/follow/{{ $search_user->id }}" method="POST">
+            @csrf
             <button class="follow-cancel-button">フォローする</button>
             </form>
         </td>

@@ -19,6 +19,7 @@ class FollowsController extends Controller
     //フォローするユーザーがログインしているかどうか確認
     // user $userの引数
    public function follow($userId)
+//web.phpからメゾットの場所にデータが運ばれる
    {
     // if(Auth::check()){
         //ログインしているユーザーが確認

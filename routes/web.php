@@ -59,9 +59,10 @@ Route::get('/post/update','PostsController@update');
 Route::get('/post/{id}/delete','PostsController@delete');
 
 //フォロワーする
-Route::post('/follow', 'FollowsController@follow')->name('follows.follow');
+Route::post('/follow/{user}', 'FollowsController@follow');
+//Route::post(見えないルート)もしくはget('/follow/{ブレードから送られてきたパラメータ}', '行き先のController@メゾット');
 //フォロー解除する
-Route::delete('/unfollow', 'FollowsController@unfollow')->name('follows.unfollow');
+Route::post('/unfollow/{user}', 'FollowsController@unfollow');
 //ユーザー検索
 // Route::get('/search/usersearch','UsersController@usersearch')->name('users.usersearch');
 Auth::routes();
