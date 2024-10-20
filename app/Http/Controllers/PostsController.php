@@ -54,4 +54,9 @@ class PostsController extends Controller
         Post::where('id', $id)->delete();
         return redirect('/top');
     }
+    //全ての投稿数を表示する方法
+    public function postCounts(){
+        $posts = Post::get();
+        return view('login', compact('posts'));
+    }
 }

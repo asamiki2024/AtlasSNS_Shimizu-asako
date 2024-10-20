@@ -16,6 +16,7 @@
         @if(auth()->user()->isFollowing($search_user->id))
         <td><form action="/unfollow/{{ $search_user->id }}" method="POST">
             @csrf
+            <!-- @csrfは、脆弱対策として入れる -->
             <button class="follow-button">フォロー解除</button>
             </form>
         </td>
