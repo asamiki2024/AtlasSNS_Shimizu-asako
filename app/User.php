@@ -32,8 +32,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
-    // フォロー機能の実装(followsテーブルへの登録と削除)(フォローをおこなった人のリレーション)
-    //ユーザーがフォローしている人数取得(フォロー)
+    // フォロー機能の実装(followsテーブルへの登録と削除)
+    // (フォローをおこなった人のリレーション)
     public function follows(){
         return $this->belongsToMany('App\User', 'follows', 'following_id', 'followed_id');
     }
@@ -59,7 +59,13 @@ class User extends Authenticatable
     //フォローしているか
     public function isFollowing(Int $user_id){
         return(bool) $this->follows()->where('followed_id', $user_id)->first();
+        //return前の場所に戻る(bool Yes or No を送る) $this->follows()->where('followed_id', $user_id)->first();
+        //boolで $this->follows()->where('followed_id', $user_id)->first()の処理をはいかいいえで送る
+        //$this=このファイル Uer.php ->follows()　37行目:フォローテーブルにアクセス
+        //where　MYSQLの条件つきデータ抽出引用('followed_id', $user_id)followed_idカラムに$user_idがあるか調べている
+        //->first() 最初の1件を取得する。true(Yes)　取得出来なかったら、false(No) return boolで自動でYesかNoで返される。
     }
+//
 
     //フォローされているか
     public function isFollowed(Int $user_id){

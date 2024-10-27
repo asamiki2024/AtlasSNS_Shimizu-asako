@@ -33,5 +33,6 @@
     <!-- FollowsControllerのフォロー処理メゾットにweb.phpを通って移動する -->
      <!-- FollowsControllerのフォロー解除処理メゾットにweb.phpを通って移動する -->
       <!-- foreachの中で使用する変数は、foreachの()の中を参考にする。 -->
+       <!-- user.phpなどのモデルに書いたメソッドはブレードでも使用可能 -->
 </div>
 @endsection

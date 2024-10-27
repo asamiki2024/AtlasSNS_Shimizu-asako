@@ -47,7 +47,7 @@
                 <p>{{ Auth::user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>名</p>
+                <p>{{ \App\Post::get()->count() }}名</p>
                 </div>
 
                 <p class="btn btn-primary"><a href="/follow-list" type="button">フォローリスト</a></p>

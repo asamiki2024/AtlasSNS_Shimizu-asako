@@ -29,24 +29,32 @@ class FollowsController extends Controller
     //$idを利用してフォローする
 
     $follower = auth()->user();
+    //auth()->user はuserテーブルからログインしているユーザーの情報を取得する
+    //ログインしているユーザー
+    //ログインしているユーザーの情報を全て(ID,name,mailなど)取得する
     $is_following = $follower->isFollowing($userId);
     //フォローしているか
+    //ログインしているユーザーがフォローしているかどうかを確認している。isFollowingのメソッドを書いたUser.phpに移動　データ取得後　true(Yes)かNo(false)で戻ってくる。
+    //$userId=色んなフォローしたいユーザーのID
 
         if (!$is_following)
-        {
-        //フォローしていない場合フォロー処理実行
-        $loggedInUserID = auth()->user()->id;
-        //自分のユーザーIDの取得
-        $followedUser = User::find($userId);
-        $followedUserId = $followedUser->id;
-        //フォローしたい人のユーザーIDを元にユーザーを取得
-    
-        Follow::create([
-            'following_id' => $loggedInUserID,
-            'followed_id' => $followedUserId,
-        ]);
-        return redirect('/search');
+        //！フォローしてなかったら43行目～54行目が動く
+        //フォローしていたら43行目～54行目は動かずにブレードに戻る
+            {
+            //フォローしていない場合フォロー処理実行
+            $loggedInUserID = auth()->user()->id;
+            //ログインしているユーザーIDの取得
+            $followedUser = User::find($userId);
+            $followedUserId = $followedUser->id;
+            //フォローしたい人のユーザーIDを元にユーザーを取得
+        
+            Follow::create([
+                'following_id' => $loggedInUserID,
+                'followed_id' => $followedUserId,
+                //フォローズテーブルのfollowing_idカラムとfollowed_idカラムにデータを入るように記述している
+            ]);
         }
+    return redirect('/search');
     }
     //FollowsControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。
 
@@ -68,10 +76,12 @@ class FollowsController extends Controller
         {
             $loggedInUserID = auth()->user()->id;
             Follow::where([
+                //whereで条件を二つ出して探している。
                 ['followed_id', '=', $userId],
                 ['following_id', '=', $loggedInUserID],
                 ])
                 ->delete();
+                // 条件にあうものを消している。
         }
         return redirect('/search');
         //FollowsControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。    }
