@@ -215,6 +215,9 @@ header{
     margin: 0.5rem 0;
 }
 
+.btn btn-primary{
+    color: #fff;
+}
 /* main content */
 #row{
     display: flex;

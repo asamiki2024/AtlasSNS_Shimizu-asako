@@ -8,6 +8,7 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -46,18 +47,17 @@
                 <p>{{ Auth::user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
-                @foreach($posts as $post)
-                <p>{{ $posts->count() }}名</p>
+                <p>名</p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
+
+                <p class="btn btn-primary"><a href="/follow-list" type="button">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>〇〇名</p>
-                @endforeach
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <p class="btn btn-primary"><a href="/follower-list" type="button">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <p class="btn btn-primary"><a href="/search" type="button">ユーザー検索</a></p>
         </div>
     </div>
     <footer>

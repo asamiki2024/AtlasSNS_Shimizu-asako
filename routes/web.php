@@ -43,7 +43,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 //ログイン中のページ
 //ログイン閲覧制限、ミドルウェアを使用し、URLに/topなどのログイン中のページを開いてもログインページに飛ぶ仕組みになっている。
-Route::get('/top','PostsController@index')->middleware('auth')->name('posts');
+Route::get('/top','PostsController@index')->middleware('auth');
 
 Route::get('/profile','UsersController@profile')->middleware('auth');
 

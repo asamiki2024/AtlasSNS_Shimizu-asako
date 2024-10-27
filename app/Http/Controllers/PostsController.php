@@ -55,8 +55,7 @@ class PostsController extends Controller
         return redirect('/top');
     }
     //全ての投稿数を表示する方法
-    public function postCounts(){
-        $posts = Post::get();
-        return view('login', compact('posts'));
-    }
+    // public function posts(){
+        // return $this->hasMany('App\Models\Post');
+    // }
 }
