@@ -29,11 +29,13 @@ class PostsController extends Controller
         // j投稿フォームに書かれた内容を受け取る
         $post = $request->input('newPost');
         $user_id = Auth::user()->id;
+        $created_at = $request->input('newPost');
         // dd($user_id);
         //投稿の登録
         Post::create([
             'user_id' => $user_id,
-            'post' => $post
+            'post' => $post,
+            'created_at' => $created_at
         ]);
         return redirect('/top');
     }
@@ -53,10 +55,5 @@ class PostsController extends Controller
     public function delete($id){
         Post::where('id', $id)->delete();
         return redirect('/top');
-    }
-    //全ての投稿数を表示する方法
-    public function postCounts(){
-        $posts = Post::get();
-        view('/top')->share(compact('posts'));
     }
 }
