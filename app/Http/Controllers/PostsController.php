@@ -34,8 +34,7 @@ class PostsController extends Controller
         //投稿の登録
         Post::create([
             'user_id' => $user_id,
-            'post' => $post,
-            'created_at' => $created_at
+            'post' => $post
         ]);
         return redirect('/top');
     }

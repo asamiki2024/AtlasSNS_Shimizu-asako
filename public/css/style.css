@@ -215,8 +215,8 @@ header{
     margin: 0.5rem 0;
 }
 
-.btn btn-primary{
-    color: #fff;
+.btn{
+    color: #fff !important;
 }
 /* main content */
 #row{

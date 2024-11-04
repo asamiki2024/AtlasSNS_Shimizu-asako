@@ -25,7 +25,7 @@
     <!-- 投稿者のIDとアイコン、投稿内容を表示させる。 -->
     @foreach($users as $user)
     <tr>
-        <td><img src="{{ asset('images/' . $user->user->images ) }}" /> {{ $user->post }}</td>
+        <td><img src="{{ asset('images/' . $user->user->images ) }}" />{{ $user->user->username }} {{ $user->post }} {{ $user->created_at }} </td>
     </tr>
     <div class="content">
         <!-- 投稿の編集ボタン -->

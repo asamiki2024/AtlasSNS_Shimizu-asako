@@ -7,8 +7,8 @@
     <meta name="description" content="ページの内容を表す文章" />
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -54,16 +54,16 @@
                 <p>{{ Auth::user()->follows()->count() }}名</p>
                 </div>
 
-                <p class="btn btn-primary"><a href="/follow-list" type="button">フォローリスト</a></p>
+                <p class="btn btn-primary"><a class="btn" href="/follow-list" type="button">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <!-- フォロワーの人数を表示 -->
                  <!-- フォローの表示と同じくuser.phpのリレーションを利用し数を表示44～46行目 -->
                 <p>{{ Auth::user()->followers()->count() }}名</p>
                 </div>
-                <p class="btn btn-primary"><a href="/follower-list" type="button">フォロワーリスト</a></p>
+                <p class="btn btn-primary"><a class="btn" href="/follower-list" type="button">フォロワーリスト</a></p>
             </div>
-            <p class="btn btn-primary"><a href="/search" type="button">ユーザー検索</a></p>
+            <p class="btn btn-primary"><a class="btn" href="/search" type="button">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
