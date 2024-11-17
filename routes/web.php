@@ -50,7 +50,7 @@ Route::get('/profile','UsersController@profile')->middleware('auth');
 Route::get('/search','UsersController@usersearch')->middleware('auth')->name('users.usersearch');
 //ユーザー検索
 
-Route::get('/follow-list','FollowsController@followList')->middleware('auth');
+Route::get('/follow-list','FollowsController@followList')->middleware('auth')->name('follow_icon');
 Route::get('/follower-list','FollowsController@followerList')->middleware('auth');
 
 //投稿内容を編集し、投稿を更新する処理
