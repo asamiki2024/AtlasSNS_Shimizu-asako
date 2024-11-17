@@ -1,5 +1,5 @@
 @extends('layouts.login')
-ooooo!!!!!!
 @section('content')
-
+<div class="followList">フォローリスト</div>
+    
 @endsection

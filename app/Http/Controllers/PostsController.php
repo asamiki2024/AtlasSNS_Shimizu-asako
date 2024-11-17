@@ -14,7 +14,11 @@ class PostsController extends Controller
     
     // postテーブルのデータを$usersで受け取る。
     public function index(){
-        $users = Post::get();
+        $users = Post::
+        whereIn('user_id', Auth::user()->follows()->pluck('followed_id'))
+        ->orWhere('user_id', Auth::user()->id)
+        ->get();
+        //ログインしている自分の投稿を抽出して表示させる。
         return view('posts.index',['users'=>$users]);
         // return view('フォルダ名.ブレイド名');
     }
@@ -55,4 +59,11 @@ class PostsController extends Controller
         Post::where('id', $id)->delete();
         return redirect('/top');
     }
+   
+    
+    // public function show(){
+        //Postモデル経由でpostテーブルのレコードを取得
+        // $posts = Post::get();
+        // return redirect('/top');
+    // }
 }
