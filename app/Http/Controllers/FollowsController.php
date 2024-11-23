@@ -10,17 +10,24 @@ use App\Post; //Postのuse宣言
 class FollowsController extends Controller
 {
     //フォローリスト
-    //フォローしているユーザーのアイコンを取得
+    //フォローしているユーザーの投稿を表示
     public function followList(){
-        $follow_icons = Post::
+        $follow_posts = Post::
         whereIn('user_id', Auth::user()->follows()->pluck('followed_id'))
-        ->orWhere('user_id', Auth::user()->id)
         ->get();
-        return view('follows.followList', compact('follow_icons'));
+        //15行目　$follow_iconsでPostテーブルの情報を取得
+        //16行目　Postテーブルのuser_idカラムを取得、その中からフォローしている人のidを取得
+
+    //フォローしているユーザーのアイコンを表示
+        $follow_icons = User::
+        WhereIn('id' , Auth::user()->follows()->pluck('followed_id'))
+        ->get();
+        //23行目　$follow_iconsでUserテーブルの情報を取得
+        //16行目　Userテーブルのidカラムを取得、その中からフォローしている人のidを取得
+        return view('follows.followList', compact('follow_posts' , 'follow_icons'));
     }
-    //15行目　$follow_iconsでPostテーブルの情報を取得
-    //16行目　Postテーブルのuser_idカラムを取得、その中からフォローしている人のみを取得
-    //17行目　同じくPostテーブルの中から自分の投稿を取得
+
+    
     //18行目　コントローラー→web.phpを通ってfollows.followListへ表示させる。変数はfollow_icons(複数形にする)
     //フォロワーリスト
     public function followerList(){
