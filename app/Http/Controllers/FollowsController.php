@@ -3,14 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; //Authのuse宣言
 use App\User;  //userがどこにあるのかを記述
 use App\follow;  //フォロワーを取得
+use App\Post; //Postのuse宣言
 class FollowsController extends Controller
 {
     //フォローリスト
+    //フォローしているユーザーのアイコンを取得
     public function followList(){
-        return view('follows.followList');
+        $follow_icons = Post::
+        whereIn('user_id', Auth::user()->follows()->pluck('followed_id'))
+        ->orWhere('user_id', Auth::user()->id)
+        ->get();
+        return view('follows.followList', compact('follow_icons'));
     }
+    //15行目　$follow_iconsでPostテーブルの情報を取得
+    //16行目　Postテーブルのuser_idカラムを取得、その中からフォローしている人のみを取得
+    //17行目　同じくPostテーブルの中から自分の投稿を取得
+    //18行目　コントローラー→web.phpを通ってfollows.followListへ表示させる。変数はfollow_icons(複数形にする)
     //フォロワーリスト
     public function followerList(){
         return view('follows.followerList');
@@ -85,12 +96,5 @@ class FollowsController extends Controller
         }
         return redirect('/search');
         //FollowsControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。    }
-    }
-
-    //フォローしている人のアイコンを表示させる
-    public function follow_icon(){
-        //フォローしているユーザーのアイコンを取得
-        $following_id = Auth::user()->follows()->pluck('users_image')->get();
-        return view('/followList', compact('follow_icon'));
     }
 }

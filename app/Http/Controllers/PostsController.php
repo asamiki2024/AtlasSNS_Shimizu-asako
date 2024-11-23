@@ -18,6 +18,8 @@ class PostsController extends Controller
         whereIn('user_id', Auth::user()->follows()->pluck('followed_id'))
         ->orWhere('user_id', Auth::user()->id)
         ->get();
+        //18行目　Postテーブルのuser_idカラムを取得、その中からフォローしている人のみを取得
+        //19行目　同じくPostテーブルの中から自分の投稿を取得
         //ログインしている自分の投稿を抽出して表示させる。
         return view('posts.index',['users'=>$users]);
         // return view('フォルダ名.ブレイド名');
