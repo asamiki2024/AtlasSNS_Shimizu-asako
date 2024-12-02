@@ -31,7 +31,14 @@ class FollowsController extends Controller
     //18行目　コントローラー→web.phpを通ってfollows.followListへ表示させる。変数はfollow_icons(複数形にする)
     //フォロワーリスト
     public function followerList(){
-        return view('follows.followerList');
+        $follower_icons = User::
+        WhereIn('id' , Auth::user()->followers()->pluck('following_id'))
+        ->get();
+
+        $follower_posts = Post::
+        whereIn('user_id', Auth::user()->followers()->pluck('following_id'))
+        ->get();
+        return view('follows.followerList', compact('follower_icons', 'follower_posts'));
     }
 
     //フォローするユーザーがログインしているかどうか確認
