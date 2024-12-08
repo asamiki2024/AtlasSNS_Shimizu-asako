@@ -47,6 +47,8 @@ Route::get('/top','PostsController@index')->middleware('auth');
 
 Route::get('/profile','UsersController@profile')->middleware('auth');
 
+Route::get('/Usersprofile','UsersController@Usersprofile');
+
 Route::get('/search','UsersController@usersearch')->middleware('auth')->name('users.usersearch');
 //ユーザー検索
 

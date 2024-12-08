@@ -2,6 +2,9 @@
 
 @section('content')
 プロフィール編集
-<a><img src="{{ asset('images/' . Auth::user()->images ) }}" /></a>
-
+<div class="profile">
+    <a><img src="{{ asset('images/' . Auth::user()->images ) }}" /></a>
+    {{ Form::label('ユーザー名') }}  {{ Form::input('text', 'upUsername') }}
+    {{ Form::label('メールアドレス') }} {{ Form::input}}
+</div>
 @endsection
