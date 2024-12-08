@@ -6,22 +6,34 @@ html{
 
 body{
     height: 100%;
-    background: #186AC9;
+    background: #1E90FF;
 }
 
+.log_top img, .log_top p{
+    width: 120px;
+    padding: 10px;
+    margin:0 auto;
+    display: block;
+    color: #FFF;
+}
 .log{
     background-color: #ccd8ff;
     padding: 50px 0;
     /* ログイン画面グラデーション */
-    background-color: #D9AFD9;
-    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    height: 100vh;
+    background-color: 	#FFD700;
+    background-image: linear-gradient(0deg,	#FFD700 20%, #1E90FF 100%);
 }
-.login-page{
+.login-page, .shinki-btn{
     width: 100px;
     height: 100px;
-    background-color: #4773ff;
+    background-color:#1E90FF ;
     margin: 0 auto;
-    height: 100vh;
-    
+    margin-bottom: 20px;
+    color: #FFF;
+}
+
+.login-page-label,text {
+    display: block;
 }
 /* ログイン、ログアウトはログアウトCSSに記述する */
