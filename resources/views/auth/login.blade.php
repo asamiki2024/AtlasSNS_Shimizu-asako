@@ -5,7 +5,8 @@
 <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/login']) !!}
 
-    <div class="login-page">AtlasSNSへようこそ
+    <div class="login-page">
+        <h1>AtlasSNSへようこそ</h1>
 
         {{ Form::label('メールアドレス') }}
         {{ Form::text('mail',null,['class' => 'input']) }}
