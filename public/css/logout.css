@@ -9,12 +9,23 @@ body{
     background: #1E90FF;
 }
 
-.log_top img, .log_top p{
-    width: 120px;
+.log_top img{
+    width: 100px;
+    padding: 10px;
+}
+
+.log_top p{
+    width: 200px;
+    padding: 10px;
+}
+
+.log_top{
+    width: 350px;
     padding: 10px;
     margin:0 auto;
     display: block;
     color: #FFF;
+    text-align: center;
 }
 .log_top p{
     font-weight: bold;
@@ -36,14 +47,15 @@ body{
     border-radius: 5px;
 }
 .login-page, .shinki-btn{
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
     padding: 20px;
     margin: 0 auto;
     font-size: 15px;
     justify-content: center;
     margin-bottom: 20px;
     color: #FFF;
+    text-align: center;
 }
 
 .login-page-label,text {
