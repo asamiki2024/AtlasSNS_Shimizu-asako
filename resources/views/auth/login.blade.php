@@ -6,16 +6,16 @@
 {!! Form::open(['url' => '/login']) !!}
 
     <div class="login-page">
-        <h1>AtlasSNSへようこそ</h1>
+        <h1 class="title">AtlasSNSへようこそ</h1>
 
         {{ Form::label('メールアドレス') }}
         {{ Form::text('mail',null,['class' => 'input']) }}
         {{ Form::label('パスワード') }}
         {{ Form::password('password',['class' => 'input']) }}
 
-        {{ Form::submit('ログイン') }}
+        {{ Form::submit('ログイン',['class' => 'btn btn-danger']) }}
 
-        <p><a class="shinki-btn" href="/register">新規ユーザーの方はこちら</a></p>
+        <p><a href="/register">新規ユーザーの方はこちら</a></p>
     </div>
 </section>
 {!! Form::close() !!}
