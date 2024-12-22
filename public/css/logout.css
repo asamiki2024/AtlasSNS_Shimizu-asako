@@ -19,7 +19,6 @@ body{
 }
 
 .log_top{
-    width: 350px;
     padding: 10px;
     margin:0 auto;
     display: block;
@@ -28,7 +27,7 @@ body{
 }
 .log_top p{
     font-weight: bold;
-    font-size: 25px;
+    font-size: 45px;
 }
 .log{
     background-color: #ccd8ff;
@@ -44,13 +43,14 @@ body{
     border: 3px solid #708090;
     opacity: 0.8;
     border-radius: 5px;
+    color: #FFF !important;
 }
 .login-page, .login-page p{
     width: 350px;
-    padding: 20px;
+    /* パディングを細かく指定してCSS記述する */
     margin: 0 auto;
     margin-bottom: 20px;
-    color: #FFF;
+    color: #FFF !important;
 }
 
 .login-page label,input{
@@ -59,6 +59,10 @@ body{
 
 .title, .login-page p{
     text-align: center;
+}
+
+.title{
+    margin-bottom: 20px;
 }
 
 /* 新規登録ページ */
@@ -73,8 +77,7 @@ body{
 
 .register-top, .register a{
     background-color:#708090 ;
-    border: 3px solid #708090;
-    opacity: 0.8;
+    /* バックグラウンドカラーの後ろに透明度指定する */
     border-radius: 5px;
 }
 .register-top, .register p{
@@ -93,7 +96,7 @@ body{
     text-align: center;
 }
 
-.btn btn-danger{
+.btn, .btn-danger{
     text-align: right;
 }
 /* ログイン、ログアウトはログアウトCSSに記述する */
