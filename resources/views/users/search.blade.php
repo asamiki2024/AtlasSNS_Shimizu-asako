@@ -31,8 +31,9 @@
     @endforeach
     </table>
     <!-- FollowsControllerのフォロー処理メゾットにweb.phpを通って移動する -->
-     <!-- FollowsControllerのフォロー解除処理メゾットにweb.phpを通って移動する -->
-      <!-- foreachの中で使用する変数は、foreachの()の中を参考にする。 -->
-       <!-- user.phpなどのモデルに書いたメソッドはブレードでも使用可能 -->
+    <!-- FollowsControllerのフォロー解除処理メゾットにweb.phpを通って移動する -->
+    <!-- foreachの中で使用する変数は、foreachの()の中を参考にする。 -->
+    <!-- user.phpなどのモデルに書いたメソッドはブレードでも使用可能 -->
+    <!-- ページの動きの流れ　ブレード→web.php→コントローラーのメゾット→書いてある処理を行いブレードに戻ってくる。処理された動きをしたものがページに表示される。 -->
 </div>
 @endsection

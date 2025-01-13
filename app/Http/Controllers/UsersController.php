@@ -9,9 +9,13 @@ use App\User;
 class UsersController extends Controller
 {
     //
-    public function profile(){
+    public function profileCreate(Request $request){
+        $input = $request->input('userName');
+        User::create(['text' => $input]);
         return view('users.profile');
     }
+    //プロフィール編集のメゾット
+
     public function search(){
         return view('users.search');
     }
