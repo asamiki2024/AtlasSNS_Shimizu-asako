@@ -39,23 +39,16 @@ body{
 }
 
 .login-page{
-    background-color:#708090 ;
-    border: 3px solid #708090;
-    opacity: 0.5;
-    border-radius: 5px
-}
-
-.login-page{
-    width: 350px;
+    width: 400px;
+    height: 400px;
     /* パディングを細かく指定してCSS記述する */
     margin: 0 auto;
     margin-bottom: 20px;
     color: #FFF !important;
+    background-color:rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
 }
 .login-page a{
-    background-color:#708090 ;
-    border: 3px solid #708090;
-    border-radius: 5px;
     color: #FFF !important;
 }
 
@@ -66,19 +59,25 @@ body{
     margin: 0 auto;
     margin-bottom: 20px;
     color: #FFF !important;
+    text-align: center;
 }
 
-.login-page label,input{
+.login-page label{
     display: block;
 }
 
+.login-page input{
+    display: block;
+}
+
+.input-mail,.input-password{
+    width: 100%;
+    border-radius: 5px;
+    line-height: 2;
+}
 .title{
     text-align: center;
     margin-bottom: 20px;
-}
-
-.login-page p{
-    text-align: center;
 }
 
 /* 新規登録ページ */
@@ -92,18 +91,18 @@ body{
 }
 
 .register-top{
-    background-color:#708090 ;
+    background-color:rgba(0, 0, 0, 0.2);
     /* バックグラウンドカラーの後ろに透明度指定する */
     border-radius: 5px;
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    color: #FFF;
 }
 
 .register a{
-    background-color:#708090 ;
-    /* バックグラウンドカラーの後ろに透明度指定する */
-    border-radius: 5px;
-}
-
-.register-top, .register p{
     width: 350px;
     padding: 20px;
     margin: 0 auto;
@@ -111,15 +110,27 @@ body{
     color: #FFF;
 }
 
-.register-top label,input{
+.register-top label{
     display: block;
 }
 
-.title2, .register-top p{
+.register-top input{
+    display: block;
+}
+
+.title2{
     text-align: center;
 }
 
-.btn, .btn-danger{
+.register-top p{
+    text-align: center;
+}
+
+.btn{
+    text-align: right;
+}
+
+.btn-danger{
     text-align: right;
 }
 /* ログイン、ログアウトはログアウトCSSに記述する */

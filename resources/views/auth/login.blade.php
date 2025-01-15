@@ -9,9 +9,9 @@
         <h1 class="title">AtlasSNSへようこそ</h1>
 
         {{ Form::label('メールアドレス') }}
-        {{ Form::text('mail',null,['class' => 'input']) }}
+        {{ Form::text('mail',null,['class' => 'input-mail']) }}
         {{ Form::label('パスワード') }}
-        {{ Form::password('password',['class' => 'input']) }}
+        {{ Form::password('password',['class' => 'input-password']) }}
 
         {{ Form::submit('ログイン',['class' => 'btn btn-danger']) }}
 
