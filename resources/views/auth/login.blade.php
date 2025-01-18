@@ -10,6 +10,7 @@
 
         {{ Form::label('メールアドレス') }}
         {{ Form::text('mail',null,['class' => 'input-mail']) }}
+        <p></p>
         {{ Form::label('パスワード') }}
         {{ Form::password('password',['class' => 'input-password']) }}
 

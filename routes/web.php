@@ -45,7 +45,6 @@ Route::get('/logout', 'Auth\LoginController@logout');
 //ログイン閲覧制限、ミドルウェアを使用し、URLに/topなどのログイン中のページを開いてもログインページに飛ぶ仕組みになっている。
 Route::get('/top','PostsController@index')->middleware('auth');
 
-Route::get('/profile','UsersController@profile')->middleware('auth');
 
 Route::get('/Usersprofile','UsersController@Usersprofile');
 
@@ -69,5 +68,7 @@ Route::post('/unfollow/{user}', 'FollowsController@unfollow');
 // Route::get('/search/usersearch','UsersController@usersearch')->name('users.usersearch');
 // Auth::routes();
 
-//投稿数カウント数表示させる
-// Route::get('/top', 'PostsController@postCounts');
+//プロフィール編集ページを表示させる
+Route::get('/profile','UsersController@profile')->middleware('auth');
+//プロフィール編集し、更新する処理
+Route::get('/profile/Update_profile','UsersController@Update_profile');

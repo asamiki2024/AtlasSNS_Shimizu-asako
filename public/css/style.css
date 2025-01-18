@@ -232,4 +232,18 @@ header{
     border-left: 1px solid #727272;
 }
 
+/* プロフィール編集ページ */
+.profile{
+    text-align: center;
+}
+
+.form-group{
+    display: block;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.form-group p{
+    padding: 10px 0;
+}
 /* !important　強制的に表示させる */

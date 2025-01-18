@@ -8,38 +8,47 @@ use App\User;
 
 class UsersController extends Controller
 {
-    //
-    public function profile(){
-        return view('users.profile');
-    }
-    //プロフィール編集のメゾット
-
+    
     public function search(){
         return view('users.search');
     }
-     //検索処理
-   public function usersearch(Request $request)
-   {
-    //1つめの処理
-    $keyword = $request->input('keyword');
-    //キーワードに文字が入ると検索処理がされる。
-    
-    //2つめの処理
-    if(!empty($keyword))
-    //ユーザー検索欄がどう入力されているかでどうなるのかを条件分岐している。
-        {
-            $search_user = User::where('username', 'like', '%'.$keyword.'%')->get();
-            //キーワードが入っていたら、ユーザー名、曖昧検索でもヒットさせる。
-        }else{
-            $search_user = User::all();
-            //何もキーワードが入っていなければユーザー全て表示させる。
-        }
+    //検索処理
+    public function usersearch(Request $request)
+    {
+        //1つめの処理
+        $keyword = $request->input('keyword');
+        //キーワードに文字が入ると検索処理がされる。
+        
+        //2つめの処理
+        if(!empty($keyword))
+        //ユーザー検索欄がどう入力されているかでどうなるのかを条件分岐している。
+    {
+        $search_user = User::where('username', 'like', '%'.$keyword.'%')->get();
+        //キーワードが入っていたら、ユーザー名、曖昧検索でもヒットさせる。
+    }else{
+        $search_user = User::all();
+        //何もキーワードが入っていなければユーザー全て表示させる。
+    }
     //3つめの処理
-        return view('users.search',['search_user'=>$search_user , 'keyword'=>$keyword]);
-        //UsersControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。キーワードワードも同じく。
-    }
+    return view('users.search',['search_user'=>$search_user , 'keyword'=>$keyword]);
+    //UsersControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。キーワードワードも同じく。
+}
 
-    public function Usersprofile(){
-        return view('users.Usersprofile');
-    }
+//プロフィール編集画面を表示させるメゾット
+public function profile(){
+    return view('users.profile');
+}
+
+//プロフィール編集のメゾット
+public function Update_profile(Request $request){
+    // $user = Auth::user();
+    // $user->Update_profile($request->all());
+    // $input =$request->validated();
+    return redirect('user.profile');
+}
+
+//フォロワーさんたちのページを表示させるメゾット
+public function Usersprofile(){
+    return view('users.Usersprofile');
+}
 }
