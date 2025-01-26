@@ -34,9 +34,9 @@ body{
 }
 
 .login-page{
-    width: 30%;
+    width: 25%;
     height: 55%;
-    padding: 5%;
+    padding: 3%;
     /* パディングを細かく指定してCSS記述する */
     margin: 0 auto;
     margin-bottom: 20px;
@@ -78,9 +78,10 @@ body{
     opacity: 0.8;
 }
 
-/* ボタンの配置移動したいが出来ない */
+/* ボタンの配置移動marginで右０、左オートで設定すると右寄せになる */
 .btn-login{
-    right: 0;
+    margin-right: 0;
+    margin-left: auto;
 }
 
 /* 新規登録ページ */
@@ -129,4 +130,8 @@ body{
     text-align: center;
 }
 
+.btn-register{
+    margin-right: 0;
+    margin-left: auto;
+}
 /* ログイン、ログアウトはログアウトCSSに記述する */

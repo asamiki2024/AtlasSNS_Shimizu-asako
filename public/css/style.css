@@ -240,6 +240,8 @@ header{
 .form-group{
     display: flex;
     margin: auto;
+    justify-content: center;
+    /* 水平方向の中央寄せ */
 }
 
 .form-group p{
@@ -251,7 +253,16 @@ header{
     width: 50px;
 }
 
-.form-group label{
+.form-space{
     width: 30%;
+}
+
+.form-space label{
+    display: inline-block;
+    width: 40%;
+}
+
+.btn-profile{
+    text-align: center;
 }
 /* !important　強制的に表示させる */

@@ -32,20 +32,47 @@ class UsersController extends Controller
     //3つめの処理
     return view('users.search',['search_user'=>$search_user , 'keyword'=>$keyword]);
     //UsersControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。キーワードワードも同じく。
-}
+    }
 
 //プロフィール編集画面を表示させるメゾット
 public function profile(){
     return view('users.profile');
 }
 
-//プロフィール編集のメゾット
+// プロフィール編集のメゾット
 public function Update_profile(Request $request){
-    // $user = Auth::user();
-    // $user->Update_profile($request->all());
-    // $input =$request->validated();
+    // データを受け取り表示させる
+    $id = Auth::user()->id;
+    $up_username = $request->input('up_username');
+    $up_mail = $request->input('up_mail');
+    $up_password = $request->input('up_password');
+    $up_password_confirmation = $request->input('up_password_confirmation');
+    $up_bio = $request->input('up_bio');
+    $up_images = $request->input('up_images');
+
+    // データを編集
+    User::where('id', $id)->update([
+        'username' => $up_username,
+        'mail' => $up_mail,
+        'password' => $up_password,
+        'password_confirmation' =>$up_password_confirmation,
+        'bio' => $up_bio,
+        'images' => $up_images
+    ]);
+    //プロフィール編集ページのバリテーション機能
+        //バリデーション　required=入力必須 min=最小の文字数 max=最大の文字数 alpha_num=英数字のみ unique=登録済みメールアドレスがないかをusersのmailカラムから探すことが出来る。
+        //confirmed=パスワードが同じものが入力されているか確認処理している email=メールアドレス形式になっているかの処理
+        $request->validate([
+            'username' => 'required|min:2|max:12',
+            'mail' => 'required|email|unique:users,mail|min:5|max:40',
+            'password' => 'required|alpha_num|min:8|max:20|confirmed',
+            'password_confirmation' => 'required|alpha_num|min:8|max:20',
+            'bio' => 'max:150',
+            'images' => 'file|image|mimes:jpg,png,bmp,gif,svg'
+        ]);
     return redirect('user.profile');
 }
+
 
 //フォロワーさんたちのページを表示させるメゾット
 public function Usersprofile(){
