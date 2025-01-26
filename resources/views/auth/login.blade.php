@@ -14,7 +14,7 @@
         {{ Form::label('パスワード') }}
         {{ Form::password('password',['class' => 'input-password']) }}
 
-        {{ Form::submit('ログイン',['class' => 'btn btn-danger']) }}
+        {{ Form::submit('ログイン',['class' => 'btn btn-danger btn-login']) }}
 
         <p><a href="/register">新規ユーザーの方はこちら</a></p>
     </div>

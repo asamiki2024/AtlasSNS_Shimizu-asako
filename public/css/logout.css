@@ -11,7 +11,6 @@ body{
 
 .log_top img{
     width: 150px;
-    padding: 10px;
 }
 
 .log_top{
@@ -23,7 +22,7 @@ body{
 }
 .log_top p{
     font-weight: bold;
-    font-size: 45px;
+    font-size: 240%;
 }
 .log{
     background-color: #ccd8ff;
@@ -35,8 +34,9 @@ body{
 }
 
 .login-page{
-    width: 400px;
-    height: 400px;
+    width: 30%;
+    height: 55%;
+    padding: 5%;
     /* パディングを細かく指定してCSS記述する */
     margin: 0 auto;
     margin-bottom: 20px;
@@ -60,7 +60,6 @@ body{
 
 .login-page label{
     display: block;
-    opacity: 0.8;
 }
 
 .login-page input{
@@ -80,8 +79,8 @@ body{
 }
 
 /* ボタンの配置移動したいが出来ない */
-.btn.btn-danger{
-    text-align: right;
+.btn-login{
+    right: 0;
 }
 
 /* 新規登録ページ */
@@ -130,11 +129,4 @@ body{
     text-align: center;
 }
 
-.btn{
-    text-align: right;
-}
-
-.btn-danger{
-    text-align: right;
-}
 /* ログイン、ログアウトはログアウトCSSに記述する */
