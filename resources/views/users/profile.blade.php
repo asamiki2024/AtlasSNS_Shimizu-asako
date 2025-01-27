@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="profile">
-    {!! Form::open(['url' => '/users/profile']) !!}
+    {!! Form::open(['url' => '/top']) !!}
     <div class="form-group">
         <img src="{{ asset('images/' . Auth::user()->images ) }}" />
         <div class="form-space">

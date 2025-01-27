@@ -70,7 +70,7 @@ public function Update_profile(Request $request){
             'bio' => 'max:150',
             'images' => 'file|image|mimes:jpg,png,bmp,gif,svg'
         ]);
-    return redirect('user.profile');
+    return redirect('/top');
 }
 
 
