@@ -32,9 +32,6 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
 
-//投稿した内容をtopへ送る処理
-// Route::get('/top', 'PostsController@postCreate')->name('post.create');
-Route::post('/top', 'PostsController@postCreate')->name('post.create');
 
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
@@ -54,6 +51,10 @@ Route::get('/search','UsersController@usersearch')->middleware('auth')->name('us
 Route::get('/follow-list','FollowsController@followList')->middleware('auth')->name('follow_icon');
 Route::get('/follower-list','FollowsController@followerList')->middleware('auth');
 
+//投稿した内容をtopへ送る処理
+// Route::get('/top', 'PostsController@postCreate')->name('post.create');
+Route::post('/top', 'PostsController@postCreate')->name('post.create');
+
 //投稿内容を編集し、投稿を更新する処理
 Route::get('/post/update','PostsController@update');
 //投稿を削除する処理
@@ -69,6 +70,6 @@ Route::post('/unfollow/{user}', 'FollowsController@unfollow');
 // Auth::routes();
 
 //プロフィール編集ページを表示させる
-Route::get('/profile','UsersController@profile')->middleware('auth');
+Route::post('/top','UsersController@profileCreate')->middleware('auth')->name('profile.create');
 //プロフィール編集し、更新する処理
-Route::get('/profile/Update_profile','UsersController@Update_profile');
+Route::get('/profile/update_profile','UsersController@update_profile');

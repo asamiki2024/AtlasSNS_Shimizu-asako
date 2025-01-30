@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="profile">
-    {!! Form::open(['url' => '/top']) !!}
+    <form action = "/top" method="post">
+    {!! Form::open(['url' => '/profile/update_profile']) !!}
     <div class="form-group">
         <img src="{{ asset('images/' . Auth::user()->images ) }}" />
         <div class="form-space">
@@ -28,6 +29,7 @@
             {!! Form::close() !!}
         </div>
     </div>
+    </form>
     <!-- 入力エラー文表示 -->
     @if($errors->any())
     <div class="profile-error">
