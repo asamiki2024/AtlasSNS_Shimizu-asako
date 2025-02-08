@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="profile">
-    <form action = "/top" method="post">
-    {!! Form::open(['url' => '/profile/update_profile']) !!}
+    {!! Form::open(['url' => '/update_profile']) !!}
     <div class="form-group">
         <img src="{{ asset('images/' . Auth::user()->images ) }}" />
         <div class="form-space">
@@ -17,7 +16,7 @@
             {{ Form::input('password', 'up_password', 'null' ) }}
             <p class="profile-p"></p>
             {{ Form::label('パスワード確認') }}
-            {{ Form::input('password_confirmation', 'up_password_confirmation', null ) }}
+            {{ Form::input('password', 'up_password', null ) }}
             <p class="profile-p"></p>
             {{ Form::label('自己紹介') }}
             {{ Form::input('bio', 'up_bio', old('bio', Auth::user()->bio ) ) }}
@@ -29,7 +28,6 @@
             {!! Form::close() !!}
         </div>
     </div>
-    </form>
     <!-- 入力エラー文表示 -->
     @if($errors->any())
     <div class="profile-error">

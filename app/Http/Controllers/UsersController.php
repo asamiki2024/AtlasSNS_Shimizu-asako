@@ -35,59 +35,39 @@ class UsersController extends Controller
     }
 
     //プロフィール編集画面を表示させるメゾット
-    public function profileCreate(Request $request)
+    public function profile()
     {
-        //プロフィール編集ページのバリテーション機能
-        //バリデーション　required=入力必須 min=最小の文字数 max=最大の文字数 alpha_num=英数字のみ unique=登録済みメールアドレスがないかをusersのmailカラムから探すことが出来る。
-        //confirmed=パスワードが同じものが入力されているか確認処理している email=メールアドレス形式になっているかの処理
-        $request->validate([
-            'username' => 'required|min:2|max:12',
-            'mail' => 'required|email|unique:users,mail|min:5|max:40',
-            'password' => 'required|alpha_num|min:8|max:20|confirmed',
-            'password_confirmation' => 'required|alpha_num|min:8|max:20',
-            'bio' => 'max:150',
-            'images' => 'file|image|mimes:jpg,png,bmp,gif,svg'
-        ]);
-        // データを受け取り表示させる
-        $pr_id = Auth::user()->id;
-        $pr_username = $request->input('pr_username');
-        $pr_mail = $request->input('pr_mail');
-        $pr_password = $request->input('pr_password');
-        $pr_password_confirmation = $request->input('pr_password_confirmation');
-        $pr_bio = $request->input('pr_bio');
-        $pr_images = $request->input('pr_images');
-        //内容の登録
-        User::create([
-            'pr_id' => $pr_id,
-            'pr_username' => $pr_username,
-            'pr_mail' => $pr_mail,
-            'pr_password' => $pr_password,
-            'pr_password_confirmation' => $pr_password_confirmation,
-            'pr_bio' => $pr_bio,
-            'pr_images' => $pr_images
-        ]);
-        return redirect('/top');
+        return view('users.profile');
     }
 
 // プロフィール編集のメゾット
     public function update_profile(Request $request){
-        //1つめの処理
+        //1つめの処理情報の受け渡し
         $up_id = $request->input('up_id');
         $up_username = $request->input('up_username');
         $up_mail = $request->input('up_mail');
         $up_password = $request->input('up_password');
-        $up_password_confirmation = $request->input('up_password_confirmation');
+        // $up_password_confirmation = $request->input('up_password_confirmation');
         $up_bio = $request->input('up_bio');
         $up_images = $request->input('up_images');
         //2つめの処理　データを編集
-        User::where('id', $id)->update([
+        User::where('id', $up_id)->update([
         'username' => $up_username,
         'mail' => $up_mail,
         'password' => $up_password,
-        'password_confirmation' =>$up_password_confirmation,
+        // 'password_confirmation' =>$up_password,
         'bio' => $up_bio,
         'images' => $up_images
         ]);
+        //2つめの処理バリテーション
+        $request->validate([
+            'username' => 'required|min:2|max:12',
+            'mail' => 'required|email|unique:users,mail|min:5|max:40',
+            'password' => 'required|alpha_num|min:8|max:20|confirmed',
+            'bio' => 'max:150',
+            'images' => 'file|image|mimes:jpg,png,bmp,gif,svg'
+        ]);
+
         //3つめの処理
         return redirect('/top');
     }
