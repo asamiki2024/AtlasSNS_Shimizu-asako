@@ -42,33 +42,36 @@ class UsersController extends Controller
 
 // プロフィール編集のメゾット
     public function update_profile(Request $request){
+        // $user = Auth::user();
+        //1つめの処理バリテーション
+        // $request->validate([
+            // 'username' => 'required|min:2|max:12',
+            // 'mail' => 'required|email|unique:users,mail|min:5|max:40',
+            // 'password' => 'required|alpha_num|min:8|max:20|confirmed',
+            // 'bio' => 'max:150',
+            // 'images' => 'file|image|mimes:jpg,png,bmp,gif,svg'
+        // ]);
         //1つめの処理情報の受け渡し
-        $up_id = $request->input('up_id');
-        $up_username = $request->input('up_username');
-        $up_mail = $request->input('up_mail');
-        $up_password = $request->input('up_password');
+        $id = $request->input('id');
+        $username = $request->input('username');
+        $mail = $request->input('mail');
+        $password = $request->input('password');
         // $up_password_confirmation = $request->input('up_password_confirmation');
-        $up_bio = $request->input('up_bio');
-        $up_images = $request->input('up_images');
+        $bio = $request->input('bio');
+        $icon = $request->input('icon');
         //2つめの処理　データを編集
-        User::where('id', $up_id)->update([
-        'username' => $up_username,
-        'mail' => $up_mail,
-        'password' => $up_password,
+        $update = [
+        'username' => 'やまだ花子',
+        'mail' => 'yamada@ne.jp',
+        'password' => '1111yamada',
         // 'password_confirmation' =>$up_password,
-        'bio' => $up_bio,
-        'images' => $up_images
-        ]);
-        //2つめの処理バリテーション
-        $request->validate([
-            'username' => 'required|min:2|max:12',
-            'mail' => 'required|email|unique:users,mail|min:5|max:40',
-            'password' => 'required|alpha_num|min:8|max:20|confirmed',
-            'bio' => 'max:150',
-            'images' => 'file|image|mimes:jpg,png,bmp,gif,svg'
-        ]);
+        'bio' => 'よろしくお願いします。',
+        'images' => 'icon'
+        ];
+        
 
         //3つめの処理
+        User::where('id', $id)->update([$update]);
         return redirect('/top');
     }
 

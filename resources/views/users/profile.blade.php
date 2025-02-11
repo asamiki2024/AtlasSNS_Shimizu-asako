@@ -7,22 +7,22 @@
         <img src="{{ asset('images/' . Auth::user()->images ) }}" />
         <div class="form-space">
             {{ Form::label('ユーザー名') }}
-            {{ Form::input('username', 'up_username', old('username', Auth::user()->username )) }}
+            {{ Form::input('text', 'username', old('username', Auth::user()->username )) }}
             <p class="profile-p"></p>
             {{ Form::label('メールアドレス') }}
-            {{ Form::input('mail', 'up_mail', old('mail', Auth::user()->mail ) ) }}
+            {{ Form::input('mail', 'mail', old('mail', Auth::user()->mail ) ) }}
             <p class="profile-p"></p>
             {{ Form::label('パスワード') }}
-            {{ Form::input('password', 'up_password', 'null' ) }}
+            {{ Form::input('password', 'password', 'null' ) }}
             <p class="profile-p"></p>
             {{ Form::label('パスワード確認') }}
-            {{ Form::input('password', 'up_password', null ) }}
+            {{ Form::input('password', 'password', null ) }}
             <p class="profile-p"></p>
             {{ Form::label('自己紹介') }}
-            {{ Form::input('bio', 'up_bio', old('bio', Auth::user()->bio ) ) }}
+            {{ Form::input('bio', 'bio', old('bio', Auth::user()->bio ) ) }}
             <p class="profile-p"></p>
             {{ Form::label('アイコン画像') }}
-            {{ Form::input('images', 'up_images') }}
+            {{ Form::input('images', 'images') }}
             <p class="profile-p"></p>
             {{ Form::submit('更新',['class' => 'btn btn-danger btn-profile']) }}
             {!! Form::close() !!}
