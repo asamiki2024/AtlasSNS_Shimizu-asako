@@ -3,9 +3,12 @@
 @section('content')
 <div class="profile">
     {!! Form::open(['url' => '/update_profile']) !!}
+    {{ Form::token() }}
     <div class="form-group">
         <img src="{{ asset('images/' . Auth::user()->images ) }}" />
         <div class="form-space">
+            {{ Form::hidden('id', old('id', Auth::user()->id )) }}
+            <!-- hiddenで非表示にする -->
             {{ Form::label('ユーザー名') }}
             {{ Form::input('text', 'username', old('username', Auth::user()->username )) }}
             <p class="profile-p"></p>
@@ -16,7 +19,7 @@
             {{ Form::input('password', 'password', 'null' ) }}
             <p class="profile-p"></p>
             {{ Form::label('パスワード確認') }}
-            {{ Form::input('password', 'password', null ) }}
+            {{ Form::input('password_confirmation', 'password_confirmation', null ) }}
             <p class="profile-p"></p>
             {{ Form::label('自己紹介') }}
             {{ Form::input('bio', 'bio', old('bio', Auth::user()->bio ) ) }}

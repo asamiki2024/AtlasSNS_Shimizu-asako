@@ -42,15 +42,16 @@ class UsersController extends Controller
 
 // プロフィール編集のメゾット
     public function update_profile(Request $request){
+        // dd($request);
         // $user = Auth::user();
         //1つめの処理バリテーション
-        // $request->validate([
-            // 'username' => 'required|min:2|max:12',
-            // 'mail' => 'required|email|unique:users,mail|min:5|max:40',
-            // 'password' => 'required|alpha_num|min:8|max:20|confirmed',
-            // 'bio' => 'max:150',
+        $request->validate([
+            'username' => 'required|min:2|max:12',
+            'mail' => 'required|email|unique:users,mail|min:5|max:40',
+            'password' => 'required|alpha_num|min:8|max:20|confirmed',
+            'bio' => 'max:150',
             // 'images' => 'file|image|mimes:jpg,png,bmp,gif,svg'
-        // ]);
+        ]);
         //1つめの処理情報の受け渡し
         $id = $request->input('id');
         $username = $request->input('username');
@@ -58,22 +59,34 @@ class UsersController extends Controller
         $password = $request->input('password');
         // $up_password_confirmation = $request->input('up_password_confirmation');
         $bio = $request->input('bio');
-        $icon = $request->input('icon');
+
         //2つめの処理　データを編集
         $update = [
-        'username' => 'やまだ花子',
-        'mail' => 'yamada@ne.jp',
-        'password' => '1111yamada',
+        'username' => $username,
+        'mail' => $mail,
+        'password' => $password,
         // 'password_confirmation' =>$up_password,
-        'bio' => 'よろしくお願いします。',
-        'images' => 'icon'
+        'bio' => $bio,
+        // 'images' => 'icon'
         ];
-        
-
         //3つめの処理
-        User::where('id', $id)->update([$update]);
+        User::where('id', $id)->update(['username' =>$username, 'mail' =>$mail, 'password' =>$password, 'bio' =>$bio]);
         return redirect('/top');
     }
+
+        //画像の保存
+        // public function store(Request $request){
+        // $user = new User;
+        // $images = $request->file('images')->store('public/');
+        // $user->images = besename($imagesup);
+        // $user->save();
+        // return redirect()->route('/top');
+
+        // public function upimages(){
+            // $user = User::all();
+            // return view('i')
+        // }
+    // }
 
 
 //フォロワーさんたちのページを表示させるメゾット
