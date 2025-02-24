@@ -27,6 +27,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $casts = [
+        'password' => HashMake::class,
+    ];
+    
     // リレーション定義を追加（1対多の多）
     public function post(){
         return $this->hasMany('App\Post');

@@ -19,13 +19,14 @@
             {{ Form::input('password', 'password', 'null' ) }}
             <p class="profile-p"></p>
             {{ Form::label('パスワード確認') }}
-            {{ Form::input('password_confirmation', 'password_confirmation', null ) }}
+            {{ Form::input('password', 'password_confirmation', null ) }}
             <p class="profile-p"></p>
             {{ Form::label('自己紹介') }}
             {{ Form::input('bio', 'bio', old('bio', Auth::user()->bio ) ) }}
             <p class="profile-p"></p>
             {{ Form::label('アイコン画像') }}
-            {{ Form::input('images', 'images') }}
+            {{ Form::input('file','images') }}
+            <!-- fileでブレードにアップロード用の選択画面を表示 -->
             <p class="profile-p"></p>
             {{ Form::submit('更新',['class' => 'btn btn-danger btn-profile']) }}
             {!! Form::close() !!}

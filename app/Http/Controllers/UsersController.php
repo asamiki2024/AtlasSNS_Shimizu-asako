@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\support\Facades\Hash;
+//use宣言をしてプロフィール編集のパスワードのハッシュ化させる。
 use App\User;
 //use宣言をしてappの中にあるusersテーブルからデータを受け取る。
 
@@ -49,15 +51,18 @@ class UsersController extends Controller
             'username' => 'required|min:2|max:12',
             'mail' => 'required|email|unique:users,mail|min:5|max:40',
             'password' => 'required|alpha_num|min:8|max:20|confirmed',
+            'password_confirmation' => 'required|alpha_num|min:8|max:20|string',
             'bio' => 'max:150',
-            // 'images' => 'file|image|mimes:jpg,png,bmp,gif,svg'
+            'images' => 'file|image|mimes:jpg,png,bmp,gif,svg'
         ]);
         //1つめの処理情報の受け渡し
         $id = $request->input('id');
         $username = $request->input('username');
         $mail = $request->input('mail');
-        $password = $request->input('password');
-        // $up_password_confirmation = $request->input('up_password_confirmation');
+        $password = bcrypt($request->input('password'));
+        //bcryptでパスワードのハッシュ化される。
+        // $password_confirmation = Hash::make($password);
+        //パスワードをハッシュ化させてデータベースでも分からない様に暗号化させる。
         $bio = $request->input('bio');
 
         //2つめの処理　データを編集
@@ -65,23 +70,33 @@ class UsersController extends Controller
         'username' => $username,
         'mail' => $mail,
         'password' => $password,
-        // 'password_confirmation' =>$up_password,
+        // 'password_confirmation' => Hash::make([$password]),
         'bio' => $bio,
         // 'images' => 'icon'
         ];
         //3つめの処理
-        User::where('id', $id)->update(['username' =>$username, 'mail' =>$mail, 'password' =>$password, 'bio' =>$bio]);
+        User::where('id', $id)->update(['username' =>$username, 'mail' =>$mail, 'password' =>$password,  'bio' =>$bio]);
         return redirect('/top');
     }
 
+        //パスワードのハッシュ化使わなかったもの
+        // public function save(UserRequest $request, User $user){
+            // $user->fill(array_merge($request->all(), ['password' => Hash::make($request->password)]) -> save();
+            // return redirect('/top')
+        // }
+
         //画像の保存
-        // public function store(Request $request){
-        // $user = new User;
-        // $images = $request->file('images')->store('public/');
+        public function store(Request $request){
+        $filename = $request->file('image-icon')->getClientOriginalName();
+        //ファイルに名前を付けて保存
+        // $imag_up = $request->imgpath->store('image-icon');
+        $imag_up = Storage('/public/images');
         // $user->images = besename($imagesup);
         // $user->save();
-        // return redirect()->route('/top');
+        return redirect('/top');
+        }
 
+        //
         // public function upimages(){
             // $user = User::all();
             // return view('i')
