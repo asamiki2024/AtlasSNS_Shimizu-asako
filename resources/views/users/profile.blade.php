@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="profile">
-    {!! Form::open(['url' => '/update_profile']) !!}
+    {!! Form::open(['url' => '/update_profile', 'enctype' => 'multipart/form-data']) !!}
     {{ Form::token() }}
     <div class="form-group">
         <img src="{{ asset('images/' . Auth::user()->images ) }}" />

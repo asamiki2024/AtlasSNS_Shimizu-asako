@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\Hash;
 //use宣言をしてプロフィール編集のパスワードのハッシュ化させる。
+use Illuminate\Support\Facades\Storage;
+//use宣言をして写真を保存させる。
 use App\User;
 //use宣言をしてappの中にあるusersテーブルからデータを受け取る。
 
@@ -53,7 +55,7 @@ class UsersController extends Controller
             'password' => 'required|alpha_num|min:8|max:20|confirmed',
             'password_confirmation' => 'required|alpha_num|min:8|max:20|string',
             'bio' => 'max:150',
-            'images' => 'file|image|mimes:jpg,png,bmp,gif,svg'
+            // 'images' => 'file|image|mimes:jpg,png,bmp,gif,svg'
         ]);
         //1つめの処理情報の受け渡し
         $id = $request->input('id');
@@ -86,15 +88,15 @@ class UsersController extends Controller
         // }
 
         //画像の保存
-        public function store(Request $request){
-        $filename = $request->file('image-icon')->getClientOriginalName();
+        // public function store(Request $request){
+        // $filename = $request->file('icons')->getClientOriginalName();
         //ファイルに名前を付けて保存
         // $imag_up = $request->imgpath->store('image-icon');
-        $imag_up = Storage('/public/images');
+        // $icons_up = Storage('/public/images');
         // $user->images = besename($imagesup);
         // $user->save();
-        return redirect('/top');
-        }
+        // return redirect('/top');
+        // }
 
         //
         // public function upimages(){
