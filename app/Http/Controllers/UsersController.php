@@ -55,7 +55,11 @@ class UsersController extends Controller
             'password' => 'required|alpha_num|min:8|max:20|confirmed',
             'password_confirmation' => 'required|alpha_num|min:8|max:20|string',
             'bio' => 'max:150',
-            // 'images' => 'file|image|mimes:jpg,png,bmp,gif,svg'
+            'images' => 'file|image|mimes:jpg,png,bmp,gif,svg'
+            //file=フィールドがアップロード成功したファイルである事を証明すること。
+            //image=指定されたファイルの画像が(jpg,png,bmp,git,svg)であると証明すること。
+            //mimes=フィールドで指定したファイルが拡張子のリストの中にMIMEタイプのどれかに一致する事を証明すること。
+
         ]);
         //1つめの処理情報の受け渡し
         $id = $request->input('id');
@@ -66,18 +70,34 @@ class UsersController extends Controller
         // $password_confirmation = Hash::make($password);
         //パスワードをハッシュ化させてデータベースでも分からない様に暗号化させる。
         $bio = $request->input('bio');
-
+        $icons = $request->input('icons');
         //2つめの処理　データを編集
         $update = [
-        'username' => $username,
-        'mail' => $mail,
-        'password' => $password,
-        // 'password_confirmation' => Hash::make([$password]),
-        'bio' => $bio,
-        // 'images' => 'icon'
+            'username' => $username,
+            'mail' => $mail,
+            'password' => $password,
+            // 'password_confirmation' => Hash::make([$password]),
+            'bio' => $bio,
+            // 'images' => $icons
         ];
+        //画像の保存
+        $icons = $request->file('icons')->getClientOriginalName();
+        //getClientOriginalName=アップロードされたファイルの名前を付けて保存
+        if($icons != null){
+            $icons->photo->store('/public/storage');
+            \DB::table('users')
+            ->where('id', $id)
+            ->update([
+                'images' => basename($icons)
+            ]);
+        }
+        //写真を保存するファイル名とどこのディレクトリに保存するのかを指定
+        // $icons_up = store('/public/images');
+        // $user->images = besename($imagesup);
+        // $user->save();
+
         //3つめの処理
-        User::where('id', $id)->update(['username' =>$username, 'mail' =>$mail, 'password' =>$password,  'bio' =>$bio]);
+        User::where('id', $id)->update(['username' =>$username, 'mail' =>$mail, 'password' =>$password,  'bio' =>$bio , 'images' =>$icons]);
         return redirect('/top');
     }
 
@@ -87,16 +107,7 @@ class UsersController extends Controller
             // return redirect('/top')
         // }
 
-        //画像の保存
-        // public function store(Request $request){
-        // $filename = $request->file('icons')->getClientOriginalName();
-        //ファイルに名前を付けて保存
-        // $imag_up = $request->imgpath->store('image-icon');
-        // $icons_up = Storage('/public/images');
-        // $user->images = besename($imagesup);
-        // $user->save();
-        // return redirect('/top');
-        // }
+        
 
         //
         // public function upimages(){
