@@ -83,7 +83,8 @@ class UsersController extends Controller
         //画像の保存
         $icons = $request->file('icons')->getClientOriginalName();
         //getClientOriginalName=アップロードされたファイルの名前を付けて保存
-            $icons->photo->store('/public/storage');
+        $icons->['icons']->store('/public/storage');
+        dd($icons);
             \DB::table('users')
             ->where('id', $id)
             ->update([
