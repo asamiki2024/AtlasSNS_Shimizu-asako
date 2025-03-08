@@ -83,8 +83,7 @@ class UsersController extends Controller
         //画像の保存
         $icons = $request->file('icons')->getClientOriginalName();
         //getClientOriginalName=アップロードされたファイルの名前を付けて保存
-        $icons->['icons']->store('/public/storage');
-        dd($icons);
+        $iconsPhoto = $request->file('icons')->store('/public/storage');
             \DB::table('users')
             ->where('id', $id)
             ->update([
@@ -115,8 +114,4 @@ class UsersController extends Controller
     // }
 
 
-//フォロワーさんたちのページを表示させるメゾット
-public function Usersprofile(){
-    return view('users.Usersprofile');
-}
 }

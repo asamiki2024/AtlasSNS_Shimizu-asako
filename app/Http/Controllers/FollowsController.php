@@ -111,4 +111,10 @@ class FollowsController extends Controller
         return redirect('/search');
         //FollowsControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。    }
     }
+
+    //アイコンユーザーのプロフィールを取得
+public function followDate($id){
+    Follow::where('id', $id);
+    return redirect('users.Usersprofile');
+}
 }
