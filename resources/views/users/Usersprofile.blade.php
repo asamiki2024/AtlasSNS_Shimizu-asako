@@ -1,11 +1,14 @@
 @extends('layouts.login')
-
 @section('content')
-他ユーザーのプロフィール
-<div class="users-profile">
-    <ul class="details">
-        <a><img src="{{ asset('images/' .$follower_icon->images) }}"></a><li>ユーザー名</li>
-        <li><p>{{ Auth::users()->username }}</p></li>
+@foreach($updates as $update)
+<div class= "users-profile">
+    ユーザーのプロフィール
+    <a href="/followDate"></a>
+    <ul class= "datalist">
+            <li>{{ }}</li>
+            <li>{{ $update->username }}ユーザー名</li>
+            <li>{{ }}自己紹介</li>
     </ul>
-</div>
+    </div>
+    @endforeach
 @endsection

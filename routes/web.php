@@ -44,7 +44,7 @@ Route::get('/top','PostsController@index')->middleware('auth');
 
 
 //フォロワーのアイコンタップで情報表示
-Route::get('/Usersprofile','FollowsController@followDate');
+Route::get('/Usersprofile/{id}/followDate','UsersController@followDate');
 
 Route::get('/search','UsersController@usersearch')->middleware('auth')->name('users.usersearch');
 //ユーザー検索

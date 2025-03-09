@@ -3,7 +3,7 @@
 <div class="followList">フォローリスト</div>
     @foreach($follow_icons as $follow_icon)
     <div class="follow_icon">
-        <p><a href="/Usersprofile"><img src="{{ asset('images/' . $follow_icon->images) }}"></a></p>
+        <p><a href="/Usersprofile/{{$follow_icon->id}}/followDate"><img src="{{ asset('images/' . $follow_icon->images) }}"></a></p>
     </div>
     @endforeach
     @foreach($follow_posts as $follow_post)

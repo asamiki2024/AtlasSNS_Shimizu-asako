@@ -104,14 +104,16 @@ class UsersController extends Controller
             // return redirect('/top')
         // }
 
-        
-
         //
         // public function upimages(){
             // $user = User::all();
             // return view('i')
         // }
     // }
-
+    //アイコンユーザーのプロフィールを取得
+    public function followDate($id){
+        User::where('id', $id)->first();
+        return view('users.Usersprofile');
+    }
 
 }
