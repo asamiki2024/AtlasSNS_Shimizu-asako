@@ -10,13 +10,13 @@
 
         {{ Form::label('メールアドレス') }}
         {{ Form::text('mail',null,['class' => 'input-mail']) }}
-        <p></p>
+        <p class="space"></p>
         {{ Form::label('パスワード') }}
         {{ Form::password('password',['class' => 'input-password']) }}
-
+        <p class="space"></p>
         {{ Form::submit('ログイン',['class' => 'btn btn-danger btn-login']) }}
 
-        <p><a href="/register">新規ユーザーの方はこちら</a></p>
+        <p class="login-p"><a href="/register">新規ユーザーの方はこちら</a></p>
     </div>
 </section>
 {!! Form::close() !!}

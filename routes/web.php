@@ -43,8 +43,10 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/top','PostsController@index')->middleware('auth');
 
 
-//フォロワーのアイコンタップで情報表示
+//フォロワーのアイコンタップでプロフィール表示
 Route::get('/Usersprofile/{id}/followDate','UsersController@followDate');
+//フォローリスト内のフォロー解除ボタン
+Route::post('/unfollow/{user}', 'UsersController@unfollow');
 
 Route::get('/search','UsersController@usersearch')->middleware('auth')->name('users.usersearch');
 //ユーザー検索

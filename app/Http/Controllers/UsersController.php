@@ -8,6 +8,8 @@ use Illuminate\support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 //use宣言をして写真を保存させる。
 use App\User;
+use App\follow;
+//フォロワーを取得
 //use宣言をしてappの中にあるusersテーブルからデータを受け取る。
 
 class UsersController extends Controller
@@ -112,8 +114,41 @@ class UsersController extends Controller
     // }
     //アイコンユーザーのプロフィールを取得
     public function followDate($id){
-        User::where('id', $id)->first();
-        return view('users.Usersprofile');
+        $followUser = User::where('id', $id)->first();
+        // dd($followUser);
+                return view('users.Usersprofile', ['followUser'=>$followUser]);
     }
 
+     //フォロー解除
+   public function unfollow($userId)
+   {
+    $follower = auth()->user();
+    $is_following = $follower->isFollowing($userId);
+    //フォローしているか
+
+        if ($is_following)
+        {
+            $loggedInUserIDF = auth()->user()->id;
+            Follow::where([
+                //whereで条件を二つ出して探している。
+                ['followed_id', '=', $userId],
+                ['following_id', '=', $loggedInUserIDF],
+                ])
+                ->delete();
+                // 条件にあうものを消している。
+        }
+        return redirect('users.Usersprofile', ['followUser'=>$followUser]);
+        //FollowsControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。    }
+    }
+
+    // public function followerList2(){
+        // $follower_icons = User::
+        // WhereIn('id' , Auth::user()->followers()->pluck('following_id'))
+        // ->get();
+
+        // $follower_posts = Post::
+        // whereIn('user_id', Auth::user()->followers()->pluck('following_id'))
+        // ->get();
+        // return view('follows.followerList', compact('follower_icons', 'follower_posts'));
+    // }
 }

@@ -55,7 +55,6 @@ body{
     margin: 0 auto;
     margin-bottom: 20px;
     color: #FFF !important;
-    text-align: center;
 }
 
 .login-page label{
@@ -95,20 +94,21 @@ body{
 }
 
 .register-top{
-    background-color:rgba(0, 0, 0, 0.2);
-    /* バックグラウンドカラーの後ろに透明度指定する */
-    border-radius: 5px;
-    width: 400px;
-    height: 400px;
-    padding: 20px;
+    width: 25%;
+    height: 55%;
+    padding: 3%;
+    /* パディングを細かく指定してCSS記述する */
     margin: 0 auto;
     margin-bottom: 20px;
-    color: #FFF;
+    color: #FFF !important;
+    background-color:rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
 }
 
 .register a{
-    width: 350px;
-    padding: 20px;
+    width: 25%;
+    height: 55%;
+    padding: 3%;
     margin: 0 auto;
     margin-bottom: 20px;
     color: #FFF;

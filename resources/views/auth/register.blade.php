@@ -6,15 +6,15 @@
 {!! Form::open(['url' => '/register']) !!}
     <div class="register-top">
 <!-- エラーメッセージ表示 -->
-@if($errors->any())
-    <div class="register-error">
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+        @if($errors->any())
+        <div class="register-error">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
     
         <h2 class="title2">新規ユーザー登録</h2>
 
