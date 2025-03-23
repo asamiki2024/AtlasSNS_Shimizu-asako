@@ -45,8 +45,6 @@ Route::get('/top','PostsController@index')->middleware('auth');
 
 //フォロワーのアイコンタップでプロフィール表示
 Route::get('/Usersprofile/{id}/followDate','UsersController@followDate');
-//フォローリスト内のフォロー解除ボタン
-Route::post('/unfollow/{user}', 'UsersController@unfollow');
 
 Route::get('/search','UsersController@usersearch')->middleware('auth')->name('users.usersearch');
 //ユーザー検索
@@ -63,10 +61,10 @@ Route::get('/post/update','PostsController@update');
 //投稿を削除する処理
 Route::get('/post/{id}/delete','PostsController@delete');
 
-//フォロワーする
+//フォロワーする、フォローリスト、フォロワーリスト内のフォローボタン機能
 Route::post('/follow/{user}', 'FollowsController@follow');
 //Route::post(見えないルート)もしくはget('/follow/{ブレードから送られてきたパラメータ}', '行き先のController@メソット');
-//フォロー解除する
+//フォロー解除する、フォローリスト、フォロワーリスト内のフォローボタン機能
 Route::post('/unfollow/{user}', 'FollowsController@unfollow');
 //ユーザー検索
 // Route::get('/search/usersearch','UsersController@usersearch')->name('users.usersearch');

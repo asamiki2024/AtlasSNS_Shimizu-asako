@@ -266,3 +266,10 @@ header{
     text-align: center;
 }
 /* !important　強制的に表示させる */
+
+/* フォローリスト、フォロワーリスト内　Usersprofile.blade.php */
+/* フォロー機能ボタンの切り替え */
+.users-profile{
+    display: flex;
+}
+

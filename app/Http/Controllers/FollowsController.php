@@ -42,6 +42,7 @@ class FollowsController extends Controller
     }
 
     //フォロー機能
+    //フォローリスト、フォロワーリストのフォロー機能も動く。
     //フォローするユーザーがログインしているかどうか確認
     // user $userの引数
    public function follow($userId)
@@ -79,11 +80,13 @@ class FollowsController extends Controller
                 //フォローズテーブルのfollowing_idカラムとfollowed_idカラムにデータを入るように記述している
             ]);
         }
-    return redirect('/search');
+    return back();
+    //return backにすると前のページに戻ることが出来る。
     }
     //FollowsControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。
 
     //フォロー解除
+    //フォローリスト、フォロワーリストのフォロー解除機能も動く。
    public function unfollow($userId)
    {
     // if(Auth::check()){
@@ -108,7 +111,7 @@ class FollowsController extends Controller
                 ->delete();
                 // 条件にあうものを消している。
         }
-        return redirect('/search');
+        return back();
         //FollowsControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。    }
     }
 }
