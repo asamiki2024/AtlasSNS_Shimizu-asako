@@ -41,6 +41,7 @@ class FollowsController extends Controller
         return view('follows.followerList', compact('follower_icons', 'follower_posts'));
     }
 
+    //フォロー機能
     //フォローするユーザーがログインしているかどうか確認
     // user $userの引数
    public function follow($userId)
@@ -55,7 +56,6 @@ class FollowsController extends Controller
 
     $follower = auth()->user();
     //auth()->user はuserテーブルからログインしているユーザーの情報を取得する
-    //ログインしているユーザー
     //ログインしているユーザーの情報を全て(ID,name,mailなど)取得する
     $is_following = $follower->isFollowing($userId);
     //フォローしているか
