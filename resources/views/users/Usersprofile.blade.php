@@ -21,8 +21,10 @@
     </form>
     @endif
 </div>
+@foreach($followPost as $followPost)
 <div class="followDate_post">
-    <a><img src="{{ asset('images/' . $followDate_posts->images) }}" >{{ $followDate_posts->username }} {{ $followDate_posts->post }} {{ $followUser->created_at }} </a>
+<a><img src="{{ asset('images/' . $followPost->user->images) }}" >{{ $followPost->user->username }} {{ $followPost->post }} {{ $followPost->created_at }} </a>
 </div>
+@endforeach
 <!-- フォロー機能、フォロワー解除ボタンは、FollowsControllerで書いた記述を再利用、ボタンの切り替えは＠ifで行う -->
 @endsection

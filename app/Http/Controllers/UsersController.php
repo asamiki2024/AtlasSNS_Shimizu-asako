@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\support\Facades\Hash;
 //use宣言をしてプロフィール編集のパスワードのハッシュ化させる。
 use Illuminate\Support\Facades\Storage;
@@ -119,10 +120,11 @@ class UsersController extends Controller
         // dd($followUser);
 
         //フォロワーの投稿表示
-        $followDate_posts = Post::
-        whereIn('user_id', User::follows()->pluck('followed_id'))
+        $followPost = Post::
+        WhereIn('user_id', Auth::user()->follows()->pluck('followed_id'))
         ->get();
-                return view('users.Usersprofile', ['followUser'=>$followUser]);
+        return view('users.Usersprofile', ['followUser'=>$followUser, 'followPost'=>$followPost]);
     }
+    
 
 }

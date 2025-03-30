@@ -24,10 +24,10 @@
         @endif
     <!-- 投稿者のIDとアイコン、投稿内容を表示させる。 -->
     @foreach($users as $user)
+    <div class="content">
     <tr>
         <td><img src="{{ asset('images/' . $user->user->images ) }}" />{{ $user->user->username }} {{ $user->post }} {{ $user->created_at }} </td>
     </tr>
-    <div class="content">
         <!-- 投稿の編集ボタン -->
         <button class="js-modal-open" href="" post="{{ $user->post }}" post_id="{{ $user->id }}"><img src="images/edit.png" /></button>
         <!-- 削除ボタン -->

@@ -171,6 +171,21 @@ header{
     border: none;
 }
 
+/* 投稿ページのレイアウト */
+.content{
+    list-style:none;
+    border-bottom:1px solid #000;
+    display:flex;
+  }
+  
+  .content td {
+    width:100%;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+  }
+
 /* 削除ボタンの画像切り替え */
 .delete-button{
     position: relative;
@@ -273,3 +288,24 @@ header{
     display: flex;
 }
 
+.follow_post{
+    list-style:none;
+    border-bottom:1px solid #000;
+    display:flex;
+    width:100%;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+}
+
+.follower_post{
+    list-style:none;
+    border-bottom:1px solid #000;
+    display:flex;
+    width:100%;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+}

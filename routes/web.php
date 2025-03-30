@@ -46,6 +46,9 @@ Route::get('/top','PostsController@index')->middleware('auth');
 //フォロワーのアイコンタップでプロフィール表示
 Route::get('/Usersprofile/{id}/followDate','UsersController@followDate');
 
+//フォロワーさんの投稿一覧表示
+// Route::get('followPost', 'UsersController@followPost');
+
 Route::get('/search','UsersController@usersearch')->middleware('auth')->name('users.usersearch');
 //ユーザー検索
 
