@@ -114,6 +114,14 @@ body{
     color: #FFF;
 }
 
+.register p{
+    width: 350px;
+    /* パディングを細かく指定してCSS記述する */
+    margin: 0 auto;
+    margin-bottom: 20px;
+    color: #FFF !important;
+}
+
 .register-top label{
     display: block;
 }
@@ -121,6 +129,7 @@ body{
 .register-top input{
     display: block;
 }
+
 
 .title2{
     text-align: center;

@@ -120,9 +120,8 @@ class UsersController extends Controller
         // dd($followUser);
 
         //フォロワーの投稿表示
-        $followPost = Post::
-        WhereIn('user_id', Auth::user()->follows()->pluck('followed_id'))
-        ->get();
+        $following_ID =  Auth::user()->follows()->pluck('followed_id');
+        $followPost = Post::with('user')->WhereIn('id', $following_ID)->get();
         return view('users.Usersprofile', ['followUser'=>$followUser, 'followPost'=>$followPost]);
     }
     
