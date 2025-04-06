@@ -120,8 +120,8 @@ class UsersController extends Controller
         // dd($followUser);
 
         //フォロワーの投稿表示
-        $following_ID =  Auth::user()->follows()->pluck('followed_id');
-        $followPost = Post::with('user')->WhereIn('id', $following_ID)->get();
+        $followPost = Post::with('user')->where('user_id',$id)->get();
+        //PostテーブルとUserテーブルの両方の情報を取得。その中から該当のユーザーのID(postテーブルのカラム名user_id)と変数の$idで情報を取得し、getでその人が投稿した全てを取得して表示している。
         return view('users.Usersprofile', ['followUser'=>$followUser, 'followPost'=>$followPost]);
     }
     

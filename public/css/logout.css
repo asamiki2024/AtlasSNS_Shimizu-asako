@@ -130,6 +130,11 @@ body{
     display: block;
 }
 
+.register-top .input-username{
+    width: 90%;
+    border-radius: 5px;
+    line-height: 2;
+}
 
 .title2{
     text-align: center;
