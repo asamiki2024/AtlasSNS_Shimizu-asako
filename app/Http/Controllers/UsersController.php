@@ -120,8 +120,9 @@ class UsersController extends Controller
         // dd($followUser);
 
         //フォロワーの投稿表示
-        $followPost = Post::with('user')->where('user_id',$id)->get();
+        $followPost = Post::orderBy('created_at', 'desc')->with('user')->where('user_id',$id)->get();
         //PostテーブルとUserテーブルの両方の情報を取得。その中から該当のユーザーのID(postテーブルのカラム名user_id)と変数の$idで情報を取得し、getでその人が投稿した全てを取得して表示している。
+        //Post::orderBy('created_at', 'desc')は、投稿を降順にする。orderBy=並び替え created_at=投稿日時 desc=降順を意味する。(asc=昇順を意味する。)
         return view('users.Usersprofile', ['followUser'=>$followUser, 'followPost'=>$followPost]);
     }
     

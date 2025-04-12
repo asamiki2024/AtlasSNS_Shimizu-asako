@@ -14,10 +14,11 @@ class PostsController extends Controller
     
     // postテーブルのデータを$usersで受け取る。
     public function index(){
-        $users = Post::
+        $users = Post::orderBy('created_at', 'desc')->
         whereIn('user_id', Auth::user()->follows()->pluck('followed_id'))
         ->orWhere('user_id', Auth::user()->id)
         ->get();
+        //17行目　Post::orderBy('created_at', 'desc')は、投稿を降順にする。orderBy=並び替え created_at=投稿日時 desc=降順を意味する。(asc=昇順を意味する。)
         //18行目　Postテーブルのuser_idカラムを取得、その中からフォローしている人のみを取得
         //19行目　同じくPostテーブルの中から自分の投稿を取得
         //ログインしている自分の投稿を抽出して表示させる。

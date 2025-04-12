@@ -12,10 +12,11 @@ class FollowsController extends Controller
     //フォローリスト
     //フォローしているユーザーの投稿を表示
     public function followList(){
-        $follow_posts = Post::
+        $follow_posts = Post::orderBy('created_at', 'desc')->
         whereIn('user_id', Auth::user()->follows()->pluck('followed_id'))
         ->get();
         //15行目　$follow_iconsでPostテーブルの情報を取得
+        //15行目　Post::orderBy('created_at', 'desc')は、投稿を降順にする。orderBy=並び替え created_at=投稿日時 desc=降順を意味する。(asc=昇順を意味する。)
         //16行目　Postテーブルのuser_idカラムを取得、その中からフォローしている人のidを取得
 
     //フォローしているユーザーのアイコンを表示
@@ -35,9 +36,10 @@ class FollowsController extends Controller
         WhereIn('id' , Auth::user()->followers()->pluck('following_id'))
         ->get();
 
-        $follower_posts = Post::
+        $follower_posts = Post::orderBy('created_at', 'desc')->
         whereIn('user_id', Auth::user()->followers()->pluck('following_id'))
         ->get();
+        //39行目 Post::orderBy('created_at', 'desc')は、投稿を降順にする。orderBy=並び替え created_at=投稿日時 desc=降順を意味する。(asc=昇順を意味する。)
         return view('follows.followerList', compact('follower_icons', 'follower_posts'));
     }
 
