@@ -23,7 +23,8 @@
 <body>
     <header>
         <div id = "logo">
-            <h1><a href="/top"><img src="images/atlas.png" /></a></h1>
+            <h1><a href="/top"><img src="{{ asset('images/' .'atlas.png/')  }}"/></a></h1>
+            <!-- assetでどのページに移っても画像が表示される様になる。 -->
         </div>
         <div id="head">
             <p class="username">{{ Auth::user()->username }}　さん　<img src="{{ asset('images/' . Auth::user()->images ) }}" /></p>

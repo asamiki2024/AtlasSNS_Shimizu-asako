@@ -46,15 +46,10 @@ body{
 }
 .login-page a{
     color: #FFF !important;
-}
-
-
-.login-page p{
-    width: 350px;
-    /* パディングを細かく指定してCSS記述する */
-    margin: 0 auto;
-    margin-bottom: 20px;
-    color: #FFF !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
 }
 
 .login-page label{
@@ -106,12 +101,11 @@ body{
 }
 
 .register a{
-    width: 25%;
-    height: 55%;
-    padding: 3%;
-    margin: 0 auto;
-    margin-bottom: 20px;
     color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
 }
 
 .register p{
