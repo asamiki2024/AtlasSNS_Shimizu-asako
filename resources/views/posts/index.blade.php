@@ -3,15 +3,17 @@
 @section('content')
 <div class="form">
     <!--投稿フォーム  -->
-    {!! Form::open(['url' => "/top", 'class' => "post-form"]) !!}
-    {{ Form::token() }}
-    <div class="form-group">
-        {{ Form::input('text', 'newPost', null, ['class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }}
-        <!-- <textarea name="request-about" id="request-about" placeholder="投稿内容を入力してください。"></textarea> -->
-    </div>
-        <!-- 送信ボタン -->
-        <button class="form-button"><img src="images/post.png" /></button>
+    <div class="Form-group">
+        {!! Form::open(['url' => "/top", 'class' => "post-form"]) !!}
+        {{ Form::token() }}
+            <p><img src="{{ asset('images/' . Auth::user()->images ) }}" /></p>
+            <!-- {{ Form::input('text', 'newPost', null, ['class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }} -->
+            <textarea name="newPost" class="form-control" rows="5" cols="100" placeholder="投稿内容を入力してください。"></textarea>
+            <!-- rows=行数,cols=文字数の意味 -->
+            <!-- 送信ボタン -->
+            <button class="form-button"><img src="images/post.png" /></button>
         {!! Form::close() !!}
+    </div>
         <!-- エラーメッセージ表示させる -->
         @if($errors->any())
             <div class="index-errors">
@@ -25,9 +27,9 @@
     <!-- 投稿者のIDとアイコン、投稿内容を表示させる。 -->
     @foreach($users as $user)
     <div class="content">
-    <tr>
-        <td><img src="{{ asset('images/' . $user->user->images ) }}" />{{ $user->user->username }} {{ $user->post }} {{ $user->created_at }} </td>
-    </tr>
+        <tr>
+            <td><img src="{{ asset('images/' . $user->user->images ) }}" /> {{ $user->user->username }} {{ $user->post }} {{ $user->created_at }}</td>
+        </tr>
         <!-- 投稿の編集ボタン -->
         @if (Auth::id()  === $user->user_id)
         <button class="js-modal-open" href="" post="{{ $user->post }}" post_id="{{ $user->id }}"><img src="images/edit.png" /></button>
@@ -39,7 +41,7 @@
         <a class="delete-button" href="/post/{{$user->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')" ><img src="images/trash.png" alt="" /><img src="images/trash-h.png" alt="" /></a>
         @endif
     </div>
-    @endforeach
+        @endforeach
     
     <!-- モーダル機能を使用し、投稿内容を編集 -->
     <div class="modal js-modal">

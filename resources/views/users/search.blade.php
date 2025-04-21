@@ -3,13 +3,15 @@
 @section('content')
 <div id="search">
     <!-- ユーザー検索 -->
-    <form action="{{ route('users.usersearch') }}" method="get">
-        @csrf
-        <input type="text" name="keyword" class="search-form" placeholder="ユーザー名">
-        <button type="submit" class="btn btn-search"><img src="images/search.png" ></button>
-    </form>
-    <p>検索ワード：{{ $keyword }}</p>
-<table>
+     <div class="search-top">
+        <form action="{{ route('users.usersearch') }}" method="get">
+            @csrf
+            <input type="text" name="keyword" class="search-form" placeholder="ユーザー名">
+            <button type="submit" class="btn btn-search"><img src="images/search.png" ></button>
+        </form>
+        <p>検索ワード：{{ $keyword }}</p>
+    </div>
+    <table>
     @foreach($search_user as $search_user)
     <tr>
         <td>{{ $search_user->username }}<p><img src="{{ asset('images/' . $search_user->images ) }}" /></p></td>

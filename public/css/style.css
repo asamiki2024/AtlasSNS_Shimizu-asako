@@ -119,8 +119,8 @@ header{
 .post-form {
     display: flex;
     justify-content: center;
-    width: 600px;
-
+    width: 80%;
+    height: 200%;
 }
 
 .post-form input {
@@ -131,6 +131,16 @@ header{
     box-sizing: border-box;
     background: #FFFFFF;
     margin: 0.5em 0;
+}
+
+.form-control{
+    border: none;
+}
+
+.Form-group{
+    border-bottom: 10px solid #DDDDDD;
+    padding-bottom: 5%;
+    margin-bottom: 0;
 }
 
 .post-form img {
@@ -178,13 +188,14 @@ header{
     display:flex;
   }
   
-  .content td {
+  .content td{
     width:100%;
     padding:15px;
     display:flex;
     justify-content:space-between;
     margin-bottom:10px;
   }
+
 
 /* 削除ボタンの画像切り替え */
 .delete-button{
@@ -209,6 +220,13 @@ header{
 }
 
 /* 検索ページ */
+.search-top{
+    display: flex;
+    border-bottom: 10px solid #DDDDDD;
+    padding-bottom: 5%;
+    margin-bottom: 5%;
+}
+
 #search form{
     display: flex;
 }
@@ -224,11 +242,8 @@ header{
 }
 .search-form{
     display: block;
-    width: 30%;
     padding: 0.5rem;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    margin: 0.5rem 0;
+    
 }
 
 .btn{
@@ -245,6 +260,26 @@ header{
 #side-bar{
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+}
+
+/* フォローリストページ */
+.followList{
+    font-size: 200%;
+}
+
+.follow_icon{
+    display: flex;
+    border-bottom: 10px solid #DDDDDD;
+    padding-bottom: 5%;
+    margin-bottom: 0;
+}
+
+/* フォロワーリストページ */
+.follower_icon{
+    display: flex;
+    border-bottom: 10px solid #DDDDDD;
+    padding-bottom: 5%;
+    margin-bottom: 0;
 }
 
 /* プロフィール編集ページ */

@@ -142,4 +142,29 @@ body{
     margin-right: 0;
     margin-left: auto;
 }
+
+/* 登録完了ページ */
+.clear{
+    width: 25%;
+    height: 55%;
+    padding: 3%;
+    /* パディングを細かく指定してCSS記述する */
+    margin: 0 auto;
+    margin-bottom: 20px;
+    color: #FFF !important;
+    background-color:rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    text-align: center;
+ }
+
+.login-name, .title{
+    font-weight: bold;
+    font-size: 180%;
+}
+
+.clear a{
+    color: #FFF !important;
+    text-decoration: none;
+}
+
 /* ログイン、ログアウトはログアウトCSSに記述する */

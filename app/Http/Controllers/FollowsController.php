@@ -49,14 +49,8 @@ class FollowsController extends Controller
     // user $userの引数
    public function follow($userId)
 //web.phpからメゾットの場所にデータが運ばれる
+//$userIDはseach.bladeで書いたuser_>idのこと。
    {
-    // if(Auth::check()){
-        //ログインしているユーザーが確認
-    // $following = auth()->user();
-    //現在ログインしているユーザーの情報の取得
-    // $following->follow($id);
-    //$idを利用してフォローする
-
     $follower = auth()->user();
     //auth()->user はuserテーブルからログインしているユーザーの情報を取得する
     //ログインしているユーザーの情報を全て(ID,name,mailなど)取得する
