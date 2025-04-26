@@ -151,10 +151,11 @@ header{
     color: red;
 }
 
-.content{
-    margin: 0 auto;
-    padding: 40px;
-}
+/* .content{ */
+    /* margin: 0 auto; */
+    /* padding: 40px; */
+/* } */
+
 .modal{
     display: none;
     height: 100vh;
@@ -182,18 +183,31 @@ header{
 }
 
 /* 投稿ページのレイアウト */
-.content{
+.content-block{
     list-style:none;
     border-bottom:1px solid #000;
     display:flex;
+    position: relative;
   }
-  
-  .content td{
+
+  .post-box{
     width:100%;
     padding:15px;
+  }
+
+  .post-box > div{
     display:flex;
-    justify-content:space-between;
+  }
+
+  .post-name{
     margin-bottom:10px;
+  }
+
+  .post-created_at{
+    justify-content: end;
+    position: absolute;
+    top: 0;
+    right: 3%;
   }
 
 
@@ -266,7 +280,7 @@ header{
 .followList{
     font-size: 200%;
 }
-
+/* フォローアイコンの下の下線、アイコンの位置のレイアウト */
 .follow_icon{
     display: flex;
     border-bottom: 10px solid #DDDDDD;
@@ -274,15 +288,39 @@ header{
     margin-bottom: 0;
 }
 
-/* フォロワーリストページ */
-.follower_icon{
-    display: flex;
-    border-bottom: 10px solid #DDDDDD;
-    padding-bottom: 5%;
-    margin-bottom: 0;
+/* フォローしているユーザーの投稿一覧レイアウト */
+.follow-block{
+    list-style:none;
+    border-bottom:1px solid #000;
+    display:flex;
+    position: relative;
+    padding: 10px;
 }
 
-/* プロフィール編集ページ */
+.follow-box{
+    width:100%;
+    padding:15px;
+}
+
+.follow-box > div{
+    display:flex;
+  }
+  
+  .follow-name{
+      margin-bottom:10px;
+    }
+    
+    .follow-created_at{
+        justify-content: end;
+        position: absolute;
+        top: 10%;
+        right: 3%;
+    }
+    
+    
+
+    
+    /* プロフィール編集ページ */
 .profile{
     /* text-align: center; */
 }
@@ -323,24 +361,77 @@ header{
     display: flex;
 }
 
-.follow_post{
-    list-style:none;
-    border-bottom:1px solid #000;
-    display:flex;
-    width:100%;
-    padding:15px;
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:10px;
+/* フォロワーリストページ */
+/* フォロワーのアイコンの位置、下の下線のレイアウト */
+.follower_icon{
+    display: flex;
+    border-bottom: 10px solid #DDDDDD;
+    padding-bottom: 5%;
+    margin-bottom: 0;
 }
 
-.follower_post{
+/* フォローワーの投稿一覧のレイアウト */
+.follower-block{
     list-style:none;
     border-bottom:1px solid #000;
     display:flex;
+    position: relative;
+    padding: 10px;
+  }
+
+  .follower-box{
     width:100%;
     padding:15px;
+  }
+
+  .follower-box > div{
     display:flex;
-    justify-content:space-between;
+  }
+
+  .follower-name{
     margin-bottom:10px;
+  }
+
+  .follower-created_at{
+    justify-content: end;
+    position: absolute;
+    top: 10%;
+    right: 3%;
+  }
+
+  /* ユーザープロフィールページ */
+  .users-profile{
+    display: flex;
+    border-bottom: 10px solid #DDDDDD;
+    padding-bottom: 5%;
+    margin-bottom: 0;
 }
+
+/* ユーザーの投稿一覧のレイアウト */
+.followDate-block{
+    list-style:none;
+    border-bottom:1px solid #000;
+    display:flex;
+    position: relative;
+    padding: 10px;
+  }
+
+  .followDate-box{
+    width:100%;
+    padding:15px;
+  }
+
+  .followDate-box > div{
+    display:flex;
+  }
+
+  .followDate-name{
+    margin-bottom:10px;
+  }
+
+  .followDate-created_at{
+    justify-content: end;
+    position: absolute;
+    top: 10%;
+    right: 3%;
+  }

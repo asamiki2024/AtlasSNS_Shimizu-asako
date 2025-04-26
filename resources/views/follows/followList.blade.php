@@ -9,8 +9,17 @@
         </div>
         @foreach($follow_posts as $follow_post)
         <div class="follow_post">
-            <a><img src="{{ asset('images/' . $follow_post->user->images) }}" >{{ $follow_post->user->username }} {{ $follow_post->post }} {{ $follow_post->created_at }} </a>
-            </div>
+            <ul>
+                <li class="follow-block">
+                    <a><img src="{{ asset('images/' . $follow_post->user->images) }}" ></a>
+                    <div class="follow-box">
+                        <div class="follow-name">{{ $follow_post->user->username }} </div>
+                        <div class="follow-created_at">{{ $follow_post->created_at }} </div>
+                        <div>{{ $follow_post->post }} </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
         @endforeach
 </div>
 @endsection

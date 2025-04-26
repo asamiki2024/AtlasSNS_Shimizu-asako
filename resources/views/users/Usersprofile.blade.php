@@ -2,7 +2,6 @@
 @section('content')
 
 <div class= "users-profile">
-    ユーザーのプロフィール
     <a href="/followDate"></a>
     <ul class= "datalist">
             <li><img src="{{  asset('images/' . $followUser->images) }}"/></li>
@@ -23,7 +22,16 @@
 </div>
 @foreach($followPost as $followPost)
 <div class="followDate_post">
-<a><img src="{{ asset('images/' . $followPost->user->images) }}" >{{ $followPost->user->username }} {{ $followPost->post }} {{ $followPost->created_at }} </a>
+    <ul>
+        <li class="followDate-block">
+            <a><img src="{{ asset('images/' . $followPost->user->images) }}"></a>
+            <div class="followDate-box">
+                <div class="followDate-name">{{ $followPost->user->username }}</div>
+                <div class="followDate-created_at">{{ $followPost->created_at }} </div>
+                <div>{{ $followPost->post }} </div>
+            </div>
+        </li>
+    </ul>
 </div>
 @endforeach
 <!-- フォロー機能、フォロワー解除ボタンは、FollowsControllerで書いた記述を再利用、ボタンの切り替えは＠ifで行う -->
