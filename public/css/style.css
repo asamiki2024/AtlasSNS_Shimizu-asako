@@ -210,7 +210,11 @@ header{
     right: 3%;
   }
 
-
+  .post-btn{
+    justify-content: end;
+    top: 20%;
+    right: 4%;
+  }
 /* 削除ボタンの画像切り替え */
 .delete-button{
     position: relative;
