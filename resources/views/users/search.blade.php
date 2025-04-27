@@ -19,13 +19,13 @@
         <td><form action="/unfollow/{{ $search_user->id }}" method="POST">
             @csrf
             <!-- @csrfは、脆弱対策として入れる -->
-            <button class="follow-cancel-button">フォロー解除</button>
+            <a class="follow-cancel-button"><button class="btn btn-danger">フォロー解除</button></a>
             </form>
         </td>
         @else
         <td><form action="/follow/{{ $search_user->id }}" method="POST">
             @csrf
-            <button class="follow-button">フォローする</button>
+            <a class="follow-button"><button class="btn btn-info">フォローする</button></a>
             </form>
         </td>
     </tr>

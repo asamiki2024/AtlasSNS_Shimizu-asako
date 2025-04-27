@@ -416,6 +416,15 @@ header{
     padding: 10px;
   }
 
+/* フォローボタン、フォロー解除ボタンレイアウト */
+.follow-cancel-button{
+    color: #fff !important;
+}
+
+.follow-button{
+    color: #fff !important;
+}
+
   .followDate-box{
     width:100%;
     padding:15px;

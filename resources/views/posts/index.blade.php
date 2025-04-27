@@ -34,17 +34,17 @@
                 <div class="post-name"> {{ $user->user->username }}</div>
                 <div class="post-created_at">{{ $user->created_at }}</div>
                 <div>{{ $user->post }}</div>
-                <!-- 投稿の編集ボタン -->
-                @if (Auth::id()  === $user->user_id)
-                <button class="js-modal-open" href="" post="{{ $user->post }}" post_id="{{ $user->id }}"><img src="images/edit.png" /></button>
-                @endif
-                <!-- ifで自分以外が編集機能を使えない様にする。Auth::id()でログインしているユーザー全て。$user->user_idで自分以外。　===は完全一致すれば自分以外には編集機能が出ない表示になる。 -->
-                <!-- 削除ボタン -->
-                @if (Auth::id()  === $user->user_id)
-                <!-- buttonタグだとhrefは機能しない。aタグに変更 -->
-                <a class="delete-button" href="/post/{{$user->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')" ><img src="images/trash.png" alt="" /><img src="images/trash-h.png" alt="" /></a>
-                @endif
             </div>
+            <!-- 投稿の編集ボタン -->
+            @if (Auth::id()  === $user->user_id)
+            <button class="js-modal-open" href="" post="{{ $user->post }}" post_id="{{ $user->id }}"><img src="images/edit.png" /></button>
+            @endif
+            <!-- ifで自分以外が編集機能を使えない様にする。Auth::id()でログインしているユーザー全て。$user->user_idで自分以外。　===は完全一致すれば自分以外には編集機能が出ない表示になる。 -->
+            <!-- 削除ボタン -->
+            @if (Auth::id()  === $user->user_id)
+            <!-- buttonタグだとhrefは機能しない。aタグに変更 -->
+            <a class="delete-button" href="/post/{{$user->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')" ><img src="images/trash.png" alt="" /><img src="images/trash-h.png" alt="" /></a>
+            @endif
         </li>
         </ul>
     </div>
