@@ -13,7 +13,6 @@
             <!-- 送信ボタン -->
             <button class="form-button"><img src="images/post.png" /></button>
         {!! Form::close() !!}
-    </div>
         <!-- エラーメッセージ表示させる -->
         @if($errors->any())
             <div class="index-errors">
@@ -24,31 +23,34 @@
                 </ul>
             </div>
         @endif
+    </div>
     <!-- 投稿者のIDとアイコン、投稿内容を表示させる。 -->
     @foreach($users as $user)
     <div class="content">
-        <ul>
-        <li class="content-block">
-            <figure><img src="{{ asset('images/' . $user->user->images ) }}" /></figure>
+        <div class="content-block">
             <div class="post-box">
-                <div class="post-name"> {{ $user->user->username }}</div>
-                <div class="post-created_at">{{ $user->created_at }}</div>
-                <div>{{ $user->post }}</div>
+                <div class="post-top">
+                    <figure><img src="{{ asset('images/' . $user->user->images ) }}" /></figure>
+                    <div class="post-name"> {{ $user->user->username }}</div>
+                    <div class="post-created_at">{{ substr($user->created_at, 0, 16) }}</div>
+                    <!-- substr($変数, 0, 表示させたい文字数を入力)投稿日時までを表示　表示する文字数を指定　秒数は文字数制限で非表示にする -->
+                </div>
+                <div class="post-post">{!! nl2br(htmlspecialchars($user->post)) !!}</div>
+                <!-- 投稿内容を改行した状態で表示　｛!! nl2br(htmlspecialchars($変数->カラム名))!!｝ -->
             </div>
+            <!-- 投稿の編集ボタン -->
             <div class="post-btn">
-                <!-- 投稿の編集ボタン -->
-                @if (Auth::id()  === $user->user_id)
-                <button class="js-modal-open" href="" post="{{ $user->post }}" post_id="{{ $user->id }}"><img src="images/edit.png" /></button>
+            @if (Auth::id()  === $user->user_id)
+                    <button class="js-modal-open" href="" post="{{ $user->post }}" post_id="{{ $user->id }}"><img src="images/edit.png" /></button>
                 @endif
                 <!-- ifで自分以外が編集機能を使えない様にする。Auth::id()でログインしているユーザー全て。$user->user_idで自分以外。　===は完全一致すれば自分以外には編集機能が出ない表示になる。 -->
                 <!-- 削除ボタン -->
                 @if (Auth::id()  === $user->user_id)
                 <!-- buttonタグだとhrefは機能しない。aタグに変更 -->
-                <a class="delete-button" href="/post/{{$user->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')" ><img src="images/trash.png" alt="" /><img src="images/trash-h.png" alt="" /></a>
+                    <a class="delete-button" href="/post/{{$user->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')" ><img src="images/trash.png" alt="" /><img src="images/trash-h.png" alt="" /></a>
                 @endif
             </div>
-        </li>
-        </ul>
+        </div>
     </div>
         @endforeach
     

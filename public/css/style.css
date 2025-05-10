@@ -22,7 +22,7 @@ header{
 
 #head img, .form img{
     width: 50px;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 /* #logo, #head{ */
@@ -184,46 +184,59 @@ header{
 
 /* 投稿ページのレイアウト */
 .content-block{
-    list-style:none;
     border-bottom:1px solid #000;
-    display:flex;
-    position: relative;
+    /* display:flex; */
+    /* position: relative; */
   }
 
   .post-box{
     width:100%;
-    padding:15px;
+    padding:10px;
   }
 
-  .post-box > div{
+  .post-top{
     display:flex;
+    /* アイコン、名前、投稿日時を横並び */
+    align-items: center;
+    /* ３つを縦に中央に並べる */
   }
 
   .post-name{
     margin-bottom:10px;
+    /* 投稿内容とのスペース */
+    margin-left: 20px;
+    /* アイコンとのスペース */
   }
 
   .post-created_at{
-    justify-content: end;
-    position: absolute;
-    top: 0;
-    right: 3%;
+    margin-left: auto;
+    /* 投稿日時のみ右寄せ */
   }
 
+  .post-post{
+    margin-left: 45px;
+    /* 余白調整 */
+  }
   .post-btn{
+    /* justify-content: end; */
+    /* top: 20%; */
+    /* right: 4%; */
+    display: flex;
     justify-content: end;
-    top: 20%;
-    right: 4%;
+    padding: 20px;
   }
 /* 削除ボタンの画像切り替え */
-.delete-button{
-    position: relative;
+/* .delete-button{ */
+    /* position: relative; */
     /* positionで親要素の基準の位置を決めてあげる。relativeによって */
-}
-.delete-button img{
-    position: absolute;
+/* } */
+
+/* .delete-button img{ */
+    /* position: absolute; */
+    /* bottom: 50%; */
+    /* right: 4%; */
     /* 子要素はabsoluteを使用して好きな位置に移動できる。これにより２つの画像を同じ位置に設定した */
-}
+/* } */
 .delete-button img:last-of-type{
     /* 2枚目の画像を最初の設定で透明にして見えないようにしている */
     opacity: 0;
