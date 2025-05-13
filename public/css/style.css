@@ -217,37 +217,40 @@ header{
     margin-left: 45px;
     /* 余白調整 */
   }
+  
+  /* 編集ボタン、削除ボタンレイアウト */
+  /* topページのボタングループ */
   .post-btn{
-    /* justify-content: end; */
-    /* top: 20%; */
-    /* right: 4%; */
     display: flex;
     justify-content: end;
     padding: 20px;
   }
-/* 削除ボタンの画像切り替え */
-/* .delete-button{ */
-    /* position: relative; */
-    /* positionで親要素の基準の位置を決めてあげる。relativeによって */
-/* } */
 
-/* .delete-button img{ */
-    /* position: absolute; */
-    /* bottom: 50%; */
-    /* right: 4%; */
-    /* 子要素はabsoluteを使用して好きな位置に移動できる。これにより２つの画像を同じ位置に設定した */
-/* } */
-.delete-button img:last-of-type{
-    /* 2枚目の画像を最初の設定で透明にして見えないようにしている */
-    opacity: 0;
+.js-modal-open{
+    background-image: url('/images/edit.png');
+    background-size: cover;
+    background-color: #fff;
+    border: none;
+    width: 35px;
+    height: 35px;
 }
-.delete-button:hover img:first-of-type{
-    opacity: 0;
-    /* 1枚目の画像のことを指している。ホバーしていない状態 */
+
+.delete-button{
+    background-image: url('/images/trash-h.png');
+    background-size: cover;
+    border: none;
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
 }
-.delete-button:hover img:last-of-type{
-    opacity: 1;
-    /* 2枚目の画像のことを指している。ホバーし、2枚目の画像が見える状態にしている。 */
+
+.delete-button:hover{
+    background-image: url('/images/trash.png');
+    background-size: cover;
+    border: none;
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
 }
 
 /* 検索ページ */
