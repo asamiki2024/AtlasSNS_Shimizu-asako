@@ -9,16 +9,16 @@
         </div>
         @foreach($follow_posts as $follow_post)
         <div class="follow_post">
-            <ul>
-                <li class="follow-block">
-                    <a><img src="{{ asset('images/' . $follow_post->user->images) }}" ></a>
+                <div class="follow-block">
                     <div class="follow-box">
+                        <figure><img src="{{ asset('images/' . $follow_post->user->images) }}" ></figure>
                         <div class="follow-name">{{ $follow_post->user->username }} </div>
-                        <div class="follow-created_at">{{ $follow_post->created_at }} </div>
-                        <div>{{ $follow_post->post }} </div>
+                        <div class="follow-created_at">{{ substr($follow_post->created_at, 0, 16) }} </div>
+                        <!-- substr($変数, 0, 表示させたい文字数を入力)投稿日時までを表示　表示する文字数を指定　秒数は文字数制限で非表示にする -->
                     </div>
-                </li>
-            </ul>
+                    <div class="follow-post">{!! nl2br(htmlspecialchars($follow_post->post)) !!} </div>
+                    <!-- 投稿内容を改行した状態で表示　｛!! nl2br(htmlspecialchars($変数->カラム名))!!｝ -->
+                </div>
         </div>
         @endforeach
 </div>

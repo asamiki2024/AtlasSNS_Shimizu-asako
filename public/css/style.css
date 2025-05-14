@@ -182,7 +182,7 @@ header{
     border: none;
 }
 
-/* 投稿ページのレイアウト */
+/* topページ　投稿ページのレイアウト */
 .content-block{
     border-bottom:1px solid #000;
     /* display:flex; */
@@ -191,7 +191,7 @@ header{
 
   .post-box{
     width:100%;
-    padding:10px;
+    padding:20px;
   }
 
   .post-top{
@@ -199,6 +199,10 @@ header{
     /* アイコン、名前、投稿日時を横並び */
     align-items: center;
     /* ３つを縦に中央に並べる */
+  }
+
+  figure{
+    margin-left: 10%;
   }
 
   .post-name{
@@ -214,11 +218,11 @@ header{
   }
 
   .post-post{
-    margin-left: 45px;
+    margin-left: 18%;
     /* 余白調整 */
   }
   
-  /* 編集ボタン、削除ボタンレイアウト */
+  /*トップページ 編集ボタン、削除ボタンレイアウト */
   /* topページのボタングループ */
   .post-btn{
     display: flex;
@@ -296,51 +300,9 @@ header{
     border-left: 1px solid #727272;
 }
 
-/* フォローリストページ */
-.followList{
-    font-size: 200%;
-}
-/* フォローアイコンの下の下線、アイコンの位置のレイアウト */
-.follow_icon{
-    display: flex;
-    border-bottom: 10px solid #DDDDDD;
-    padding-bottom: 5%;
-    margin-bottom: 0;
-}
 
-/* フォローしているユーザーの投稿一覧レイアウト */
-.follow-block{
-    list-style:none;
-    border-bottom:1px solid #000;
-    display:flex;
-    position: relative;
-    padding: 10px;
-}
 
-.follow-box{
-    width:100%;
-    padding:15px;
-}
-
-.follow-box > div{
-    display:flex;
-  }
-  
-  .follow-name{
-      margin-bottom:10px;
-    }
-    
-    .follow-created_at{
-        justify-content: end;
-        position: absolute;
-        top: 10%;
-        right: 3%;
-    }
-    
-    
-
-    
-    /* プロフィール編集ページ */
+/* プロフィール編集ページ */
 .profile{
     /* text-align: center; */
 }
@@ -375,11 +337,59 @@ header{
 }
 /* !important　強制的に表示させる */
 
-/* フォローリスト、フォロワーリスト内　Usersprofile.blade.php */
-/* フォロー機能ボタンの切り替え */
-.users-profile{
-    display: flex;
+
+/* フォローリストページ */
+.followList{
+    font-size: 200%;
 }
+/* フォローアイコンの下の下線、アイコンの位置のレイアウト */
+.follow_icon{
+    display: flex;
+    border-bottom: 10px solid #DDDDDD;
+    padding-bottom: 5%;
+    margin-bottom: 0;
+}
+
+/* フォローしているユーザーの投稿一覧レイアウト */
+.follow_post{
+    border-bottom:1px solid #000;
+  }
+
+  .follow-block{
+    width:100%;
+    padding:20px;
+  }
+
+  .follow-box{
+    display:flex;
+    /* アイコン、名前、投稿日時を横並び */
+    align-items: center;
+    /* ３つを縦に中央に並べる */
+  }
+
+  figure{
+    margin-left: 10%;
+  }
+
+  .follow-name{
+    margin-bottom:10px;
+    /* 投稿内容とのスペース */
+    margin-left: 20px;
+    /* アイコンとのスペース */
+  }
+
+  .follow-created_at{
+    margin-left: auto;
+    /* 投稿日時のみ右寄せ */
+  }
+
+  .follow-post{
+    margin-left: 18%;
+    /* 余白調整 */
+  }
+    
+    
+
 
 /* フォロワーリストページ */
 /* フォロワーのアイコンの位置、下の下線のレイアウト */
@@ -391,35 +401,51 @@ header{
 }
 
 /* フォローワーの投稿一覧のレイアウト */
-.follower-block{
-    list-style:none;
+.follower_post{
     border-bottom:1px solid #000;
-    display:flex;
-    position: relative;
-    padding: 10px;
+  }
+
+  .follower-block{
+    width:100%;
+    padding:20px;
   }
 
   .follower-box{
-    width:100%;
-    padding:15px;
+    display:flex;
+    /* アイコン、名前、投稿日時を横並び */
+    align-items: center;
+    /* ３つを縦に中央に並べる */
   }
 
-  .follower-box > div{
-    display:flex;
+  figure{
+    margin-left: 10%;
   }
 
   .follower-name{
     margin-bottom:10px;
+    /* 投稿内容とのスペース */
+    margin-left: 20px;
+    /* アイコンとのスペース */
   }
 
   .follower-created_at{
-    justify-content: end;
-    position: absolute;
-    top: 10%;
-    right: 3%;
+    margin-left: auto;
+    /* 投稿日時のみ右寄せ */
+  }
+
+  .follower-post{
+    margin-left: 18%;
+    /* 余白調整 */
   }
 
   /* ユーザープロフィールページ */
+  /* フォローリスト、フォロワーリスト内　Usersprofile.blade.php */
+
+  /* フォロー機能ボタンの切り替え */
+.users-profile{
+    display: flex;
+}
+
   .users-profile{
     display: flex;
     border-bottom: 10px solid #DDDDDD;
