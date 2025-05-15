@@ -343,11 +343,17 @@ header{
     font-size: 200%;
 }
 /* フォローアイコンの下の下線、アイコンの位置のレイアウト */
+.follow_block{
+  display: flex;
+  border-bottom: 10px solid #DDDDDD;
+}
+
 .follow_icon{
     display: flex;
-    border-bottom: 10px solid #DDDDDD;
-    padding-bottom: 5%;
-    margin-bottom: 0;
+    border: 5px solid;
+    border-style: none;
+    margin-left: 5%;
+    padding: 2%;
 }
 
 /* フォローしているユーザーの投稿一覧レイアウト */
@@ -454,39 +460,39 @@ header{
 }
 
 /* ユーザーの投稿一覧のレイアウト */
-.followDate-block{
-    list-style:none;
+.followDate_post{
     border-bottom:1px solid #000;
-    display:flex;
-    position: relative;
-    padding: 10px;
   }
 
-/* フォローボタン、フォロー解除ボタンレイアウト */
-.follow-cancel-button{
-    color: #fff !important;
-}
-
-.follow-button{
-    color: #fff !important;
-}
+  .followDate-block{
+    width:100%;
+    padding:20px;
+  }
 
   .followDate-box{
-    width:100%;
-    padding:15px;
+    display:flex;
+    /* アイコン、名前、投稿日時を横並び */
+    align-items: center;
+    /* ３つを縦に中央に並べる */
   }
 
-  .followDate-box > div{
-    display:flex;
+  figure{
+    margin-left: 10%;
   }
 
   .followDate-name{
     margin-bottom:10px;
+    /* 投稿内容とのスペース */
+    margin-left: 20px;
+    /* アイコンとのスペース */
   }
 
   .followDate-created_at{
-    justify-content: end;
-    position: absolute;
-    top: 10%;
-    right: 3%;
+    margin-left: auto;
+    /* 投稿日時のみ右寄せ */
+  }
+
+  .followDate-post{
+    margin-left: 18%;
+    /* 余白調整 */
   }

@@ -22,16 +22,16 @@
 </div>
 @foreach($followPost as $followPost)
 <div class="followDate_post">
-    <ul>
-        <li class="followDate-block">
-            <a><img src="{{ asset('images/' . $followPost->user->images) }}"></a>
+        <div class="followDate-block">
             <div class="followDate-box">
+                <figure><img src="{{ asset('images/' . $followPost->user->images) }}"></figure>
                 <div class="followDate-name">{{ $followPost->user->username }}</div>
-                <div class="followDate-created_at">{{ $followPost->created_at }} </div>
-                <div>{{ $followPost->post }} </div>
+                <div class="followDate-created_at">{{ substr($followPost->created_at, 0, 16) }} </div>
+                <!-- substr($変数, 0, 表示させたい文字数を入力)投稿日時までを表示　表示する文字数を指定　秒数は文字数制限で非表示にする -->
             </div>
-        </li>
-    </ul>
+            <div class="followDate-post">{!! nl2br(htmlspecialchars($followPost->post)) !!} </div>
+            <!-- 投稿内容を改行した状態で表示　｛!! nl2br(htmlspecialchars($変数->カラム名))!!｝ -->
+        </div>
 </div>
 @endforeach
 <!-- フォロー機能、フォロワー解除ボタンは、FollowsControllerで書いた記述を再利用、ボタンの切り替えは＠ifで行う -->
