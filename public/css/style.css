@@ -340,7 +340,9 @@ header{
 
 /* フォローリストページ */
 .followList{
-    font-size: 200%;
+    font-size: 180%;
+    padding: 3%;
+    margin-left: 5%;
 }
 /* フォローアイコンの下の下線、アイコンの位置のレイアウト */
 .follow_block{
@@ -352,7 +354,6 @@ header{
     display: flex;
     border: 5px solid;
     border-style: none;
-    margin-left: 5%;
     padding: 2%;
 }
 
@@ -399,13 +400,23 @@ header{
 
 /* フォロワーリストページ */
 /* フォロワーのアイコンの位置、下の下線のレイアウト */
-.follower_icon{
-    display: flex;
-    border-bottom: 10px solid #DDDDDD;
-    padding-bottom: 5%;
-    margin-bottom: 0;
+.followerList{
+    font-size: 180%;
+    padding: 3%;
+    margin-left: 5%;
+}
+/* フォローアイコンの下の下線、アイコンの位置のレイアウト */
+.follower_block{
+  display: flex;
+  border-bottom: 10px solid #DDDDDD;
 }
 
+.follower_icon{
+    display: flex;
+    border: 5px solid;
+    border-style: none;
+    padding: 2%;
+}
 /* フォローワーの投稿一覧のレイアウト */
 .follower_post{
     border-bottom:1px solid #000;

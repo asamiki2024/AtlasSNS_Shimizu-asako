@@ -1,10 +1,13 @@
 @extends('layouts.login')
 @section('content')
-<div class="followerList">フォローワーリスト</div>
-    <div class="follower_icon">
+<div class="follower-top">
+    <div class="follower_block">
+    <div class="followerList">フォロワーリスト</div>
+        <div class="follower_icon">
         @foreach($follower_icons as $follower_icon)
             <p><a href="/Usersprofile/{{ $follower_icon->id }}/followDate"><img src="{{ asset('images/' . $follower_icon->images) }}"></a></p>
         @endforeach
+        </div>
     </div>
     @foreach($follower_posts as $follower_post)
     <div class="follower_post">
@@ -20,4 +23,5 @@
             </div>
     </div>
     @endforeach
+</div>
 @endsection
