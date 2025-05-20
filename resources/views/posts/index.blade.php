@@ -6,12 +6,16 @@
     <div class="Form-group">
         {!! Form::open(['url' => "/top", 'class' => "post-form"]) !!}
         {{ Form::token() }}
-            <p><img src="{{ asset('images/' . Auth::user()->images ) }}" /></p>
-            <!-- {{ Form::input('text', 'newPost', null, ['class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }} -->
-            <textarea name="newPost" class="form-control" rows="5" cols="100" placeholder="投稿内容を入力してください。"></textarea>
-            <!-- rows=行数,cols=文字数の意味 -->
+            <div class="Post">
+                <p><img src="{{ asset('images/' . Auth::user()->images ) }}" /></p>
+                <!-- {{ Form::input('text', 'newPost', null, ['class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }} -->
+                <textarea name="newPost" class="form-control" rows="5" cols="100" placeholder="投稿内容を入力してください。"></textarea>
+            </div>
+                <!-- rows=行数,cols=文字数の意味 -->
             <!-- 送信ボタン -->
-            <button class="form-button"><img src="images/post.png" /></button>
+             <div class="Post-btn">
+                <button class="form-button"><img src="images/post.png" /></button>
+            </div>
         {!! Form::close() !!}
         <!-- エラーメッセージ表示させる -->
         @if($errors->any())
