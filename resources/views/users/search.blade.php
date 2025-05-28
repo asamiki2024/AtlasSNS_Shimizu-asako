@@ -6,32 +6,34 @@
      <div class="search-top">
         <form action="{{ route('users.usersearch') }}" method="get">
             @csrf
-            <input type="text" name="keyword" class="search-form" placeholder="ユーザー名">
+            <input type="text" name="keyword" class="search-form" size="50" placeholder="ユーザー名" >
+            <!-- sizeで入力フォーム大きさ調節 -->
             <button type="submit" class="btn btn-search"><img src="images/search.png" ></button>
+            <p class="Keyword">検索ワード：{{ $keyword }}</p>
         </form>
-        <p>検索ワード：{{ $keyword }}</p>
     </div>
-    <table>
+    <div class="search-box">
     @foreach($search_user as $search_user)
-    <tr>
-        <td>{{ $search_user->username }}<p><img src="{{ asset('images/' . $search_user->images ) }}" /></p></td>
-        @if(auth()->user()->isFollowing($search_user->id))
-        <td><form action="/unfollow/{{ $search_user->id }}" method="POST">
+        <div class="search-box1">
+            <div>{{ $search_user->username }}<p><img src="{{ asset('images/' . $search_user->images ) }}" /></p></div>
+            @if(auth()->user()->isFollowing($search_user->id))
+            <form action="/unfollow/{{ $search_user->id }}" method="POST">
             @csrf
             <!-- @csrfは、脆弱対策として入れる -->
-            <a class="follow-cancel-button"><button class="btn btn-danger">フォロー解除</button></a>
+                <a class="follow-cancel-button"><button class="btn btn-danger">フォロー解除</button></a>
             </form>
-        </td>
+        </div>
         @else
-        <td><form action="/follow/{{ $search_user->id }}" method="POST">
+        <div class="search-box2">
+            <form action="/follow/{{ $search_user->id }}" method="POST">
             @csrf
             <a class="follow-button"><button class="btn btn-info">フォローする</button></a>
             </form>
-        </td>
-    </tr>
+        </div>
+    </div>
         @endif
     @endforeach
-    </table>
+    </div>
     <!-- FollowsControllerのフォロー処理メゾットにweb.phpを通って移動する -->
     <!-- FollowsControllerのフォロー解除処理メゾットにweb.phpを通って移動する -->
     <!-- foreachの中で使用する変数は、foreachの()の中を参考にする。 -->

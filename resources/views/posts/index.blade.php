@@ -10,10 +10,8 @@
                 <p><img src="{{ asset('images/' . Auth::user()->images ) }}" /></p>
                 <!-- {{ Form::input('text', 'newPost', null, ['class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }} -->
                 <textarea name="newPost" class="form-control" rows="5" cols="100" placeholder="投稿内容を入力してください。"></textarea>
-            </div>
                 <!-- rows=行数,cols=文字数の意味 -->
             <!-- 送信ボタン -->
-             <div class="Post-btn">
                 <button class="form-button"><img src="images/post.png" /></button>
             </div>
         {!! Form::close() !!}
@@ -45,7 +43,7 @@
             <!-- 投稿の編集ボタン -->
             <div class="post-btn">
             @if (Auth::id()  === $user->user_id)
-                    <button class="js-modal-open" href="style.css" post="{{ $user->post }}" post_id="{{ $user->id }}"></button>
+                    <button class="js-modal-open" href="style.css" post="{!! nl2br(htmlspecialchars($user->post)) !!}" post_id="{{ $user->id }}"></button>
                 @endif
                 <!-- ifで自分以外が編集機能を使えない様にする。Auth::id()でログインしているユーザー全て。$user->user_idで自分以外。　===は完全一致すれば自分以外には編集機能が出ない表示になる。 -->
                 <!-- 削除ボタン -->

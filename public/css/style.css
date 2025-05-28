@@ -6,12 +6,24 @@ body{
 /* header */
 /* display:flex;は親要素に対応するため操作したい親要素に記述する */
 header{
-    background:#186AC9;
-    display: flex;
-    width: 100%;
-    padding: 10px;
+  background:#186AC9;
+  display: flex;
+  width: 100%;
+  padding: 10px;
 }
 
+/* main content */
+#row{
+    display: flex;
+    flex-flow: row wrap;
+}
+#container{
+    flex: 0 0 80%;
+}
+#side-bar{
+    flex: 0 0 19%;
+    border-left: 1px solid #727272;
+}
 
 /* topページ */
 
@@ -20,10 +32,10 @@ header{
     padding: 10px;
 }
 
-#head img, .form img{
-    width: 50px;
+/* #head img, .form img{ */
+    /* width: 50px; */
     /* padding: 10px; */
-}
+/* } */
 
 /* #logo, #head{ */
     /* display: inline-block; */
@@ -46,6 +58,10 @@ header{
 
 
 /*アコーディオンメニュー*/
+#head img {
+  width: 50px;
+  height: 50px;
+}
 .nav-menu {
     display: none;
     width: 300px;
@@ -110,91 +126,47 @@ header{
 
 /* ナビメニュークリックで色が変わる */
 .nav-menu li a:hover {
-    background-color: #000080;
-    color: #FFFFFF;
+  background-color: #000080;
+  color: #FFFFFF;
 }
 
 
-/*  投稿フォーム,投稿エリア  */
+/*  topページ　投稿フォーム,投稿エリア  */
+.Form-group{
+  border-bottom: 10px solid #DDDDDD;
+  padding: 20px;
+}
+
 .Post {
-    display: flex;
-    width: 80%;
-    height: 200%;
-    margin-left: 90px;
-    margin-top: 40px;
+  display: flex;
+  width: 80%;
+  height: 200%;
+  margin-left: 90px;
+  margin-top: 40px;
 }
 
-.post-form input {
-    display: inline-block;
-    width: 100%;
-    padding: 0.5rem;
-    border: none;
-    box-sizing: border-box;
-    background: #FFFFFF;
-    margin: 0.5em 0;
+button.form-button {
+  background-color: #FFFFFF;
 }
 
-.Post-btn{
+.form-button {
   display: flex;
   justify-content: end;
-  padding: 20px;
-  margin-right: 200px;
-}
-
-.Post-btn img{
-  width: 50px;
-  height: 50px;
+  align-items: flex-end;
   border: none;
 }
 
-.form-control{
-    border: none;
-}
-
-.Form-group{
-    border-bottom: 10px solid #DDDDDD;
-}
-
-.post-form img {
-    width: 55px;
+.form-button img {
+  width: 45px;
+  height: 45px;
+  border-radius: 3px;
 }
 
 .index-errors {
-    color: red;
+  color: red;
 }
 
-/* .content{ */
-    /* margin: 0 auto; */
-    /* padding: 40px; */
-/* } */
-
-.modal{
-    display: none;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-.modal__bg{
-    background: rgba(0,0,0,0.8);
-    height: 100vh;
-    position: absolute;
-    width: 100%;
-}
-.modal__content{
-    background: #fff;
-    left: 50%;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 60%;
-}
-.modal_post{
-    border: none;
-}
-
-/* topページ　投稿ページのレイアウト */
+/* topページ　投稿ページのレイアウト 下部分*/
 .content-block{
     border-bottom:1px solid #000;
     /* display:flex; */
@@ -234,7 +206,7 @@ header{
     /* 余白調整 */
   }
   
-  /*トップページ 編集ボタン、削除ボタンレイアウト */
+  /*topページ 編集ボタン、削除ボタンレイアウト */
   /* topページのボタングループ */
   .post-btn{
     display: flex;
@@ -268,48 +240,92 @@ header{
     height: 35px;
     margin-left: 10px;
 }
+/* .post-form input { */
+/* display: inline-block; */
+    /* width: 100%; */
+    /* padding: 0.5rem; */
+    /* border: none; */
+    /* box-sizing: border-box; */
+    /* background: #FFFFFF; */
+    /* margin: 0.5em 0; */
+/* } */
+
+
+/* .Post-btn img{ */
+  /* width: 50px; */
+  /* height: 50px; */
+  /* border: none; */
+/* } */
+
+/* .form-control{ */
+  /* border: none; */
+/* } */
+
+
+
+/* .post-form img { */
+    /* width: 55px; */
+/* } */
+
+
+/* .content{ */
+    /* margin: 0 auto; */
+    /* padding: 40px; */
+/* } */
+
+.modal{
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.modal__bg{
+    background: rgba(0,0,0,0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+.modal__content{
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+}
+.modal_post{
+    border: none;
+}
+
 
 /* 検索ページ */
 .search-top{
     display: flex;
     border-bottom: 10px solid #DDDDDD;
-    padding-bottom: 5%;
     margin-bottom: 5%;
 }
 
-#search form{
-    display: flex;
-}
-
-.btn.btn-search{
-    display: block;
-}
 .btn.btn-search img{
-    width: 40%;
-    padding: 0.5rem;
-    background: #fff;
+    width: 50px;
+    height: 50px;
     border: none;
+    border-radius: 5px;
 }
-.search-form{
-    display: block;
-    padding: 0.5rem;
-    
+.search-top form{
+    display: flex;
+    padding: 50px;
 }
 
+.Keyword{
+  margin-left: 200px;
+  font-size: 30px;
+}
+
+/* サイドメニュー　ボタン */
 .btn{
     color: #fff !important;
-}
-/* main content */
-#row{
-    display: flex;
-    flex-flow: row wrap;
-}
-#container{
-    flex: 0 0 80%;
-}
-#side-bar{
-    flex: 0 0 19%;
-    border-left: 1px solid #727272;
 }
 
 
