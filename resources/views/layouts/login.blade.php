@@ -45,7 +45,7 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>{{ Auth::user()->username }}さんの</p>
+                <p class="login-name">{{ Auth::user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <!-- {{ \App\Post::get()->count() }}SNSの例　投稿数を表示する。記述 -->
