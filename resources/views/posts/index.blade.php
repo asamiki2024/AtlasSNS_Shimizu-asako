@@ -43,7 +43,7 @@
             <!-- 投稿の編集ボタン -->
             <div class="post-btn">
             @if (Auth::id()  === $user->user_id)
-                    <button class="js-modal-open" href="style.css" post="{!! nl2br(htmlspecialchars($user->post)) !!}" post_id="{{ $user->id }}"></button>
+                    <button class="js-modal-open" href="style.css" post="{{ $user->post }}" post_id="{{ $user->id }}"></button>
                 @endif
                 <!-- ifで自分以外が編集機能を使えない様にする。Auth::id()でログインしているユーザー全て。$user->user_idで自分以外。　===は完全一致すれば自分以外には編集機能が出ない表示になる。 -->
                 <!-- 削除ボタン -->

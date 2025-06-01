@@ -15,24 +15,24 @@
     <div class="search-box">
     @foreach($search_user as $search_user)
         <div class="search-box1">
-            <div>{{ $search_user->username }}<p><img src="{{ asset('images/' . $search_user->images ) }}" /></p></div>
+            <p><img src="{{ asset('images/' . $search_user->images ) }}" /></p>
+            <div class="search-name">{{ $search_user->username }}</div>
             @if(auth()->user()->isFollowing($search_user->id))
             <form action="/unfollow/{{ $search_user->id }}" method="POST">
             @csrf
             <!-- @csrfは、脆弱対策として入れる -->
                 <a class="follow-cancel-button"><button class="btn btn-danger">フォロー解除</button></a>
             </form>
+            @else
+            <!-- <div class="search-box2"> -->
+                <form action="/follow/{{ $search_user->id }}" method="POST">
+                    @csrf
+                    <a class="follow-button"><button class="btn btn-info">フォローする</button></a>
+                </form>
+            <!-- </div> -->
+            @endif
         </div>
-        @else
-        <div class="search-box2">
-            <form action="/follow/{{ $search_user->id }}" method="POST">
-            @csrf
-            <a class="follow-button"><button class="btn btn-info">フォローする</button></a>
-            </form>
-        </div>
-    </div>
-        @endif
-    @endforeach
+        @endforeach
     </div>
     <!-- FollowsControllerのフォロー処理メゾットにweb.phpを通って移動する -->
     <!-- FollowsControllerのフォロー解除処理メゾットにweb.phpを通って移動する -->
