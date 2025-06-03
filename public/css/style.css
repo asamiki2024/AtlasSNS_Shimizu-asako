@@ -10,6 +10,7 @@ header{
   display: flex;
   width: 100%;
   padding: 10px;
+  align-items: center;
 }
 
 /* main content */
@@ -342,11 +343,12 @@ button.form-button {
 
 .search-box1 {
     display: flex;
-    margin: 5% 25% 0 25%;
+    margin: 5% 50% 0 5%;
+    align-items: center;
 }
 
 .search-name{
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 .search-box1 form{
