@@ -63,9 +63,11 @@
             <form action="/post/update" method="get">
                 <textarea name="upPost" class="modal_post"></textarea>
                 <input type="hidden" name="id" class="modal_id" value="">
-                <button class="update-button" type="submit"><img src="images/edit.png" /></button>
                 {{ csrf_field() }}
             </form>
+            <div class="modal-btn">
+            <button class="update-button" type="submit"><img src="images/edit.png" /></button>
+            </div>
         </div>
     </div>
 </div>

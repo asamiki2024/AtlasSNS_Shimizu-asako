@@ -15,8 +15,10 @@
     <div class="search-box">
     @foreach($search_user as $search_user)
         <div class="search-box1">
-            <p><img src="{{ asset('images/' . $search_user->images ) }}" /></p>
-            <div class="search-name">{{ $search_user->username }}</div>
+            <div class="search-info">
+                <p><img src="{{ asset('images/' . $search_user->images ) }}" /></p>
+                <div class="search-name">{{ $search_user->username }}</div>
+            </div>
             @if(auth()->user()->isFollowing($search_user->id))
             <form action="/unfollow/{{ $search_user->id }}" method="POST">
             @csrf
