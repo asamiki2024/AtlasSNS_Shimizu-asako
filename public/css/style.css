@@ -55,6 +55,16 @@ header{
   display: block;
 }
 
+/* フォロー数の文字余白 */
+.count{
+  margin-left: 20%;
+}
+
+/* フォロワー数の文字余白 */
+.count2{
+  margin-left: 15%;
+}
+
 /* ユーザー検索ボタン位置 */
 .btn.btn-primary.btn-search{
   margin: 0 auto;
@@ -186,6 +196,13 @@ button.form-button {
   border: none;
 }
 
+/* 投稿画面のユーザーアイコン */
+.Post img {
+  width: 50px;
+  height: 50px;
+}
+
+/* 投稿ボタン */
 .form-button img {
   width: 45px;
   height: 45px;
@@ -197,6 +214,13 @@ button.form-button {
 }
 
 /* topページ　投稿ページのレイアウト 下部分*/
+
+/* アイコン */
+figure img{
+  width: 50px;
+  height: 50px;
+}
+
 .content-block{
     border-bottom:1px solid #000;
     /* display:flex; */
@@ -411,6 +435,7 @@ button.form-button {
 
 .form-group{
     margin: auto;
+    display: flex;
     justify-content: center;
     /* 水平方向の中央寄せ */
 }
@@ -422,6 +447,7 @@ button.form-button {
 .form-group img{
     height: 50px;
     width: 50px;
+    margin-right: 3%;
 }
 
 .form-space{
@@ -431,6 +457,12 @@ button.form-button {
 .form-space label{
     display: inline-block;
     width: 40%;
+}
+
+.icon{
+    border: 1px solid;
+    width: 80%;
+    height: 20%;
 }
 
 .btn-profile{

@@ -52,7 +52,7 @@
                   <!-- フォローの人数を表示 -->
                    <!--  Auth::user() →userテーブルからログインしているユーザーの情報を取得する -->
                       <!-- ->follows()->count() →user.phpに記述したリレーションを利用して数を表示させている。37～39行目-->
-                <p>{{ Auth::user()->follows()->count() }}名</p>
+                <p class="count">{{ Auth::user()->follows()->count() }}名</p>
                 </div>
 
                 <p class="btn btn-primary"><a class="btn" href="/follow-list" type="button">フォローリスト</a></p>
@@ -60,7 +60,7 @@
                 <p>フォロワー数</p>
                 <!-- フォロワーの人数を表示 -->
                  <!-- フォローの表示と同じくuser.phpのリレーションを利用し数を表示44～46行目 -->
-                <p>{{ Auth::user()->followers()->count() }}名</p>
+                <p class="count2">{{ Auth::user()->followers()->count() }}名</p>
                 </div>
                 <p class="btn btn-primary"><a class="btn" href="/follower-list" type="button">フォロワーリスト</a></p>
             </div>
