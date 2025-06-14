@@ -431,6 +431,7 @@ figure img{
 /* プロフィール編集ページ */
 .profile{
     /* text-align: center; */
+    margin: 5% 2%;
 }
 
 .form-group{
@@ -451,7 +452,7 @@ figure img{
 }
 
 .form-space{
-    width: 30%;
+    width: 60%;
 }
 
 .form-space label{
@@ -459,10 +460,12 @@ figure img{
     width: 40%;
 }
 
-.icon{
+
+
+.icons input{
     border: 1px solid;
-    width: 80%;
-    height: 20%;
+    width: 60%;
+    height: 40%;
 }
 
 .btn-profile{

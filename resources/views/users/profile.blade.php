@@ -24,8 +24,10 @@
             {{ Form::label('自己紹介') }}
             {{ Form::input('bio', 'bio', old('bio', Auth::user()->bio ) ) }}
             <p class="profile-p"></p>
-            {{ Form::label('アイコン画像') }}
-            {{ Form::input('file','icons') }}
+            <div class="icons">
+                {{ Form::label('アイコン画像') }}
+                {{ Form::input('file','icons') }}
+            </div>
             <!-- fileでブレードにアップロード用の選択画面を表示 -->
             <p class="profile-p"></p>
             {{ Form::submit('更新',['class' => 'btn btn-danger btn-profile']) }}
