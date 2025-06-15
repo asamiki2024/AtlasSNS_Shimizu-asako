@@ -25,8 +25,10 @@
             {{ Form::input('bio', 'bio', old('bio', Auth::user()->bio ) ) }}
             <p class="profile-p"></p>
             <div class="icons">
-                {{ Form::label('アイコン画像') }}
-                {{ Form::input('file','icons') }}
+                <!-- {{ Form::label('アイコン画像') }} -->
+                <!-- {{ Form::input('file','icons') }} -->
+                {{ Form::label('icons', 'アイコン画像', ['class' => 'custom-file-label']) }}
+                {{ Form::file('icons', ['id' => 'icons', 'class' => 'custom-file-input']) }}
             </div>
             <!-- fileでブレードにアップロード用の選択画面を表示 -->
             <p class="profile-p"></p>
