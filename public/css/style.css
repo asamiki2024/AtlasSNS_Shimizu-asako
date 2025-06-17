@@ -396,7 +396,7 @@ figure img{
     /* margin: 5% 50% 0 5%; */
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 120%;
     padding: 2% 30%;
     box-sizing: border-box;
 }
@@ -439,6 +439,11 @@ figure img{
     display: flex;
     justify-content: center;
     /* 水平方向の中央寄せ */
+}
+
+.form-group input{
+  width: 50%;
+  background-color: #d3d3d3;
 }
 
 .form-group p{
@@ -498,11 +503,9 @@ figure img{
 .custom-file-input{
   display: inline-block;
   width: 300px;
-  height: 100px;
+  height: 110px;
   border: solid 2px #aaa;
-  background-color: #f9f9f9;
   color: transparent;
-  border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
   text-align: center;
@@ -514,17 +517,21 @@ figure img{
   background-color: #3498db;
 } */
 
+.custom-file-input::before {
+  content: '+400%';
+
+}
+
 .icons{
-  display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
 
 
-.icons input{
+/* .icons input{
     width: 60%;
-}
+} */
 
 .btn-profile{
     text-align: center;
