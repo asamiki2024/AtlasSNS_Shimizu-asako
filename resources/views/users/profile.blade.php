@@ -10,19 +10,19 @@
             {{ Form::hidden('id', old('id', Auth::user()->id )) }}
             <!-- hiddenで非表示にする -->
             {{ Form::label('ユーザー名') }}
-            {{ Form::input('text', 'username', old('username', Auth::user()->username )) }}
+            {{ Form::input('text', 'username', old('username', Auth::user()->username ), ['class' => 'input-name']) }}
             <p class="profile-p"></p>
             {{ Form::label('メールアドレス') }}
-            {{ Form::input('mail', 'mail', old('mail', Auth::user()->mail ) ) }}
+            {{ Form::input('mail', 'mail', old('mail', Auth::user()->mail ), ['class' => 'input-mail']) }}
             <p class="profile-p"></p>
             {{ Form::label('パスワード') }}
-            {{ Form::input('password', 'password', 'null' ) }}
+            {{ Form::input('password', 'password', 'null', ['class' => 'input-password']) }}
             <p class="profile-p"></p>
             {{ Form::label('パスワード確認') }}
-            {{ Form::input('password', 'password_confirmation', null ) }}
+            {{ Form::input('password', 'password_confirmation', null, ['class' => 'input-password_confirmation']) }}
             <p class="profile-p"></p>
             {{ Form::label('自己紹介') }}
-            {{ Form::input('bio', 'bio', old('bio', Auth::user()->bio ) ) }}
+            {{ Form::input('bio', 'bio', old('bio', Auth::user()->bio ), ['class' => 'input-bio']) }}
             <p class="profile-p"></p>
             <div class="icons">
                 <!-- {{ Form::label('アイコン画像') }} -->

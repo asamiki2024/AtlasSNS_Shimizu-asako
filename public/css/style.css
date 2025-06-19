@@ -441,7 +441,7 @@ figure img{
     /* 水平方向の中央寄せ */
 }
 
-.form-group input{
+.input-name, .input-mail, .input-password, .input-password_confirmation, .input-bio, .custom-file-input{
   width: 50%;
   background-color: #d3d3d3;
 }
@@ -502,14 +502,13 @@ figure img{
 
 .custom-file-input{
   display: inline-block;
-  width: 300px;
   height: 110px;
-  border: solid 2px #aaa;
+  border: solid 2px #000000;
   color: transparent;
   font-size: 16px;
   cursor: pointer;
   text-align: center;
-  line-height: 300%;
+  /* line-height: 300%; */
   /* transition: background-color 0.3s; */
 }
 
@@ -528,13 +527,11 @@ figure img{
   gap: 10px;
 }
 
-
-/* .icons input{
-    width: 60%;
-} */
-
 .btn-profile{
-    text-align: center;
+    width: 30%;
+    /* ボタンの幅 */
+    margin-left: 30%;
+    /* 中央寄せ、ボタンの位置調節 */
 }
 /* !important　強制的に表示させる */
 
