@@ -5,8 +5,10 @@
     <a href="/followDate"></a>
     <ul class= "datalist">
             <li><img src="{{  asset('images/' . $followUser->images) }}"/></li>
-            <li>ユーザー名 {{ $followUser->username }}</li>
-            <li>自己紹介 {{ $followUser->bio }}</li>
+            <li>
+                <li>ユーザー名 {{ $followUser->username }}</li>
+                <li>自己紹介 {{ $followUser->bio }}</li>
+            </li>
     </ul>
     @if(auth()->user()->isFollowing($followUser->id))
     <form action = "/unfollow/{{ $followUser->id }}" method = "POST" >

@@ -704,7 +704,14 @@ input[type="file"] {
     margin-bottom: 0;
 }
 
-/* ユーザーの投稿一覧のレイアウト */
+/* アイコンタップ後の一人ユーザーの投稿一覧のレイアウト */
+
+/* 表示上部 */
+.datalist{
+  display: flex;
+}
+
+/* 表示下部 */
 .followDate_post{
     border-bottom:1px solid #000;
   }
