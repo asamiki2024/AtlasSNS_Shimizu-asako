@@ -29,6 +29,10 @@
                 <!-- {{ Form::input('file','icons') }} -->
                 {{ Form::label('icons', 'アイコン画像', ['class' => 'custom-file-label']) }}
                 {{ Form::file('icons', ['id' => 'icons', 'class' => 'custom-file-input']) }}
+                <label class="from-f" for="form-image"><span>ファイルを選択</span></label>
+                <input type="file" id="form-image">
+                <span class="select-image">選択されていません</span>
+
             </div>
             <!-- fileでブレードにアップロード用の選択画面を表示 -->
             <p class="profile-p"></p>

@@ -441,9 +441,9 @@ figure img{
     /* 水平方向の中央寄せ */
 }
 
-.input-name, .input-mail, .input-password, .input-password_confirmation, .input-bio, .custom-file-input{
+.input-name, .input-mail, .input-password, .input-password_confirmation, .input-bio{
   width: 50%;
-  background-color: #d3d3d3;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .form-group p{
@@ -488,9 +488,32 @@ figure img{
 /* label:hover {
   opacity: 0.8;
 } */
-/* input[type="file"] {
+input[type="file"] {
   display: none;
-} */
+}
+
+.icons .from-f {
+  padding: 4% 10%;
+  background-color: rgba(0, 0, 0, 0.1);;
+  cursor: pointer;
+  text-align: center;
+  border: 2px solid;
+  width: 50%;
+  font-size: 20px;
+}
+
+.select-image{
+  color: transparent;
+}
+.from-f:hover {
+  opacity: 0.8;
+}
+
+.from-f span {
+  background-color: #FFFFFF;
+  opacity: 0.5;
+  padding: 0 15%;
+}
 
 /* .custom-file-input{
   opacity: 0;
@@ -500,7 +523,7 @@ figure img{
   overflow: hidden;
 } */
 
-.custom-file-input{
+/* .custom-file-input{
   display: inline-block;
   height: 110px;
   border: solid 2px #000000;
@@ -510,16 +533,11 @@ figure img{
   text-align: center;
   /* line-height: 300%; */
   /* transition: background-color 0.3s; */
-}
+/* } */
 
 /* .custom-file-input:hover {
   background-color: #3498db;
 } */
-
-.custom-file-input::before {
-  content: '+400%';
-
-}
 
 .icons{
   justify-content: center;
