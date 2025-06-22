@@ -693,23 +693,17 @@ input[type="file"] {
   /* フォローリスト、フォロワーリスト内　Usersprofile.blade.php */
 
   /* フォロー機能ボタンの切り替え */
-.users-profile{
-    display: flex;
-}
-
-  .users-profile{
+  /* 表示上部 */
+  .U{
     display: flex;
     border-bottom: 10px solid #DDDDDD;
     padding-bottom: 5%;
-    margin-bottom: 0;
 }
 
-/* アイコンタップ後の一人ユーザーの投稿一覧のレイアウト */
-
-/* 表示上部 */
 .datalist{
   display: flex;
 }
+
 
 /* 表示下部 */
 .followDate_post{
