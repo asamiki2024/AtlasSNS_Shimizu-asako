@@ -702,7 +702,11 @@ input[type="file"] {
 
 .datalist{
   display: flex;
+  width: 80%;
+  margin-top: 5%;
+  margin-left: 10%;
 }
+
 
 
 /* 表示下部 */
