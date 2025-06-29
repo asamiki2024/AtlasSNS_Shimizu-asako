@@ -5,11 +5,12 @@ body{
 }
 /* header */
 /* display:flex;は親要素に対応するため操作したい親要素に記述する */
+/* ページのヘッダー */
 header{
   background:#186AC9;
   display: flex;
   width: 100%;
-  padding: 10px;
+  padding: 1%;
   align-items: center;
 }
 
@@ -19,25 +20,32 @@ header{
     display: flex;
     flex-flow: row wrap;
 }
+
+/* ページ左側どのページも共通 */
 #container{
     flex: 0 0 80%;
 }
+
+/* サイドメニュー */
 #side-bar{
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
 
+/* サイドメニューの上部 */
 #confirm{
   border-bottom: 1px solid #727272;
   margin-top: 10%;
   margin-bottom: 10%;
 }
 
+/* サイドメニュー上部の中身(人数とボタンレイアウト) */
 #confirm div{
   display: flex;
   margin-left: 10%;
 }
 
+/* サイドメニューのログインユーザーの名前 */
 .login-name{
   margin-left: 10%;
 }
@@ -48,24 +56,24 @@ header{
     color: #fff !important;
 }
 
-/* フォローリスト、フォロワーリストボタン位置 */
+/* サイドメニューのフォローリスト、フォロワーリストボタン位置 */
 .btn.btn-primary{
   margin: 0 0 0 auto;
   width: fit-content;
   display: block;
 }
 
-/* フォロー数の文字余白 */
+/* サイドメニューのフォロー数の文字余白 */
 .count{
   margin-left: 20%;
 }
 
-/* フォロワー数の文字余白 */
+/* サイドメニューのフォロワー数の文字余白 */
 .count2{
   margin-left: 15%;
 }
 
-/* ユーザー検索ボタン位置 */
+/* サイドメニューのユーザー検索ボタン位置 */
 .btn.btn-primary.btn-search{
   margin: 0 auto;
   width: fit-content;
@@ -74,13 +82,13 @@ header{
 
 
 /* topページ */
-
+/* atlasロゴ */
 #logo img{
     width: 120px;
     padding: 10px;
 }
 
-
+/* アコーディオンメニューとヘッダーの部分にあるログインユーザーの名前とアイコン部分 */
 #head{
     flex-wrap: nowrap;
     text-align: right;
@@ -88,24 +96,27 @@ header{
     width: 90%;
     justify-content: end;
 }
+
+/* ヘッダーのログインユーザーの名前とアイコンの部分 */
 .username{
-    padding: 20px;
+    padding: 2%;
     color: #FFFFFF;
     font-weight: bold;
     font-size: 20px;
 }
 
-
-/*アコーディオンメニュー*/
+/* ヘッダーのアイコン画像 */
 #head img {
   width: 50px;
   height: 50px;
 }
+
+/*アコーディオンメニュー*/
 .nav-menu {
     display: none;
     width: 20%;
     right: 0;
-    top: 13%;
+    top: 15%;
     position: absolute;
     padding-left: 0;
     /* text-align: center; */
@@ -115,35 +126,32 @@ header{
     /* color: #808080; */
 }
 
-.nav-menu li {
-    /* padding: 30px; */
-    /* z-index: 1; */
-    right: 0;
-    top: 50px;
-}
-
+/* アコーディオンメニューの中身 */
 .nav-menu li a {
     display: flex;
-    height: 80px;
+    height: 300%;
     text-align: center;
     justify-content: center;
     text-decoration: none;
     color: #808080;
     font-size: 25px;
     border: 3px solid #000080;
-    line-height: 80px;
+    line-height: 300%;
 }
 
+/* アコーディオンメニューのボタン */
 .nav-btn {
     /* position: relative; */
     padding: 10px;
 }
 
+/* アコーディオンメニューの開いた時のレイアウト */
 .nav-btn:after {
     border-right: solid 3px #fff;
     border-top: solid 3px #fff;
     content: "";
     display: block;
+    /* 矢印の線の長さ */
     height: 20px;
     width: 20px;
     /* position: absolute; */
@@ -153,18 +161,20 @@ header{
     transition: transform 0.5s ease-in-out, top .0.5s ease-in-out;
 }
 
+/* アコーディオンメニューの開いた時のボタンレイアウト */
 .nav-btn.open:after {
     top: 45%;
     transform: rotate(-45deg);
 }
 
+/* アコーディオンメニューの開いた時の位置固定 */
 .nav-menu.open:after {
     display: block;
     /* position: absolute; */
     resize: none;
 }
 
-/* ナビメニュークリックで色が変わる */
+/* アコーディオンメニュークリックで色が変わる */
 .nav-menu li a:hover {
   background-color: #000080;
   color: #FFFFFF;
@@ -172,11 +182,13 @@ header{
 
 
 /*  topページ　上部　投稿エリア  */
+/* 投稿エリア全体 */
 .Form-group{
   border-bottom: 10px solid #DDDDDD;
   padding: 20px;
 }
 
+/* 投稿エリアの中身 */
 .Post {
   display: flex;
   width: 80%;
@@ -185,10 +197,12 @@ header{
   margin-top: 40px;
 }
 
+/* 投稿ボタン */
 button.form-button {
   background-color: #FFFFFF;
 }
 
+/* 投稿ボタンレイアウト */
 .form-button {
   display: flex;
   justify-content: end;
@@ -202,36 +216,39 @@ button.form-button {
   height: 50px;
 }
 
-/* 投稿ボタン */
+/* 投稿ボタン画像 */
 .form-button img {
   width: 45px;
   height: 45px;
   border-radius: 3px;
 }
 
+/* 投稿のボタン押した後のエラー表示 */
 .index-errors {
   color: red;
 }
 
 /* topページ　投稿ページのレイアウト 下部分*/
-
-/* アイコン */
+/* ユーザーアイコン */
 figure img{
   width: 50px;
   height: 50px;
 }
 
+/* 投稿ごとのブロックのこと */
 .content-block{
     border-bottom:1px solid #000;
     /* display:flex; */
     /* position: relative; */
   }
 
+  /* 投稿のアイコン画像、ユーザーの名前、投稿日時のまとめたブロック */
   .post-box{
     width:100%;
     padding:20px;
   }
 
+  /* 投稿内容 */
   .post-top{
     display:flex;
     /* アイコン、名前、投稿日時を横並び */
@@ -239,10 +256,12 @@ figure img{
     /* ３つを縦に中央に並べる */
   }
 
+  /* ユーザーアイコン画像の位置調節 */
   figure{
     margin-left: 10%;
   }
 
+  /* ユーザーの名前の位置調節 */
   .post-name{
     margin-bottom:10px;
     /* 投稿内容とのスペース */
@@ -250,24 +269,26 @@ figure img{
     /* アイコンとのスペース */
   }
 
+  /* 投稿日時の位置調節 */
   .post-created_at{
     margin-left: auto;
     /* 投稿日時のみ右寄せ */
   }
 
+  /* 投稿内容の位置調節 */
   .post-post{
     margin-left: 18%;
     /* 余白調整 */
   }
   
-  /*topページ 編集ボタン、削除ボタンレイアウト */
-  /* topページのボタングループ */
+  /* ログインユーザーの投稿のみに出る 編集ボタン、削除ボタンレイアウト */
   .post-btn{
     display: flex;
     justify-content: end;
     padding: 20px;
   }
 
+  /* 編集ボタンレイアウト */
 .js-modal-open{
     background-image: url('/images/edit.png');
     background-size: cover;
@@ -277,6 +298,7 @@ figure img{
     height: 35px;
 }
 
+/* 削除ボタンのレイアウト(ボタン押す前の画像) */
 .delete-button{
     background-image: url('/images/trash-h.png');
     background-size: cover;
@@ -286,6 +308,7 @@ figure img{
     margin-left: 10px;
 }
 
+/* 削除ボタンのレイアウト(ボタン押した後の画像) */
 .delete-button:hover{
     background-image: url('/images/trash.png');
     background-size: cover;
@@ -295,7 +318,7 @@ figure img{
     margin-left: 10px;
 }
 
-/* 投稿編集ボタン押した時のページ */
+/* 投稿編集ボタン押した時のモーデルページ */
 .modal{
     display: none;
     height: 100vh;
@@ -303,12 +326,16 @@ figure img{
     top: 0;
     width: 100%;
 }
+
+/* モーデルページが開いた時のバックのレイアウト */
 .modal__bg{
     background: rgba(0,0,0,0.5);
     height: 100vh;
     position: absolute;
     width: 100%;
 }
+
+/* モーデルの中身 */
 .modal__content{
     background: #fff;
     left: 50%;
@@ -322,12 +349,14 @@ figure img{
     border-radius: 3%;
 }
 
+/* モーデルの投稿編集出来るエリア全体 */
 .modal__content form{
   border: 1px solid;
   width: 100%;
   height: 80%;
 }
 
+/* 投稿編集出来るエリアの中身レイアウト */
 .modal_post{
     border: none;
     width: 100%;
@@ -336,45 +365,54 @@ figure img{
     word-wrap: break-word;
 }
 
+/* 編集ボタンレイアウト */
 .update-button{
   border: none;
   background-color: #fff;
 }
 
+/* 編集ボタン大きさ */
 .update-button img{
-  width: 35px;
-  height: 35px;
+  width: 35%;
+  height: 35%;
 }
 
+/* 編集ボタン位置調節 */
 .modal-btn{
   margin-top: 2%;
 }
 
 /* 検索ページ */
-/* 検索ページ上部 */
+/* 検索ページ上部全体 */
 .search-top{
     display: flex;
     border-bottom: 10px solid #DDDDDD;
     margin-bottom: 5%;
 }
 
+/* 検索ボタン */
 .btn.btn-search img{
     width: 50px;
     height: 50px;
     border: none;
     border-radius: 5px;
 }
+
+/* 検索ページ上部の中身 */
 .search-top form{
     display: flex;
-    padding: 50px;
+    width: 300%;
+    padding: 5%;
 }
 
-.Keyword{
-  margin-left: 200px;
+/* 検索結果の表示 */
+p.Keyword{
+  margin-left: 15%;
   font-size: 30px;
 }
 
 /* 検索ページ下部 */
+/* 検索ページ全体 */
 .search-box{
     /* display: flex; */
     margin: auto;
@@ -382,15 +420,13 @@ figure img{
     /* 水平方向の中央寄せ */
 }
 
-/* .form-group p{ */
-    /* padding: 10px 0; */
-/* } */
-
+/* ログインユーザーの人達のアイコン画像 */
 .search-box img{
     height: 50px;
     width: 50px;
 }
 
+/* 検索ページの中身 */
 .search-box1 {
     display: flex;
     /* margin: 5% 50% 0 5%; */
@@ -401,6 +437,7 @@ figure img{
     box-sizing: border-box;
 }
 
+/* アイコン画像、名前 */
 .search-info{
   display: flex;
   align-items: center;
@@ -408,6 +445,7 @@ figure img{
   flex-grow: 1;
 }
 
+/* 名前の位置調節 */
 .search-name{
   font-size: 16px;
   text-align: left;
@@ -417,11 +455,13 @@ figure img{
   /* text-overflow: ellipsis; */
 }
 
+/* フォロー、フォロー解除ボタンの位置調節 */
 .search-box1 form{
   margin-left: 40%;
   flex-shrink: 0;
 }
 
+/* フォロー、フォロー解除ボタンの幅調節 */
 .btn.btn-danger, .btn.btn-info{
   font-size: 16px;
   white-space: nowrap;
@@ -429,11 +469,13 @@ figure img{
 
 
 /* プロフィール編集ページ */
+/* プロフィール編集ページの全体 */
 .profile{
     /* text-align: center; */
     margin: 5% 2%;
 }
 
+/* プロフィール編集ページの中身 */
 .form-group{
     margin: auto;
     display: flex;
@@ -441,57 +483,43 @@ figure img{
     /* 水平方向の中央寄せ */
 }
 
+/* フォームの枠のレイアウト */
 .input-name, .input-mail, .input-password, .input-password_confirmation, .input-bio{
   width: 50%;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* 更新ボタンレイアウト */
 .form-group p{
     padding: 10px 0;
 }
 
+/* アイコン画像の大きさ */
 .form-group img{
     height: 50px;
     width: 50px;
     margin-right: 3%;
 }
 
+/* 入力フォームの位置調節 */
 .form-space{
     width: 60%;
 }
 
+/* 入力フォームと名前同士の位置調節 */
 .form-space label{
     display: inline-block;
     width: 40%;
 }
 
 
-/* .custom-file-input{
-  display: inline-block;
-  padding: 10px 16px;
-  background-color: #3498db;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-} */
-
-
-/* .custom-file-input {
-  padding: 5px 20px;
-  color: #ffffff;
-  background-color: #295d72;
-  cursor: pointer;
-  border-radius:10px;
-  opacity: 0.8;
-} */
-/* label:hover {
-  opacity: 0.8;
-} */
+/* アイコン画像編集部分 */
+/* 元々の表示を非表示に */
 input[type="file"] {
   display: none;
 }
 
+/* 新しく作成したアイコン画像編集部分のレイアウト */
 .icons .from-f {
   padding: 4% 10%;
   background-color: rgba(0, 0, 0, 0.1);;
@@ -502,49 +530,31 @@ input[type="file"] {
   font-size: 20px;
 }
 
+/* ファイルを選択していませんのメッセージ非表示 */
 .select-image{
   color: transparent;
 }
+
+/* ファイル選択をクリックした時の透明度 */
 .from-f:hover {
   opacity: 0.8;
 }
 
+/* ファイル選択のレイアウト、透明度 */
 .from-f span {
   background-color: #FFFFFF;
   opacity: 0.5;
   padding: 0 15%;
 }
 
-/* .custom-file-input{
-  opacity: 0;
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-} */
-
-/* .custom-file-input{
-  display: inline-block;
-  height: 110px;
-  border: solid 2px #000000;
-  color: transparent;
-  font-size: 16px;
-  cursor: pointer;
-  text-align: center;
-  /* line-height: 300%; */
-  /* transition: background-color 0.3s; */
-/* } */
-
-/* .custom-file-input:hover {
-  background-color: #3498db;
-} */
-
+/* 画像の編集の位置調節 */
 .icons{
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
 
+/* 更新ボタンの位置調節 */
 .btn-profile{
     width: 30%;
     /* ボタンの幅 */
@@ -555,25 +565,23 @@ input[type="file"] {
 
 
 /* フォローリストページ */
+/* フォローリスト文字レイアウト */
 .followList{
-    font-size: 30px;
-    padding: 3%;
-    margin-left: 5%;
-    white-space: nowrap;
-}
-/* フォローアイコンの下の下線、アイコンの位置のレイアウト */
-.follow_block{
-  display: flex;
-  border-bottom: 10px solid #DDDDDD;
+  font-size: 30px;
+  padding: 3%;
+  margin-left: 5%;
+  white-space: nowrap;
 }
 
+
+/*  フォローリスト上部*/
 .follow_icon{
-    display: flex;
-    width: 50%;
-    border: 5px solid;
-    border-style: none;
-    flex-wrap: wrap;
-    padding: 2%;
+  display: flex;
+  width: 46%;
+  border: 5px solid;
+  border-style: none;
+  flex-wrap: wrap;
+  padding: 2%;
 }
 
 /* アイコン画像 */
@@ -582,16 +590,24 @@ input[type="file"] {
   height: 50px;
 }
 
+/* フォローアイコンの下の下線、アイコンの位置のレイアウト */
+.follow_block{
+  display: flex;
+  border-bottom: 10px solid #DDDDDD;
+}
+
+/* フォローリスト下部　投稿内容ごとの位置調節 */
+.follow-block{
+  width:100%;
+  padding:2%;
+}
+
 /* フォローしているユーザーの投稿一覧レイアウト */
 .follow_post{
     border-bottom:1px solid #000;
   }
 
-  .follow-block{
-    width:100%;
-    padding:20px;
-  }
-
+/* アイコン画像、名前、投稿日時のグループ */
   .follow-box{
     display:flex;
     /* アイコン、名前、投稿日時を横並び */
@@ -599,10 +615,12 @@ input[type="file"] {
     /* ３つを縦に中央に並べる */
   }
 
+  /* アイコン画像の位置調節 */
   figure{
     margin-left: 10%;
   }
 
+  /* 名前位置調節 */
   .follow-name{
     margin-bottom:10px;
     /* 投稿内容とのスペース */
@@ -610,21 +628,20 @@ input[type="file"] {
     /* アイコンとのスペース */
   }
 
+  /* 投稿日時に位置調節 */
   .follow-created_at{
     margin-left: auto;
     /* 投稿日時のみ右寄せ */
   }
 
+  /* 投稿内容の位置調節 */
   .follow-post{
     margin-left: 18%;
     /* 余白調整 */
   }
-    
-    
-
 
 /* フォロワーリストページ */
-/* フォロワーのアイコンの位置、下の下線のレイアウト */
+/* フォロワーリストの文字レイアウト */
 .followerList{
     font-size: 30px;
     padding: 3%;
@@ -637,30 +654,35 @@ input[type="file"] {
   border-bottom: 10px solid #DDDDDD;
 }
 
+/* フォロワーリストの上部 */
 .follower_icon{
     display: flex;
-    width: 50%;
+    width: 46%;
     border: 5px solid;
     border-style: none;
     flex-wrap: wrap;
     padding: 2%;
 }
 
+/* アイコン画像の大きさ */
 .follower-top img{
   width: 50px;
   height: 50px;
 }
 
-/* フォローワーの投稿一覧のレイアウト */
+/* フォローワーの投稿一覧のレイアウト　下部 */
+/* 投稿一覧の全体 */
 .follower_post{
     border-bottom:1px solid #000;
   }
 
+  /*  投稿内容ごとの位置調節*/
   .follower-block{
     width:100%;
-    padding:20px;
+    padding:2%;
   }
 
+  /* アイコン画像、名前、投稿日時のグループ  */
   .follower-box{
     display:flex;
     /* アイコン、名前、投稿日時を横並び */
@@ -668,10 +690,12 @@ input[type="file"] {
     /* ３つを縦に中央に並べる */
   }
 
+  /* アイコン画像の位置調節 */
   figure{
     margin-left: 10%;
   }
 
+  /* 名前の位置調節 */
   .follower-name{
     margin-bottom:10px;
     /* 投稿内容とのスペース */
@@ -679,11 +703,13 @@ input[type="file"] {
     /* アイコンとのスペース */
   }
 
+  /* 投稿日時の位置調節 */
   .follower-created_at{
     margin-left: auto;
     /* 投稿日時のみ右寄せ */
   }
 
+  /* 投稿内容の位置調節 */
   .follower-post{
     margin-left: 18%;
     /* 余白調整 */
@@ -698,27 +724,58 @@ input[type="file"] {
     display: flex;
     border-bottom: 10px solid #DDDDDD;
     padding-bottom: 5%;
+    align-items: center;
 }
 
+/* アイコン画像、名前、自己紹介のグループ */
 .datalist{
   display: flex;
-  width: 80%;
+  width: 75%;
   margin-top: 5%;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
+/* 名前のグループ */
+.datalist-box1{
+  margin-left: 5%;
+  font-size: 25px;
+}
 
+/* 自己紹介のグループ */
+.datalist-box2{
+  margin-left: 10%;
+  font-size: 25px;
+}
+
+/* ボタンの位置調節 */
+.datalist-btn{
+  margin-top: 8%;
+  margin-left: 5%;
+}
+
+/* フォローボタンの幅調節 */
+button.btn.btn-danger{
+  width: 150%;
+}
+
+/* フォロー解除ボタンの幅調節 */
+button.btn.btn-info{
+  width: 150%;
+}
 
 /* 表示下部 */
+/* 下部全体 */
 .followDate_post{
     border-bottom:1px solid #000;
   }
 
+  /*  投稿内容ごとの位置調節*/
   .followDate-block{
     width:100%;
-    padding:20px;
+    padding:2%;
   }
 
+  /* アイコン画像、名前、投稿日時のグループ */
   .followDate-box{
     display:flex;
     /* アイコン、名前、投稿日時を横並び */
@@ -726,10 +783,12 @@ input[type="file"] {
     /* ３つを縦に中央に並べる */
   }
 
+  /* アイコン画像の位置調節 */
   figure{
     margin-left: 10%;
   }
 
+  /* 名前の位置調節 */
   .followDate-name{
     margin-bottom:10px;
     /* 投稿内容とのスペース */
@@ -737,11 +796,13 @@ input[type="file"] {
     /* アイコンとのスペース */
   }
 
+  /* 投稿日時の位置調節 */
   .followDate-created_at{
     margin-left: auto;
     /* 投稿日時のみ右寄せ */
   }
 
+  /* 投稿内容の位置調節 */
   .followDate-post{
     margin-left: 18%;
     /* 余白調整 */

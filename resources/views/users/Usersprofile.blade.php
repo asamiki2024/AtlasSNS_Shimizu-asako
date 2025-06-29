@@ -5,16 +5,17 @@
     <div class="U">
         <a href="/followDate"></a>
         <div class= "datalist">
-            <div><img src="{{  asset('images/' . $followUser->images) }}"/></div>
-            <div class="datalist-box">
+            <figure><img src="{{  asset('images/' . $followUser->images) }}"/></figure>
+            <div class="datalist-box1">
                 <p class="datalist-name">ユーザー名</p>
                 <p>{{ $followUser->username }}</p>
             </div>
-            <div class="datalist-box">
+            <div class="datalist-box2">
                 <p class="datalist-bio">自己紹介</p>
                 <p>{{ $followUser->bio }}</p>
             </div>
         </div>
+        <div class="datalist-btn">
         @if(auth()->user()->isFollowing($followUser->id))
             <form action = "/unfollow/{{ $followUser->id }}" method = "POST" >
         @csrf
@@ -26,6 +27,7 @@
             <a class="follow-button"><button class="btn btn-info">フォローする</button></a>
             </form>
         @endif
+        </div>
     </div>
     <div>
     @foreach($followPost as $followPost)
