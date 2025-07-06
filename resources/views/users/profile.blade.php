@@ -16,7 +16,7 @@
             {{ Form::input('mail', 'mail', old('mail', Auth::user()->mail ), ['class' => 'input-mail']) }}
             <p class="profile-p"></p>
             {{ Form::label('パスワード') }}
-            {{ Form::input('password', 'password', 'null', ['class' => 'input-password']) }}
+            {{ Form::input('password', 'password', 'null', ['class' => 'input-password', 'placeholder' => '新しいパスワード', 'autocomplete' => 'off']) }}
             <p class="profile-p"></p>
             {{ Form::label('パスワード確認') }}
             {{ Form::input('password', 'password_confirmation', null, ['class' => 'input-password_confirmation']) }}
@@ -30,7 +30,7 @@
                 {{ Form::label('icons', 'アイコン画像', ['class' => 'custom-file-label']) }}
                 {{ Form::file('icons', ['id' => 'icons', 'class' => 'custom-file-input']) }}
                 <label class="from-f" for="form-image"><span>ファイルを選択</span></label>
-                <input type="file" id="form-image">
+                <input type="file" name="icons" id="form-image">
                 <span class="select-image">選択されていません</span>
 
             </div>
