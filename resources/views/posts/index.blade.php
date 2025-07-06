@@ -43,13 +43,13 @@
             <!-- 投稿の編集ボタン -->
             <div class="post-btn">
             @if (Auth::id()  === $user->user_id)
-                    <button class="js-modal-open" href="style.css" post="{{ $user->post }}" post_id="{{ $user->id }}"></button>
+                    <button class="js-modal-open" href="" post="{{ $user->post }}" post_id="{{ $user->id }}"></button>
                 @endif
                 <!-- ifで自分以外が編集機能を使えない様にする。Auth::id()でログインしているユーザー全て。$user->user_idで自分以外。　===は完全一致すれば自分以外には編集機能が出ない表示になる。 -->
                 <!-- 削除ボタン -->
                 @if (Auth::id()  === $user->user_id)
                 <!-- buttonタグだとhrefは機能しない。aタグに変更 -->
-                    <a class="delete-button" href="style.css" delete="/post/{{$user->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')" ></a>
+                    <a class="delete-button" href="/post/{{$user->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')" ></a>
                 @endif
             </div>
         </div>
@@ -64,10 +64,10 @@
                 <textarea name="upPost" class="modal_post"></textarea>
                 <input type="hidden" name="id" class="modal_id" value="">
                 {{ csrf_field() }}
+                <div class="modal-btn">
+                    <button class="update-button" type="submit"><img src="images/edit.png" /></button>
+                </div>
             </form>
-            <div class="modal-btn">
-            <button class="update-button" type="submit"><img src="images/edit.png" /></button>
-            </div>
         </div>
     </div>
 </div>

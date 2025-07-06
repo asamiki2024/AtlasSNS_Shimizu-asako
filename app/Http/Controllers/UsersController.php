@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\support\Facades\Hash;
 //use宣言をしてプロフィール編集のパスワードのハッシュ化させる。
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
 //use宣言をして写真を保存させる。
 use App\User;
