@@ -30,6 +30,7 @@ header{
 #side-bar{
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+    min-height: 100vh;
 }
 
 /* サイドメニューの上部 */
@@ -360,7 +361,7 @@ figure img{
 .modal_post{
     border: none;
     width: 100%;
-    height: 80%;
+    height: 100%;
     white-space: pre-wrap;
     word-wrap: break-word;
 }

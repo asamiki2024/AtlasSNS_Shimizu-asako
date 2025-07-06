@@ -27,7 +27,7 @@
             <!-- assetでどのページに移っても画像が表示される様になる。 -->
         </div>
         <div id="head">
-            <p class="username">{{ Auth::user()->username }}　さん　<img src="{{ asset('images/' . Auth::user()->images ) }}" /></p>
+            <p class="username">{{ Auth::user()->username }}　さん　</p>
             <!--アコーディオンメニュー-->
             <div id="accordion">
                 <p class="nav-btn"></p>
@@ -37,6 +37,7 @@
                     <li><a href="/logout">ログアウト</a></li>
                 </ul>
             </div>
+            <img src="{{ asset('images/' . Auth::user()->images ) }}" />
         </div>
     </header>
     <div id="row">
