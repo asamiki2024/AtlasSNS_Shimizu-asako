@@ -11,7 +11,7 @@ header{
   display: flex;
   width: 100%;
   padding: 1%;
-  align-items: center;
+  align-items: baseline;
 }
 
 /* main content */
@@ -100,16 +100,23 @@ header{
 
 /* ヘッダーのログインユーザーの名前とアイコンの部分 */
 .username{
-    padding: 2%;
     color: #FFFFFF;
     font-weight: bold;
     font-size: 20px;
+    margin-top: 3%;
+    margin-right: 3%;
 }
 
 /* ヘッダーのアイコン画像 */
 #head img {
   width: 50px;
   height: 50px;
+}
+
+/* ヘッダーのアイコンの位置調節 */
+div.head-img {
+  margin-top: 1.5%;
+  margin-left: 1%;
 }
 
 /*アコーディオンメニュー*/
@@ -146,6 +153,10 @@ header{
     padding: 10px;
 }
 
+/* アコーディオンメニューの矢印の位置調節 */
+div#accordion{
+  margin-top: 1.5%;
+}
 /* アコーディオンメニューの開いた時のレイアウト */
 .nav-btn:after {
     border-right: solid 3px #fff;
@@ -347,7 +358,7 @@ figure img{
     width: 70%;
     height: 40%;
     text-align: center;
-    border-radius: 3%;
+    border-radius: 20px / 20px;
 }
 
 /* モーデルの投稿編集出来るエリア全体 */
@@ -408,8 +419,9 @@ figure img{
 
 /* 検索結果の表示 */
 p.Keyword{
-  margin-left: 15%;
-  font-size: 30px;
+  margin-left: 5%;
+  font-size: 20px;
+  white-space: nowrap;
 }
 
 /* 検索ページ下部 */

@@ -9,7 +9,10 @@
             <input type="text" name="keyword" class="search-form" size="50" placeholder="ユーザー名" >
             <!-- sizeで入力フォーム大きさ調節 -->
             <button type="submit" class="btn btn-search"><img src="images/search.png" ></button>
+            @if(!empty($keyword))
             <p class="Keyword">検索ワード：{{ $keyword }}</p>
+            @endif
+            <!-- 最初は検索結果を隠し、検索後に表示させる。 -->
         </form>
     </div>
     <div class="search-box">

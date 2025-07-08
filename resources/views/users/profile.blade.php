@@ -16,7 +16,7 @@
             {{ Form::input('mail', 'mail', old('mail', Auth::user()->mail ), ['class' => 'input-mail']) }}
             <p class="profile-p"></p>
             {{ Form::label('パスワード') }}
-            {{ Form::input('password', 'password', 'null', ['class' => 'input-password', 'placeholder' => '新しいパスワード', 'autocomplete' => 'off']) }}
+            {{ Form::input('password', 'password', '', ['class' => 'input-password']) }}
             <p class="profile-p"></p>
             {{ Form::label('パスワード確認') }}
             {{ Form::input('password', 'password_confirmation', null, ['class' => 'input-password_confirmation']) }}

@@ -62,8 +62,8 @@ class UsersController extends Controller
             'mail' => 'required', 'email', 'min:5', 'max:40', Rule::unique('users', 'mail')->ignore(Auth::id()),
             //Rule::unique('users', 'mail')　意味:usersテーブルのmailカラムを対象に指定　->ignore(Auth::id())　意味:自分のレコードは除外する
             //Rule::を使用するのは配列形式に書く必要がある為。 'mail'=>[]のように書く必要がある為。
-            'password' => 'nullable|required|alpha_num|min:8|max:20|confirmed',
-            'password_confirmation' => 'nullable|required|alpha_num|min:8|max:20|string',
+            'password' => 'required|alpha_num|min:8|max:20|confirmed',
+            'password_confirmation' => 'required|alpha_num|min:8|max:20|string',
             'bio' => 'max:150',
             'images' => 'file|image|mimes:jpg,png,bmp,gif,svg'
             //file=フィールドがアップロード成功したファイルである事を証明すること。
@@ -75,11 +75,11 @@ class UsersController extends Controller
         $id = $request->input('id');
         $username = $request->input('username');
         $mail = $request->input('mail');
-        $password = null;
-            if($request->filled('password')){
-                $password = Hash::make($request->input('password'));
-            }
-        // bcrypt($request->input('password'));
+        $password = bcrypt($request->input('password'));
+        // null;
+        //     if($request->filled('password')){
+        //         $password = Hash::make($request->input('password'));
+        //     }
         //bcryptでパスワードのハッシュ化される。
         // $password_confirmation = Hash::make($password);
         //パスワードをハッシュ化させてデータベースでも分からない様に暗号化させる。
