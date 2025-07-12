@@ -62,6 +62,7 @@ header{
   margin: 0 0 0 auto;
   width: fit-content;
   display: block;
+  margin-bottom: 15%;
 }
 
 /* サイドメニューのフォロー数の文字余白 */
@@ -103,7 +104,7 @@ header{
     color: #FFFFFF;
     font-weight: bold;
     font-size: 20px;
-    margin-top: 3%;
+    margin-top: 2.5%;
     margin-right: 3%;
 }
 
@@ -238,6 +239,10 @@ button.form-button {
 /* 投稿のボタン押した後のエラー表示 */
 .index-errors {
   color: red;
+}
+
+.index-errors li{
+  margin-left: 13%;
 }
 
 /* topページ　投稿ページのレイアウト 下部分*/
@@ -421,6 +426,7 @@ figure img{
 p.Keyword{
   margin-left: 5%;
   font-size: 20px;
+  margin-top: 2%;
   white-space: nowrap;
 }
 
@@ -558,6 +564,7 @@ input[type="file"] {
   background-color: #FFFFFF;
   opacity: 0.5;
   padding: 0 15%;
+  white-space: nowrap;
 }
 
 /* 画像の編集の位置調節 */
@@ -736,7 +743,7 @@ input[type="file"] {
   .U{
     display: flex;
     border-bottom: 10px solid #DDDDDD;
-    padding-bottom: 5%;
+    padding-bottom: 2%;
     align-items: center;
 }
 
@@ -763,7 +770,7 @@ input[type="file"] {
 /* ボタンの位置調節 */
 .datalist-btn{
   margin-top: 8%;
-  margin-left: 5%;
+  margin-left: 2%;
 }
 
 /* フォローボタンの幅調節 */
