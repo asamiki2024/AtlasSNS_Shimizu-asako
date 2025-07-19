@@ -129,6 +129,7 @@ return [
         'password' => 'パスワード',
         'password_confirmation' =>'パスワード確認',
         'newPost' => '投稿',
+        'post' => '投稿',
     ],
 
 ];

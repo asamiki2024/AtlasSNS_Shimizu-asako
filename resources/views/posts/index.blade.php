@@ -7,7 +7,12 @@
         {!! Form::open(['url' => "/top", 'class' => "post-form"]) !!}
         {{ Form::token() }}
             <div class="Post">
-                <p><img src="{{ asset('images/' . Auth::user()->images ) }}" /></p>
+                <!-- アイコン画像エラー防止の条件分岐。説明は、indexブレードの40行目に記載 -->
+                @if (!empty($user->user->images) && file_exists(public_path( 'storage/' . $user->user->images)))
+                    <figure><img src="{{ asset('storage/' . $user->user->images ) }}" /></figure>
+                @elseif (!empty($user->user->images) && file_exists(public_path('images/' . $user->user->images)))
+                    <p><img src="{{ asset('images/' . Auth::user()->images ) }}" /></p>
+                @endif
                 <!-- {{ Form::input('text', 'newPost', null, ['class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }} -->
                 <textarea name="newPost" class="form-control" rows="5" cols="100" placeholder="投稿内容を入力してください。"></textarea>
                 <!-- rows=行数,cols=文字数の意味 -->
@@ -32,7 +37,12 @@
         <div class="content-block">
             <div class="post-box">
                 <div class="post-top">
+                    <!-- アイコン画像エラー防止に条件分岐をつける。写真のアップロード後もユーザーは、アップロードした写真を表示。アップロードしていない人は、初期のデフォルトのまま表示。 -->
+                    @if (!empty($user->user->images) && file_exists(public_path( 'storage/' . $user->user->images)))
+                    <figure><img src="{{ asset('storage/' . $user->user->images ) }}" /></figure>
+                    @elseif (!empty($user->user->images) && file_exists(public_path('images/' . $user->user->images)))
                     <figure><img src="{{ asset('images/' . $user->user->images ) }}" /></figure>
+                    @endif
                     <div class="post-name"> {{ $user->user->username }}</div>
                     <div class="post-created_at">{{ substr($user->created_at, 0, 16) }}</div>
                     <!-- substr($変数, 0, 表示させたい文字数を入力)投稿日時までを表示　表示する文字数を指定　秒数は文字数制限で非表示にする -->

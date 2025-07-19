@@ -5,8 +5,13 @@
     <div class="U">
         <a href="/followDate"></a>
         <div class= "datalist">
-            <figure><img src="{{  asset('images/' . $followUser->images) }}"/></figure>
-            <div class="datalist-box1">
+            <!-- アイコン画像エラー防止の条件分岐。説明は、indexブレードの40行目に記載 -->
+            @if (!empty($followUser->images) && file_exists(public_path( 'storage/' . $followUser->images)))
+                <figure><img src="{{ asset('storage/' . $followUser->images ) }}" /></figure>
+            @elseif (!empty($followUser->images) && file_exists(public_path('images/' . $followUser->images)))
+                <figure><img src="{{  asset('images/' . $followUser->images) }}"/></figure>
+            @endif
+                <div class="datalist-box1">
                 <p class="datalist-name">ユーザー名</p>
                 <p>{{ $followUser->username }}</p>
             </div>
@@ -34,8 +39,13 @@
         <div class="followDate_post">
             <div class="followDate-block">
                 <div class="followDate-box">
-                    <figure><img src="{{ asset('images/' . $followPost->user->images) }}"></figure>
-                    <div class="followDate-name">{{ $followPost->user->username }}</div>
+                    <!-- アイコン画像エラー防止の条件分岐。説明は、indexブレードの40行目に記載 -->
+                    @if (!empty($followPost->user->images) && file_exists(public_path( 'storage/' . $followPost->user->images)))
+                        <figure><img src="{{ asset('storage/' . $follower_icon->images ) }}" /></figure>
+                    @elseif (!empty($followPost->user->images) && file_exists(public_path('images/' . $followPost->user->images)))
+                        <figure><img src="{{ asset('images/' . $followPost->user->images) }}"></figure>
+                    @endif
+                        <div class="followDate-name">{{ $followPost->user->username }}</div>
                     <div class="followDate-created_at">{{ substr($followPost->created_at, 0, 16) }} </div>
                 <!-- substr($変数, 0, 表示させたい文字数を入力)投稿日時までを表示　表示する文字数を指定　秒数は文字数制限で非表示にする -->
                 </div>
