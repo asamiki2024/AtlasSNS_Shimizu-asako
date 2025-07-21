@@ -31,16 +31,13 @@ class UsersController extends Controller
         //キーワードに文字が入ると検索処理がされる。
         
         //2つめの処理
-        if(!empty($keyword))
         //ユーザー検索欄がどう入力されているかでどうなるのかを条件分岐している。
-    {
-        $search_user = User::where('username', 'like', '%'.$keyword.'%')->orderBy('created_at', 'desc')->get();
+        $search_user = User::where('username', 'like', '%'.$keyword.'%')->orderBy('created_at', 'desc')->
         //キーワードが入っていたら、ユーザー名、曖昧検索でもヒットさせる。
-    }else{
-        $search_user = User::where('id', '!=', Auth::id())->get();
+         where('id', '<>', Auth::id())->get();
         //何もキーワードが入っていなければユーザー全て表示させる。
         //自分のアカウントは除外する。
-    }
+
     //3つめの処理
     return view('users.search',['search_user'=>$search_user , 'keyword'=>$keyword]);
     //UsersControllerで記述した条件をブレードに表示させる為、メゾットを$変数に変換し、search.bladeで表示させる。キーワードワードも同じく。
