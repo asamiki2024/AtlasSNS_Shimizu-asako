@@ -7,7 +7,11 @@
         {!! Form::open(['url' => "/top", 'class' => "post-form"]) !!}
         {{ Form::token() }}
             <div class="Post">
-                <p><img src="{{ asset('images/' . Auth::user()->images ) }}" /></p>
+                @if (!empty($user->user->images) && file_exists(public_path( 'storage/' . $user->user->images)))
+                    <figure><img src="{{ asset('storage/' . $user->user->images ) }}" /></figure>
+                @elseif (!empty($user->user->images) && file_exists(public_path('images/' . $user->user->images)))
+                    <p><img src="{{ asset('images/' . $user->user->images ) }}" /></p>
+                @endif
                 <!-- {{ Form::input('text', 'newPost', null, ['class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }} -->
                 <textarea name="newPost" class="form-control" rows="5" cols="100" placeholder="投稿内容を入力してください。"></textarea>
                 <!-- rows=行数,cols=文字数の意味 -->

@@ -94,14 +94,16 @@ class UsersController extends Controller
         //画像の保存
         $icons = $request->file('icons')->getClientOriginalName();
         //getClientOriginalName=アップロードされたファイルの名前を付けて保存
-        $iconsPhoto = $request->file('icons')->store('/public/storage');
+        $iconsPhoto = $request->file('icons')->store('/public');
+        // storeで名前を変更して保存している。
+        $filename = basename($iconsPhoto);
             \DB::table('users')
             ->where('id', $id)
             ->update([
-                'images' => basename($icons)
+                'images' => $filename
             ]);
             //3つめの処理
-            User::where('id', $id)->update(['username' =>$username, 'mail' =>$mail, 'password' =>$password,  'bio' =>$bio , 'images' =>$icons]);
+            User::where('id', $id)->update(['username' =>$username, 'mail' =>$mail, 'password' =>$password,  'bio' =>$bio , 'images' =>$filename]);
                 return redirect('/top');
             }
         //写真を保存するファイル名とどこのディレクトリに保存するのかを指定
