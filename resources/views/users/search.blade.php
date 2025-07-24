@@ -19,7 +19,12 @@
     @foreach($search_user as $search_user)
         <div class="search-box1">
             <div class="search-info">
-                <p><img src="{{ asset('images/' . $search_user->images ) }}" /></p>
+                <!-- アイコン画像エラー防止の条件分岐。説明は、indexブレードの40行目に記載 -->
+                @if (!empty($search_user->images) && file_exists(public_path( 'storage/' . $search_user->images)))
+                    <p><img src="{{ asset('storage/' . $search_user->images ) }}" /></p>
+                @elseif (!empty($search_user->images) && file_exists(public_path('images/' . $search_user->images)))
+                    <p><img src="{{ asset('images/' . $search_user->images ) }}" /></p>
+                @endif
                 <div class="search-name">{{ $search_user->username }}</div>
             </div>
             @if(auth()->user()->isFollowing($search_user->id))

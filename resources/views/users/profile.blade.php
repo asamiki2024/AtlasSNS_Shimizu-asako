@@ -5,7 +5,12 @@
     {!! Form::open(['url' => '/update_profile', 'enctype' => 'multipart/form-data']) !!}
     {{ Form::token() }}
     <div class="form-group">
-        <img src="{{ asset('images/' . Auth::user()->images ) }}" />
+        <!-- アイコン画像エラー防止に条件分岐をつける。写真のアップロード後もユーザーは、アップロードした写真を表示。アップロードしていない人は、初期のデフォルトのまま表示。 -->
+        @if (!empty(Auth::user()->images) && file_exists(public_path('storage/' . Auth::user()->images)))
+            <img src="{{ asset('storage/' . Auth::user()->images ) }}" />
+        @elseif (!empty(Auth::user()->images) && file_exists(public_path('images/' . Auth::user()->images)))
+            <img src="{{ asset('images/' . Auth::user()->images ) }}" />
+        @endif
         <div class="form-space">
             {{ Form::hidden('id', old('id', Auth::user()->id )) }}
             <!-- hiddenで非表示にする -->

@@ -41,7 +41,7 @@
                 <div class="followDate-box">
                     <!-- アイコン画像エラー防止の条件分岐。説明は、indexブレードの40行目に記載 -->
                     @if (!empty($followPost->user->images) && file_exists(public_path( 'storage/' . $followPost->user->images)))
-                        <figure><img src="{{ asset('storage/' . $follower_icon->images ) }}" /></figure>
+                        <figure><img src="{{ asset('storage/' . $followPost->user->images ) }}" /></figure>
                     @elseif (!empty($followPost->user->images) && file_exists(public_path('images/' . $followPost->user->images)))
                         <figure><img src="{{ asset('images/' . $followPost->user->images) }}"></figure>
                     @endif

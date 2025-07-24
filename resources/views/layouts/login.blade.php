@@ -37,7 +37,14 @@
                     <li><a href="/logout">ログアウト</a></li>
                 </ul>
             </div>
-            <div class="head-img"><img src="{{ asset('images/' . Auth::user()->images ) }}" /></div>
+            <div class="head-img">
+                <!-- アイコン画像エラー防止の条件分岐。説明は、indexブレードの40行目に記載 -->
+                @if (!empty(Auth::user()->images) && file_exists(public_path( 'storage/' . Auth::user()->images)))
+                    <img src="{{ asset('storage/' . Auth::user()->images ) }}" />
+                @elseif (!empty(Auth::user()->images) && file_exists(public_path('images/' . Auth::user()->images)))
+                    <img src="{{ asset('images/' . Auth::user()->images ) }}" />
+                @endif
+            </div>
         </div>
     </header>
     <div id="row">
