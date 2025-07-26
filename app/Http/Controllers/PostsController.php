@@ -49,7 +49,7 @@ class PostsController extends Controller
     public function update(Request $request){
         //投稿編集のバリデーション機能
         $request->validate([
-            'post' => 'required|min:1|max:150',
+            'upPost' => 'required|min:2|max:150',
         ]);
         //1つめの処理
         $id = $request->input('id');
@@ -72,5 +72,13 @@ class PostsController extends Controller
         //Postモデル経由でpostテーブルのレコードを取得
         // $posts = Post::get();
         // return redirect('/top');
+    // }
+
+    //投稿編集のバリデーション機能
+    // public function updateV(Request $request){
+        // $request->validate([
+            // 'post' => 'required|min:1|max:150',
+        // ]);
+        // return view('/top');
     // }
 }

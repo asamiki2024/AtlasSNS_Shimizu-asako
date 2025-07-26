@@ -20,16 +20,22 @@
             </div>
         {!! Form::close() !!}
         <!-- エラーメッセージ表示させる -->
-        @if($errors->any())
-            <div class="index-errors">
-                <ul>
-                    @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        <div class="index-errors">
+            <ul>
+                @if($errors->has('newPost'))
+                <li>{{ $errors ->first('newPost')}}</li>
+                @endif
+            </ul>
+        </div>
     </div>
+        <!-- 投稿編集のエラーメッセージ表示させる -->
+        <div class="modal-errors">
+            <ul>
+        @if($errors->has('upPost'))
+            <li>{{ $errors ->first('upPost')}}</li>
+        @endif
+            </ul>
+        </div>
     <!-- 投稿者のIDとアイコン、投稿内容を表示させる。 -->
     @foreach($users as $user)
     <div class="content">
@@ -72,7 +78,7 @@
             <form action="/post/update" method="get">
                 <textarea name="upPost" class="modal_post"></textarea>
                 <input type="hidden" name="id" class="modal_id" value="">
-                {{ csrf_field() }}
+                <!-- {{ csrf_field() }} -->
                 <div class="modal-btn">
                     <button class="update-button" type="submit"><img src="images/edit.png" /></button>
                 </div>

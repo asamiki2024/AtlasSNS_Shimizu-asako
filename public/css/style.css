@@ -315,6 +315,11 @@ figure img{
     height: 35px;
 }
 
+/* 投稿編集のボタン押した後のエラー表示 */
+.modal-errors {
+  color: red;
+}
+
 /* 削除ボタンのレイアウト(ボタン押す前の画像) */
 .delete-button{
     background-image: url('/images/trash-h.png');

@@ -77,3 +77,5 @@ Route::post('/unfollow/{user}', 'FollowsController@unfollow');
 Route::get('/profile','UsersController@profile')->middleware('auth');
 //プロフィール編集し、更新する処理
 Route::post('/update_profile','UsersController@update_profile')->name('update_profile');
+//投稿編集のバリデーションの処理
+// Route::get('/top','PostsController@updateV');

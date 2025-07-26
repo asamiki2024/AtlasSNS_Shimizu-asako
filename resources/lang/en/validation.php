@@ -30,7 +30,7 @@ return [
         'array'   => 'The :attribute must have between :min and :max items.',
     ],
     'boolean'              => 'The :attribute field must be true or false.',
-    'confirmed'            => ' :attribute を英数字のみを入力してください。',
+    'confirmed'            => ' :attributeを英数字のみを入力してください。',
     'date'                 => 'The :attribute is not a valid date.',
     'date_format'          => 'The :attribute does not match the format :format.',
     'different'            => 'The :attribute and :other must be different.',
@@ -38,7 +38,7 @@ return [
     'digits_between'       => 'The :attribute must be between :min and :max digits.',
     'dimensions'           => 'The :attribute has invalid image dimensions.',
     'distinct'             => 'The :attribute field has a duplicate value.',
-    'email'                => ' :attribute の形式で入力してください。',
+    'email'                => ' :attributeの形式で入力してください。',
     'exists'               => 'The selected :attribute is invalid.',
     'file'                 => 'The :attribute must be a file.',
     'filled'               => 'The :attribute field must have a value.',
@@ -53,7 +53,7 @@ return [
     'max'                  => [
         'numeric' => 'The :attribute may not be greater than :max.',
         'file'    => 'The :attribute may not be greater than :max kilobytes.',
-        'string'  => ' :attribute :max 文字以内で入力してください。',
+        'string'  => ' :attribute :max文字以内で入力してください。',
         'array'   => 'The :attribute may not have more than :max items.',
     ],
     'mimes'                => 'The :attribute must be a file of type: :values.',
@@ -61,7 +61,7 @@ return [
     'min'                  => [
         'numeric' => 'The :attribute must be at least :min.',
         'file'    => 'The :attribute must be at least :min kilobytes.',
-        'string'  => ' :attribute :min 文字以上で入力してください。',
+        'string'  => ' :attribute :min文字以上で入力してください。',
         'array'   => 'The :attribute must have at least :min items.',
     ],
     'not_in'               => 'The selected :attribute is invalid.',
@@ -84,7 +84,7 @@ return [
     ],
     'string'               => 'The :attribute must be a string.',
     'timezone'             => 'The :attribute must be a valid zone.',
-    'unique'               => ' :attribute 登録済みメールアドレス使用不可です。',
+    'unique'               => ' :attribute登録済みメールアドレス使用不可です。',
     'uploaded'             => 'The :attribute failed to upload.',
     'url'                  => 'The :attribute format is invalid.',
     
@@ -130,6 +130,7 @@ return [
         'password_confirmation' =>'パスワード確認',
         'newPost' => '投稿',
         'post' => '投稿',
+        'upPost' => '投稿',
     ],
 
 ];
