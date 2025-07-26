@@ -20,7 +20,7 @@
                 <div class="follower-box">
                     <!-- アイコン画像エラー防止の条件分岐。説明は、indexブレードの40行目に記載　-->
                     @if (!empty($follower_post->user->images) && file_exists(public_path( 'storage/' . $follower_post->user->images)))
-                        <figure><a href="/Usersprofile/{{$follower_post->id}}/followDate"><img src="{{ asset('storage/' . $follower_post->user->images ) }}" /></a></figure>
+                        <figure><a href="/Usersprofile/{{$follower_post->user->id}}/followDate"><img src="{{ asset('storage/' . $follower_post->user->images ) }}" /></a></figure>
                     @elseif (!empty($follower_post->user->images) && file_exists(public_path('images/' . $follower_post->user->images)))
                     <figure><a href="/Usersprofile/{{ $follower_post->user->id }}/followDate"><img src="{{ asset('images/' . $follower_post->user->images) }}" ></a></figure>
                     @endif

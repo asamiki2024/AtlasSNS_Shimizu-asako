@@ -18,7 +18,7 @@
                 <div class="follow-block">
                     <div class="follow-box">
                         @if (!empty($follow_post->user->images) && file_exists(public_path( 'storage/' . $follow_post->user->images)))
-                            <figure><a href="/Usersprofile/{{$follow_post->id}}/followDate"><img src="{{ asset('storage/' . $follow_post->user->images ) }}" /></a></figure>
+                            <figure><a href="/Usersprofile/{{$follow_post->user->id}}/followDate"><img src="{{ asset('storage/' . $follow_post->user->images ) }}" /></a></figure>
                         @elseif (!empty($follow_post->user->images) && file_exists(public_path('images/' . $follow_post->user->images)))
                             <figure><a href="/Usersprofile/{{$follow_post->user->id}}/followDate"><img src="{{ asset('images/' . $follow_post->user->images) }}" ></a></figure>
                         @endif
