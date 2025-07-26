@@ -19,7 +19,7 @@
                 <button class="form-button"><img src="images/post.png" /></button>
             </div>
         {!! Form::close() !!}
-        <!-- エラーメッセージ表示させる -->
+        <!-- 新規登録のエラーメッセージ表示させる。newPostは新規投稿の変数 -->
         <div class="index-errors">
             <ul>
                 @if($errors->has('newPost'))
@@ -28,7 +28,7 @@
             </ul>
         </div>
     </div>
-        <!-- 投稿編集のエラーメッセージ表示させる -->
+        <!-- 投稿編集のエラーメッセージ表示させる。upPostは投稿編集の変数 -->
         <div class="modal-errors">
             <ul>
         @if($errors->has('upPost'))
@@ -70,7 +70,6 @@
         </div>
     </div>
         @endforeach
-    
     <!-- モーダル機能を使用し、投稿内容を編集 -->
     <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
@@ -78,7 +77,6 @@
             <form action="/post/update" method="get">
                 <textarea name="upPost" class="modal_post"></textarea>
                 <input type="hidden" name="id" class="modal_id" value="">
-                <!-- {{ csrf_field() }} -->
                 <div class="modal-btn">
                     <button class="update-button" type="submit"><img src="images/edit.png" /></button>
                 </div>

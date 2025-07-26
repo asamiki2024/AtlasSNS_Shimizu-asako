@@ -49,7 +49,7 @@ class PostsController extends Controller
     public function update(Request $request){
         //投稿編集のバリデーション機能
         $request->validate([
-            'upPost' => 'required|min:2|max:150',
+            'upPost' => 'required|min:1|max:150',
         ]);
         //1つめの処理
         $id = $request->input('id');
